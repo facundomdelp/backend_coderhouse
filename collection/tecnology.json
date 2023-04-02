@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Headset",
+    "description": "For playing music",
+    "price": 450,
+    "thumbnail": "url",
+    "code": 50651,
+    "stock": 200
+  },
+  {
+    "id": 2,
+    "title": "Mouse",
+    "description": "For gaming",
+    "price": 210,
+    "thumbnail": "url",
+    "code": 40621,
+    "stock": 10
+  },
+  {
+    "id": 3,
+    "title": "Keyboard",
+    "description": "For writing",
+    "price": 320,
+    "thumbnail": "url",
+    "code": 20321,
+    "stock": 1000
+  }
+]
