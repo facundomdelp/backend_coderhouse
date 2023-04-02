@@ -1,0 +1,20 @@
+{
+  "name": "desafios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "proyecto.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/facundomdelp/backend_coderhouse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/facundomdelp/backend_coderhouse/issues"
+  },
+  "homepage": "https://github.com/facundomdelp/backend_coderhouse#readme"
+}

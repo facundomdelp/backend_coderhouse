@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Headset",
+    "description": "For playing music",
+    "price": 450,
+    "thumbnail": "url1",
+    "code": 50651,
+    "stock": 200
+  },
+  {
+    "id": 2,
+    "title": "Mouse",
+    "description": "For gaming",
+    "price": 210,
+    "thumbnail": "url2",
+    "code": 40621,
+    "stock": 10
+  },
+  {
+    "id": 3,
+    "title": "Keyboard",
+    "description": "For writing",
+    "price": 320,
+    "thumbnail": "url3",
+    "code": 20321,
+    "stock": 1000
+  },
+  {
+    "id": 4,
+    "title": "Speaker",
+    "description": "For listening",
+    "price": 1020,
+    "thumbnail": "url4",
+    "code": 15600,
+    "stock": 150
+  },
+  {
+    "id": 6,
+    "title": "Screen",
+    "description": "For watching",
+    "price": 45000,
+    "thumbnail": "url6",
+    "code": 1152,
+    "stock": 65
+  }
+]
