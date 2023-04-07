@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/facundomdelp/backend_coderhouse/issues"
   },
-  "homepage": "https://github.com/facundomdelp/backend_coderhouse#readme"
+  "homepage": "https://github.com/facundomdelp/backend_coderhouse#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
