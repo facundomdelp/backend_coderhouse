@@ -1,9 +1,8 @@
 const fs = require('fs');
 
 class ProductManager {
-  constructor(collectionName) {
-    this.path = `./collection/${collectionName}.json`;
-    this.collectionName = collectionName;
+  constructor() {
+    this.path = './products.json';
     this.products = [];
     ProductManager.createCollectionFolder();
   }
@@ -28,18 +27,20 @@ class ProductManager {
     }
   };
 
-  addProduct = async (title, description, price, thumbnail, code, stock) => {
-    if (this.products.find((product) => product.code === code)) return console.log('Not valid - Repeated code');
-    const params = [title, description, price, thumbnail, code, stock];
-    if (params.includes(undefined)) return console.log('Not Valid - Enter all the fields');
+  addProduct = async ({ title, description, code, price, stock, category, thumbnails }) => {
+    if (this.products.find((product) => product.code === code)) return console.log(`${title} - ${code} Not valid - Repeated code`);
+    const params = [title, description, code, price, stock, category, thumbnails];
+    if (params.includes(undefined)) return console.log(`${params[0]} - ${params[2]} Not Valid - Enter all the fields`);
     this.products.push({
       id: this.products[this.products.length - 1] ? this.products[this.products.length - 1].id + 1 : 1,
       title,
       description,
-      price,
-      thumbnail,
       code,
+      price,
+      status: true,
       stock,
+      category,
+      thumbnails,
     });
     await ProductManager.updateCollection(this.path, this.products);
   };
@@ -58,27 +59,30 @@ class ProductManager {
     return product;
   };
 
-  updateProduct = async (id, newTitle, newDescription, newPrice, newThumbnail, newCode, newStock) => {
+  updateProduct = async ({ id, title, description, code, price, stock, category, thumbnails }) => {
     const collectionData = await ProductManager.getCollection(this.path);
     const indexToBeUpdated = collectionData.findIndex((product) => product.id === id);
     if (indexToBeUpdated) {
-      if (newTitle) {
-        collectionData[indexToBeUpdated].title = newTitle;
+      if (title) {
+        collectionData[indexToBeUpdated].title = title;
       }
-      if (newDescription) {
-        collectionData[indexToBeUpdated].description = newDescription;
+      if (description) {
+        collectionData[indexToBeUpdated].description = description;
       }
-      if (newPrice) {
-        collectionData[indexToBeUpdated].price = newPrice;
+      if (code) {
+        collectionData[indexToBeUpdated].code = code;
       }
-      if (newThumbnail) {
-        collectionData[indexToBeUpdated].thumbnail = newThumbnail;
+      if (price) {
+        collectionData[indexToBeUpdated].price = price;
       }
-      if (newCode) {
-        collectionData[indexToBeUpdated].code = newCode;
+      if (stock) {
+        collectionData[indexToBeUpdated].stock = stock;
       }
-      if (newStock) {
-        collectionData[indexToBeUpdated].stock = newStock;
+      if (category) {
+        collectionData[indexToBeUpdated].category = category;
+      }
+      if (thumbnails) {
+        collectionData[indexToBeUpdated].thumbnails = thumbnails;
       }
       await ProductManager.updateCollection(this.path, collectionData);
     } else {

@@ -5,7 +5,7 @@ PRIMERA ENTREGA
 
   ■ 2- Endpoints desarrollados con el router de Express.
 
-  ■ 3- El manejo de productos en su router en /api/products con las siguientes rutas:
+  ✓ 3- El manejo de productos en su router en /api/products con las siguientes rutas:
       ■ - Ruta raíz GET '/' debe listar todos los productos de la base.
       ■ - Ruta GET '/:pid' debe traer solo el producto del id proporcionado.
       ■ - Ruta raíz POST '/' debe agregar un nuevo producto con los campos:
@@ -21,7 +21,7 @@ PRIMERA ENTREGA
       ■ - Ruta PUT '/:pid' debe tomar un producto y actualizar solo lo campos enviados desde el body. EL ID NO SE ACTUALIZA.
       ■ - Ruta DELETE  '/:pid' debe eliminar el producto.
 
-  ■ 4- Para el carrito, que tendrá su ruta en '/api/carts' se deben configurar dos rutas:
+  ✓ 4- Para el carrito, que tendrá su ruta en '/api/carts' se deben configurar dos rutas:
       ■ - Ruta raíz POST '/' deberá crear un nuevo carrito:
           ■ - ID (number/string) autogenerado (cid).
           ■ - Products: { product: { [key: string]: string | boolean | number } }[]

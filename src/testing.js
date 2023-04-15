@@ -1,91 +1,679 @@
 const ProductManager = require('./ProductManager');
 
 // Crear colección
-const tecnology = new ProductManager('technology');
+const products = new ProductManager();
 
 // Agregar productos
 // OK
-tecnology.addProduct('Headset Pro', 'For professional audio', 890, ['url1'], 'T-MX9', 100);
-tecnology.addProduct('Wireless Mouse', 'For easy use', 299, ['url2'], 'T-CR7', 50);
-tecnology.addProduct('Programmable Keyboard', 'For customized shortcuts', 499, ['url3'], 'T-FZ2', 200);
-tecnology.addProduct('Smart Speaker', 'With voice assistant', 1999, ['url4'], 'T-HN8', 25);
-tecnology.addProduct('Ultra-Wide Monitor', 'For super immersive experience', 3799, ['url5'], 'T-JK1', 15);
-tecnology.addProduct('Smartphone', 'For communication', 899, ['url6'], 'T-PT4', 300);
-tecnology.addProduct('Laptop', 'For working and gaming', 1399, ['url7'], 'T-GV6', 50);
-tecnology.addProduct('Amazon Echo Dot', 'For voice assistant and smart home control', 59, ['url8'], 'T-LB3', 500);
-tecnology.addProduct('Tablet', 'For entertainment', 499, ['url9'], 'T-RS7', 150);
-tecnology.addProduct('Wireless Earbuds', 'For listening', 199, ['url10'], 'T-NK5', 500);
+products.addProduct({
+  title: 'Headset Pro',
+  description: 'For professional audio',
+  code: 'T-MX9',
+  price: 890,
+  stock: 100,
+  category: 'technology',
+  thumbnails: ['url1'],
+});
 
-tecnology.addProduct('Gaming Chair', 'For gaming', 299, ['url11'], 'T-DJ9', 100);
-tecnology.addProduct('Gaming Mouse Pad', 'For gaming', 39, ['url12'], 'T-HP5', 300);
-tecnology.addProduct('Mechanical Keyboard', 'For gaming and typing', 149, ['url13'], 'T-QS4', 200);
-tecnology.addProduct('Smartwatch', 'For monitoring health and fitness', 199, ['url14'], 'T-VT2', 100);
-tecnology.addProduct('Fitness Tracker', 'For tracking health and fitness', 99, ['url15'], 'T-ZG1', 500);
-tecnology.addProduct('Bluetooth Speaker', 'For listening to music', 99, ['url16'], 'T-FL6', 300);
-tecnology.addProduct('External Hard Drive', 'For storage', 129, ['url17'], 'T-KN5', 200);
-tecnology.addProduct('Webcam', 'For video conferencing', 79, ['url18'], 'T-YW1', 500);
-tecnology.addProduct('Microphone', 'For recording audio', 99, ['url19'], 'T-AB8', 300);
-tecnology.addProduct('Portable Charger', 'For charging devices on the go', 49, ['url20'], 'T-XD4', 500);
+products.addProduct({
+  title: 'Wireless Mouse',
+  description: 'For easy use',
+  code: 'T-CR7',
+  price: 299,
+  stock: 50,
+  category: 'technology',
+  thumbnails: ['url2'],
+});
 
-tecnology.addProduct('Wireless Charger', 'For charging devices without cables', 29, ['url21'], 'T-UF2', 1000);
-tecnology.addProduct('Monitor', 'For computing and gaming', 399, ['url22'], 'T-QR8', 50);
-tecnology.addProduct('Virtual Reality Headset', 'For immersive experiences', 499, ['url23'], 'T-LM5', 100);
-tecnology.addProduct('Drone', 'For aerial photography and videography', 599, ['url24'], 'T-GH8', 50);
-tecnology.addProduct('Action Camera', 'For recording action footage', 299, ['url25'], 'T-DF2', 100);
-tecnology.addProduct('Smart Speaker', 'For playing music and answering questions', 99, ['url26'], 'T-KL3', 500);
-tecnology.addProduct('Smart Plug', 'For controlling home devices with a mobile app', 29, ['url27'], 'T-WR9', 1000);
-tecnology.addProduct('Smart Light Bulb', 'For controlling lighting with a mobile app', 19, ['url28'], 'T-QS7', 1000);
-tecnology.addProduct('Smart Thermostat', 'For controlling home temperature with a mobile app', 249, ['url29'], 'T-TY5', 50);
-tecnology.addProduct('Robotic Vacuum', 'For automatic cleaning', 399, ['url30'], 'T-JK6', 50);
+products.addProduct({
+  title: 'Programmable Keyboard',
+  description: 'For customized shortcuts',
+  code: 'T-FZ2',
+  price: 499,
+  stock: 200,
+  category: 'technology',
+  thumbnails: ['url3'],
+});
 
-tecnology.addProduct('Gaming Headset', 'For immersive gaming audio', 599, ['url31'], 'T-PL4', 100);
-tecnology.addProduct('Ergonomic Mouse', 'For comfortable use', 249, ['url32'], 'T-DC1', 100);
-tecnology.addProduct('Wireless Keyboard', 'For convenient typing', 399, ['url33'], 'T-LM9', 75);
-tecnology.addProduct('Portable Bluetooth Speaker', 'For on-the-go audio', 149, ['url34'], 'T-OP2', 200);
-tecnology.addProduct('Ultra-Thin Monitor', 'For sleek design', 1999, ['url35'], 'T-BN0', 10);
-tecnology.addProduct('iPhone', 'For communication and multimedia', 1299, ['url36'], 'T-AX6', 150);
-tecnology.addProduct('Macbook', 'For professional use', 2499, ['url37'], 'T-WE1', 25);
-tecnology.addProduct('iPad Pro', 'For creative work and entertainment', 1199, ['url38'], 'T-RT3', 50);
-tecnology.addProduct('Wireless Noise-Cancelling Earbuds', 'For high-quality listening', 349, ['url39'], 'T-VC8', 300);
-tecnology.addProduct('Racing Gaming Chair', 'For ergonomic gaming posture', 499, ['url40'], 'T-HG4', 75);
+products.addProduct({
+  title: 'Smart Speaker',
+  description: 'With voice assistant',
+  code: 'T-HN8',
+  price: 1999,
+  stock: 25,
+  category: 'technology',
+  thumbnails: ['url4'],
+});
 
-tecnology.addProduct('Gaming Keyboard', 'For responsive gaming inputs', 179, ['url41'], 'T-FK2', 200);
-tecnology.addProduct('Gaming Mouse', 'For precise gaming movements', 99, ['url42'], 'T-MJ5', 300);
-tecnology.addProduct('Fitbit', 'For fitness tracking', 199, ['url43'], 'T-UY7', 100);
-tecnology.addProduct('Garmin Watch', 'For outdoor activities tracking', 399, ['url44'], 'T-NB1', 75);
-tecnology.addProduct('Bluetooth Headphones', 'For wireless audio', 149, ['url45'], 'T-PQ9', 150);
-tecnology.addProduct('SSD', 'For high-speed storage', 199, ['url46'], 'T-AB4', 100);
-tecnology.addProduct('USB Microphone', 'For high-quality audio recording', 79, ['url47'], 'T-CC2', 200);
-tecnology.addProduct('Power Bank', 'For portable device charging', 29, ['url48'], 'T-BD1', 500);
-tecnology.addProduct('Wireless Charging Pad', 'For convenient device charging', 19, ['url49'], 'T-EE3', 1000);
-tecnology.addProduct('Curved Monitor', 'For immersive display', 899, ['url50'], 'T-FF2', 25);
+products.addProduct({
+  title: 'Ultra-Wide Monitor',
+  description: 'For super immersive experience',
+  code: 'T-JK1',
+  price: 3799,
+  stock: 15,
+  category: 'technology',
+  thumbnails: ['url5'],
+});
 
-tecnology.addProduct('Oculus Quest 2', 'For wireless VR gaming', 399, ['url51'], 'T-GG1', 50);
-tecnology.addProduct('DJI Mavic Pro 2', 'For high-quality aerial photography and videography', 1499, ['url52'], 'T-AB2', 10);
-tecnology.addProduct('GoPro Hero 10', 'For high-quality action footage', 499, ['url53'], 'T-CC3', 100);
-tecnology.addProduct('Wireless Noise-Cancelling Earbuds', 'For immersive audio experience', 299, ['url54'], 'T-BD4', 100);
-tecnology.addProduct('Smart Scale', 'For tracking weight and body composition', 79, ['url55'], 'T-EE1', 250);
-tecnology.addProduct('Robot Lawn Mower', 'For automatic lawn care', 899, ['url56'], 'T-FF3', 25);
-tecnology.addProduct('Drone with Camera', 'For aerial photography and videography', 999, ['url56'], 'T-GG2', 50);
-tecnology.addProduct('Wireless Gaming Controller', 'For comfortable gaming', 79, ['url58'], 'T-AB1', 200);
-tecnology.addProduct('Bluetooth Headphones', 'For listening to music and taking calls', 129, ['url59'], 'T-CC4', 150);
-tecnology.addProduct('Smart Home Security Camera', 'For monitoring home security', 199, ['url60'], 'T-BD2', 100);
+products.addProduct({
+  title: 'Smartphone',
+  description: 'For communication',
+  code: 'T-PT4',
+  price: 899,
+  stock: 300,
+  category: 'technology',
+  thumbnails: ['url6'],
+});
 
-/* // NOK
-tecnology.addProduct('Mouse', 'For gaming', 610, ['url'], 'T-MX9', 10);
-tecnology.addProduct('Mouse', 'For gaming');
+products.addProduct({
+  title: 'Laptop',
+  description: 'For working and gaming',
+  code: 'T-GV6',
+  price: 1399,
+  stock: 50,
+  category: 'technology',
+  thumbnails: ['url7'],
+});
+
+products.addProduct({
+  title: 'Amazon Echo Dot',
+  description: 'For voice assistant and smart home control',
+  code: 'T-LB3',
+  price: 59,
+  stock: 500,
+  category: 'technology',
+  thumbnails: ['url8'],
+});
+
+products.addProduct({
+  title: 'Tablet',
+  description: 'For entertainment',
+  code: 'T-RS7',
+  price: 499,
+  stock: 150,
+  category: 'technology',
+  thumbnails: ['url9'],
+});
+
+products.addProduct({
+  title: 'Wireless Earbuds',
+  description: 'For listening',
+  code: 'T-NK5',
+  price: 199,
+  stock: 500,
+  category: 'technology',
+  thumbnails: ['url10'],
+});
+
+products.addProduct({
+  title: 'Stand Mixer',
+  description: 'For baking and cooking',
+  code: 'K-SM1',
+  price: 299,
+  stock: 50,
+  category: 'kitchen',
+  thumbnails: ['url11'],
+});
+products.addProduct({
+  title: 'Blender',
+  description: 'For smoothies and soups',
+  code: 'K-BL3',
+  price: 149,
+  stock: 100,
+  category: 'kitchen',
+  thumbnails: ['url12'],
+});
+products.addProduct({
+  title: 'Food Processor',
+  description: 'For chopping and pureeing',
+  code: 'K-FP5',
+  price: 199,
+  stock: 75,
+  category: 'kitchen',
+  thumbnails: ['url13'],
+});
+products.addProduct({
+  title: 'Slow Cooker',
+  description: 'For easy one-pot meals',
+  code: 'K-SC2',
+  price: 99,
+  stock: 200,
+  category: 'kitchen',
+  thumbnails: ['url14'],
+});
+products.addProduct({
+  title: 'Toaster',
+  description: 'For toast and bagels',
+  code: 'K-TS1',
+  price: 49,
+  stock: 300,
+  category: 'kitchen',
+  thumbnails: ['url15'],
+});
+products.addProduct({
+  title: 'Coffee Maker',
+  description: 'For brewing coffee',
+  code: 'K-CM4',
+  price: 79,
+  stock: 150,
+  category: 'kitchen',
+  thumbnails: ['url16'],
+});
+products.addProduct({
+  title: 'Electric Kettle',
+  description: 'For boiling water',
+  code: 'K-EK6',
+  price: 39,
+  stock: 250,
+  category: 'kitchen',
+  thumbnails: ['url17'],
+});
+products.addProduct({
+  title: 'Air Fryer',
+  description: 'For healthier fried foods',
+  code: 'K-AF8',
+  price: 129,
+  stock: 100,
+  category: 'kitchen',
+  thumbnails: ['url18'],
+});
+products.addProduct({
+  title: 'Juicer',
+  description: 'For fresh juice',
+  code: 'K-JC9',
+  price: 99,
+  stock: 50,
+  category: 'kitchen',
+  thumbnails: ['url19'],
+});
+products.addProduct({
+  title: 'Rice Cooker',
+  description: 'For perfect rice every time',
+  code: 'K-RC7',
+  price: 69,
+  stock: 75,
+  category: 'kitchen',
+  thumbnails: ['url20'],
+});
+
+products.addProduct({
+  title: 'Camping Tent',
+  description: 'For camping and outdoor adventures',
+  code: 'O-TN1',
+  price: 299,
+  stock: 50,
+  category: 'outdoor',
+  thumbnails: ['url21'],
+});
+products.addProduct({
+  title: 'Sleeping Bag',
+  description: 'For comfortable sleeping in the great outdoors',
+  code: 'O-SB3',
+  price: 149,
+  stock: 100,
+  category: 'outdoor',
+  thumbnails: ['url22'],
+});
+products.addProduct({
+  title: 'Backpack',
+  description: 'For carrying all your outdoor essentials',
+  code: 'O-BP5',
+  price: 199,
+  stock: 75,
+  category: 'outdoor',
+  thumbnails: ['url23'],
+});
+products.addProduct({
+  title: 'Hiking Boots',
+  description: 'For comfortable and durable hiking',
+  code: 'O-HB2',
+  price: 99,
+  stock: 200,
+  category: 'outdoor',
+  thumbnails: ['url24'],
+});
+products.addProduct({
+  title: 'Climbing Rope',
+  description: 'For safe and secure climbing',
+  code: 'O-CR1',
+  price: 49,
+  stock: 300,
+  category: 'outdoor',
+  thumbnails: ['url25'],
+});
+products.addProduct({
+  title: 'Portable Grill',
+  description: 'For outdoor cooking',
+  code: 'O-PG4',
+  price: 79,
+  stock: 150,
+  category: 'outdoor',
+  thumbnails: ['url26'],
+});
+products.addProduct({
+  title: 'Fishing Rod',
+  description: 'For fishing in rivers and lakes',
+  code: 'O-FR6',
+  price: 39,
+  stock: 250,
+  category: 'outdoor',
+  thumbnails: ['url27'],
+});
+products.addProduct({
+  title: 'Kayak',
+  description: 'For paddling in rivers and lakes',
+  code: 'O-KY8',
+  price: 129,
+  stock: 100,
+  category: 'outdoor',
+  thumbnails: ['url28'],
+});
+products.addProduct({
+  title: 'Tent Lantern',
+  description: 'For lighting up your camping tent',
+  code: 'O-TL9',
+  price: 99,
+  stock: 50,
+  category: 'outdoor',
+  thumbnails: ['url29'],
+});
+products.addProduct({
+  title: 'Waterproof Backpack',
+  description: 'For keeping your gear dry during outdoor activities',
+  code: 'O-WB7',
+  price: 69,
+  stock: 75,
+  category: 'outdoor',
+  thumbnails: ['url30'],
+});
+
+products.addProduct({
+  title: 'Ergonomic Office Chair',
+  description: 'For comfortable and healthy sitting',
+  code: 'HOC-EC1',
+  price: 399,
+  stock: 50,
+  category: 'home office',
+  thumbnails: ['url31'],
+});
+products.addProduct({
+  title: 'Standing Desk',
+  description: 'For improved health and productivity',
+  code: 'HOC-SD3',
+  price: 799,
+  stock: 25,
+  category: 'home office',
+  thumbnails: ['url32'],
+});
+products.addProduct({
+  title: 'Monitor Arm',
+  description: 'For better posture and comfort',
+  code: 'HOC-MA5',
+  price: 99,
+  stock: 100,
+  category: 'home office',
+  thumbnails: ['url33'],
+});
+products.addProduct({
+  title: 'Wireless Keyboard and Mouse',
+  description: 'For comfortable and easy typing',
+  code: 'HOC-KM2',
+  price: 149,
+  stock: 75,
+  category: 'home office',
+  thumbnails: ['url34'],
+});
+products.addProduct({
+  title: 'Laptop Stand',
+  description: 'For better ergonomics and cooling',
+  code: 'HOC-LS4',
+  price: 49,
+  stock: 300,
+  category: 'home office',
+  thumbnails: ['url35'],
+});
+products.addProduct({
+  title: 'Noise-Cancelling Headphones',
+  description: 'For better concentration and focus',
+  code: 'HOC-NH6',
+  price: 299,
+  stock: 50,
+  category: 'home office',
+  thumbnails: ['url36'],
+});
+products.addProduct({
+  title: 'Webcam',
+  description: 'For high-quality video conferencing',
+  code: 'HOC-WC8',
+  price: 99,
+  stock: 150,
+  category: 'home office',
+  thumbnails: ['url37'],
+});
+products.addProduct({
+  title: 'Printer',
+  description: 'For printing documents and photos',
+  code: 'HOC-PR9',
+  price: 199,
+  stock: 100,
+  category: 'home office',
+  thumbnails: ['url38'],
+});
+products.addProduct({
+  title: 'Document Scanner',
+  description: 'For scanning and organizing documents',
+  code: 'HOC-DS7',
+  price: 149,
+  stock: 75,
+  category: 'home office',
+  thumbnails: ['url39'],
+});
+products.addProduct({
+  title: 'Desk Lamp',
+  description: 'For better lighting and eye health',
+  code: 'HOC-DL10',
+  price: 59,
+  stock: 200,
+  category: 'home office',
+  thumbnails: ['url40'],
+});
+
+products.addProduct({
+  title: 'Adjustable Dumbbells',
+  description: 'For strength training',
+  code: 'HG-AD1',
+  price: 499,
+  stock: 50,
+  category: 'home gym',
+  thumbnails: ['url41'],
+});
+products.addProduct({
+  title: 'Treadmill',
+  description: 'For cardio exercise',
+  code: 'HG-TR2',
+  price: 1999,
+  stock: 10,
+  category: 'home gym',
+  thumbnails: ['url42'],
+});
+products.addProduct({
+  title: 'Exercise Bike',
+  description: 'For cardio exercise',
+  code: 'HG-EB3',
+  price: 899,
+  stock: 25,
+  category: 'home gym',
+  thumbnails: ['url43'],
+});
+products.addProduct({
+  title: 'Kettlebell Set',
+  description: 'For strength training',
+  code: 'HG-KS4',
+  price: 299,
+  stock: 75,
+  category: 'home gym',
+  thumbnails: ['url44'],
+});
+products.addProduct({
+  title: 'Resistance Bands',
+  description: 'For strength training',
+  code: 'HG-RB5',
+  price: 49,
+  stock: 200,
+  category: 'home gym',
+  thumbnails: ['url45'],
+});
+products.addProduct({
+  title: 'Yoga Mat',
+  description: 'For yoga and stretching',
+  code: 'HG-YM6',
+  price: 29,
+  stock: 300,
+  category: 'home gym',
+  thumbnails: ['url46'],
+});
+products.addProduct({
+  title: 'Foam Roller',
+  description: 'For muscle recovery and relaxation',
+  code: 'HG-FR7',
+  price: 39,
+  stock: 150,
+  category: 'home gym',
+  thumbnails: ['url47'],
+});
+products.addProduct({
+  title: 'Pull-Up Bar',
+  description: 'For upper body strength training',
+  code: 'HG-PB8',
+  price: 99,
+  stock: 50,
+  category: 'home gym',
+  thumbnails: ['url48'],
+});
+products.addProduct({
+  title: 'Jump Rope',
+  description: 'For cardio and coordination',
+  code: 'HG-JR9',
+  price: 19,
+  stock: 500,
+  category: 'home gym',
+  thumbnails: ['url49'],
+});
+products.addProduct({
+  title: 'Gymnastics Rings',
+  description: 'For upper body strength and core stability',
+  code: 'HG-GR10',
+  price: 89,
+  stock: 25,
+  category: 'home gym',
+  thumbnails: ['url50'],
+});
+
+products.addProduct({
+  title: 'Showerhead',
+  description: 'For a refreshing shower',
+  code: 'BH-SH1',
+  price: 49,
+  stock: 500,
+  category: 'bathroom',
+  thumbnails: ['url61'],
+});
+products.addProduct({
+  title: 'Toilet Seat',
+  description: 'For comfort and hygiene',
+  code: 'BH-TS2',
+  price: 99,
+  stock: 200,
+  category: 'bathroom',
+  thumbnails: ['url62'],
+});
+products.addProduct({
+  title: 'Bathroom Scale',
+  description: 'For monitoring weight and health',
+  code: 'BH-BS3',
+  price: 29,
+  stock: 300,
+  category: 'bathroom',
+  thumbnails: ['url63'],
+});
+products.addProduct({
+  title: 'Towel Rack',
+  description: 'For organizing towels',
+  code: 'BH-TR4',
+  price: 39,
+  stock: 250,
+  category: 'bathroom',
+  thumbnails: ['url64'],
+});
+products.addProduct({
+  title: 'Bathroom Mirror',
+  description: 'For personal grooming and style',
+  code: 'BH-BM5',
+  price: 149,
+  stock: 100,
+  category: 'bathroom',
+  thumbnails: ['url65'],
+});
+products.addProduct({
+  title: 'Toothbrush Holder',
+  description: 'For organizing toothbrushes',
+  code: 'BH-TBH6',
+  price: 9,
+  stock: 500,
+  category: 'bathroom',
+  thumbnails: ['url66'],
+});
+products.addProduct({
+  title: 'Soap Dispenser',
+  description: 'For easy access to liquid soap',
+  code: 'BH-SD7',
+  price: 19,
+  stock: 400,
+  category: 'bathroom',
+  thumbnails: ['url67'],
+});
+products.addProduct({
+  title: 'Bath Mat',
+  description: 'For safety and comfort in the shower',
+  code: 'BH-BM8',
+  price: 29,
+  stock: 350,
+  category: 'bathroom',
+  thumbnails: ['url68'],
+});
+products.addProduct({
+  title: 'Shower Curtain',
+  description: 'For privacy and style in the shower',
+  code: 'BH-SC9',
+  price: 19,
+  stock: 450,
+  category: 'bathroom',
+  thumbnails: ['url69'],
+});
+products.addProduct({
+  title: 'Hand Dryer',
+  description: 'For quick and efficient hand drying',
+  code: 'BH-HD10',
+  price: 149,
+  stock: 75,
+  category: 'bathroom',
+  thumbnails: ['url70'],
+});
+
+products.addProduct({
+  title: 'Framed Artwork',
+  description: 'For adding color and character to walls',
+  code: 'D-FA1',
+  price: 89,
+  stock: 200,
+  category: 'decoration',
+  thumbnails: ['url71'],
+});
+products.addProduct({
+  title: 'Throw Pillow',
+  description: 'For adding comfort and style to sofas',
+  code: 'D-TP2',
+  price: 19,
+  stock: 500,
+  category: 'decoration',
+  thumbnails: ['url72'],
+});
+products.addProduct({
+  title: 'Area Rug',
+  description: 'For adding warmth and texture to floors',
+  code: 'D-AR3',
+  price: 199,
+  stock: 100,
+  category: 'decoration',
+  thumbnails: ['url73'],
+});
+products.addProduct({
+  title: 'Wall Clock',
+  description: 'For keeping time in style',
+  code: 'D-WC4',
+  price: 39,
+  stock: 400,
+  category: 'decoration',
+  thumbnails: ['url74'],
+});
+products.addProduct({
+  title: 'Table Lamp',
+  description: 'For adding ambient lighting to rooms',
+  code: 'D-TL5',
+  price: 69,
+  stock: 300,
+  category: 'decoration',
+  thumbnails: ['url75'],
+});
+products.addProduct({
+  title: 'Candle Holder',
+  description: 'For adding warmth and fragrance to rooms',
+  code: 'D-CH6',
+  price: 29,
+  stock: 250,
+  category: 'decoration',
+  thumbnails: ['url76'],
+});
+products.addProduct({
+  title: 'Picture Frame',
+  description: 'For displaying cherished memories',
+  code: 'D-PF7',
+  price: 14,
+  stock: 600,
+  category: 'decoration',
+  thumbnails: ['url77'],
+});
+products.addProduct({
+  title: 'Wall Sconce',
+  description: 'For adding elegant lighting to walls',
+  code: 'D-WS8',
+  price: 99,
+  stock: 150,
+  category: 'decoration',
+  thumbnails: ['url78'],
+});
+products.addProduct({
+  title: 'Sculpture',
+  description: 'For adding texture and interest to tables',
+  code: 'D-SC9',
+  price: 119,
+  stock: 75,
+  category: 'decoration',
+  thumbnails: ['url79'],
+});
+products.addProduct({
+  title: 'Window Curtain',
+  description: 'For adding privacy and style to windows',
+  code: 'D-WC10',
+  price: 49,
+  stock: 350,
+  category: 'decoration',
+  thumbnails: ['url80'],
+});
+
+// NOK
+products.addProduct({
+  title: 'Curtain',
+  description: 'For adding privacy ',
+  code: 'D-WC10',
+  price: 44,
+  stock: 30,
+  category: 'decoration',
+  thumbnails: ['url81'],
+});
+products.addProduct({ title: 'Mouse', description: 'For gaming' });
 
 // Ver productos
-tecnology.getProducts();
+products.getProducts();
 
 // Ver producto por ID
 // OK
-tecnology.getProductById(2);
+products.getProductById(2);
 // NOK
-tecnology.getProductById(8);
+products.getProductById(8);
 
 // Actualizar producto por ID
-tecnology.updateProduct(3, 'Headset', 'For playing music', 600);
+products.updateProduct({ id: 3, title: 'Headset', description: 'For playing music', price: 600 });
 
 // Eliminar producto por ID
-tecnology.deleteProduct(61); */
+products.deleteProduct(61);
