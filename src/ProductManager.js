@@ -61,32 +61,19 @@ class ProductManager {
 
   updateProduct = async ({ id, title, description, code, price, stock, category, thumbnails }) => {
     const collectionData = await ProductManager.getCollection(this.path);
-    const indexToBeUpdated = collectionData.findIndex((product) => product.id === id);
-    if (indexToBeUpdated) {
-      if (title) {
-        collectionData[indexToBeUpdated].title = title;
-      }
-      if (description) {
-        collectionData[indexToBeUpdated].description = description;
-      }
-      if (code) {
-        collectionData[indexToBeUpdated].code = code;
-      }
-      if (price) {
-        collectionData[indexToBeUpdated].price = price;
-      }
-      if (stock) {
-        collectionData[indexToBeUpdated].stock = stock;
-      }
-      if (category) {
-        collectionData[indexToBeUpdated].category = category;
-      }
-      if (thumbnails) {
-        collectionData[indexToBeUpdated].thumbnails = thumbnails;
-      }
+    const indexToUpdate = collectionData.findIndex((product) => product.id === id);
+    if (indexToUpdate ?? false) {
+      const productToUpdate = productToUpdate;
+      productToUpdate.title = title ?? productToUpdate.title;
+      productToUpdate.description = description ?? productToUpdate.description;
+      productToUpdate.code = code ?? productToUpdate.code;
+      productToUpdate.price = price ?? productToUpdate.price;
+      productToUpdate.stock = stock ?? productToUpdate.stock;
+      productToUpdate.category = category ?? productToUpdate.category;
+      productToUpdate.thumbnails = thumbnails ?? productToUpdate.thumbnails;
       await ProductManager.updateCollection(this.path, collectionData);
     } else {
-      console.log('The ID you want to update doesn`t exist in the database');
+      console.log(`The ID ${id} you want to update doesn't exist in the database`);
     }
   };
 
@@ -95,10 +82,9 @@ class ProductManager {
     const indexToBeDeleted = collectionData.findIndex((product) => product.id === id);
     if (indexToBeDeleted !== -1) {
       collectionData.splice(indexToBeDeleted, 1);
-      await fs.promises.unlink(this.path);
       await ProductManager.updateCollection(this.path, collectionData);
     } else {
-      console.log('The ID you want to delete doesn`t exist in the database');
+      console.log(`The ID ${id} you want to update doesn't exist in the database`);
     }
   };
 }
