@@ -3,34 +3,34 @@ PRIMERA ENTREGA
 
   ✓ 1- Servidor basado en Express el puerto 8080.
 
-  ■ 2- Endpoints desarrollados con el router de Express.
+  ✓ 2- Endpoints desarrollados con el router de Express.
 
   ✓ 3- El manejo de productos en su router en /api/products con las siguientes rutas:
-      ■ - Ruta raíz GET '/' debe listar todos los productos de la base.
-      ■ - Ruta GET '/:pid' debe traer solo el producto del id proporcionado.
-      ■ - Ruta raíz POST '/' debe agregar un nuevo producto con los campos:
-          ■ - ID autogenerado (pid).
-          ■ - Title (string).
-          ■ - Description (string).
-          ■ - Code (string).
-          ■ - Price (string).
-          ■ - Status (boolean) --> True por defecto.
-          ■ - Stock (number). 
-          ■ - Category (string).
-          ■ - Thumbnails (string[] de fotos referentes al proucto) --> Único campo no obligatorio.
-      ■ - Ruta PUT '/:pid' debe tomar un producto y actualizar solo lo campos enviados desde el body. EL ID NO SE ACTUALIZA.
-      ■ - Ruta DELETE  '/:pid' debe eliminar el producto.
+      ✓ - Ruta raíz GET '/' debe listar todos los productos de la base.
+      ✓ - Ruta GET '/:pid' debe traer solo el producto del id proporcionado.
+      ✓ - Ruta raíz POST '/' debe agregar un nuevo producto con los campos:
+          ✓ - ID autogenerado (pid).
+          ✓ - Title (string).
+          ✓ - Description (string).
+          ✓ - Code (string).
+          ✓ - Price (string).
+          ✓ - Status (boolean) --> True por defecto.
+          ✓ - Stock (number). 
+          ✓ - Category (string).
+          ✓ - Thumbnails (string[] de url de fotos referentes al proucto) --> Único campo no obligatorio.
+      ✓ - Ruta PUT '/:pid' debe tomar un producto y actualizar solo lo campos enviados desde el body. EL ID NO SE ACTUALIZA.
+      ✓ - Ruta DELETE  '/:pid' debe eliminar el producto.
 
-  ✓ 4- Para el carrito, que tendrá su ruta en '/api/carts' se deben configurar dos rutas:
-      ■ - Ruta raíz POST '/' deberá crear un nuevo carrito:
-          ■ - ID (number/string) autogenerado (cid).
-          ■ - Products: { product: { [key: string]: string | boolean | number } }[]
-      ■ - Ruta GET ':/cid' debe listar los productos correspondientes a ese carrito.
-      ■ - Ruta POST ':/cid/product/:pid' debe agregar el producto al carrito correspondiente, como un objeto:
-          ■ - Product: Solo el id del producto, NO el producto completo.
-          ■ - Quantity --> El producto se agregará de uno en uno por ahora. Solo aumenta si se selecciona dos veces el mismo ID.
+  ✓ 4- Para el carrito, que tendrá su ruta en '/api/cart' se deben configurar dos rutas:
+      ✓ - Ruta raíz POST '/' deberá crear un nuevo carrito:
+          ✓ - ID (number/string) autogenerado (cid).
+          ✓ - Products: { [key: string]: string | boolean | number }[]
+      ✓ - Ruta GET '/:cid' debe listar los productos correspondientes a ese carrito.
+      ✓ - Ruta POST '/:cid/product/:pid' debe agregar el producto al carrito correspondiente, como un objeto:
+          ✓ - Product: Solo el id del producto, NO el producto completo.
+          ✓ - Quantity --> El producto se agregará de uno en uno por ahora. Solo aumenta si se selecciona dos veces el mismo ID.
   
-  ■ 5- La persistencia será en 'products.JSON' y 'carrito.JSON'.
+  ✓ 5- La persistencia será en 'products.JSON' y 'cart.JSON'.
 
   ✓ 6- No hace falta usar multer!
 
