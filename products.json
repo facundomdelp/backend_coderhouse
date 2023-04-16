@@ -8,9 +8,7 @@
     "status": true,
     "stock": 100,
     "category": "technology",
-    "thumbnails": [
-      "url1"
-    ]
+    "thumbnails": ["url1"]
   },
   {
     "id": 2,
@@ -21,9 +19,7 @@
     "status": true,
     "stock": 50,
     "category": "technology",
-    "thumbnails": [
-      "url2"
-    ]
+    "thumbnails": ["url2"]
   },
   {
     "id": 3,
@@ -34,9 +30,7 @@
     "status": true,
     "stock": 200,
     "category": "technology",
-    "thumbnails": [
-      "url3"
-    ]
+    "thumbnails": ["url3"]
   },
   {
     "id": 4,
@@ -47,9 +41,7 @@
     "status": true,
     "stock": 25,
     "category": "technology",
-    "thumbnails": [
-      "url4"
-    ]
+    "thumbnails": ["url4"]
   },
   {
     "id": 5,
@@ -60,9 +52,7 @@
     "status": true,
     "stock": 15,
     "category": "technology",
-    "thumbnails": [
-      "url5"
-    ]
+    "thumbnails": ["url5"]
   },
   {
     "id": 6,
@@ -73,9 +63,7 @@
     "status": true,
     "stock": 300,
     "category": "technology",
-    "thumbnails": [
-      "url6"
-    ]
+    "thumbnails": ["url6"]
   },
   {
     "id": 7,
@@ -86,9 +74,7 @@
     "status": true,
     "stock": 50,
     "category": "technology",
-    "thumbnails": [
-      "url7"
-    ]
+    "thumbnails": ["url7"]
   },
   {
     "id": 8,
@@ -99,9 +85,7 @@
     "status": true,
     "stock": 500,
     "category": "technology",
-    "thumbnails": [
-      "url8"
-    ]
+    "thumbnails": ["url8"]
   },
   {
     "id": 9,
@@ -112,9 +96,7 @@
     "status": true,
     "stock": 150,
     "category": "technology",
-    "thumbnails": [
-      "url9"
-    ]
+    "thumbnails": ["url9"]
   },
   {
     "id": 10,
@@ -125,9 +107,7 @@
     "status": true,
     "stock": 500,
     "category": "technology",
-    "thumbnails": [
-      "url10"
-    ]
+    "thumbnails": ["url10"]
   },
   {
     "id": 11,
@@ -138,9 +118,7 @@
     "status": true,
     "stock": 50,
     "category": "kitchen",
-    "thumbnails": [
-      "url11"
-    ]
+    "thumbnails": ["url11"]
   },
   {
     "id": 12,
@@ -151,9 +129,7 @@
     "status": true,
     "stock": 100,
     "category": "kitchen",
-    "thumbnails": [
-      "url12"
-    ]
+    "thumbnails": ["url12"]
   },
   {
     "id": 13,
@@ -164,9 +140,7 @@
     "status": true,
     "stock": 75,
     "category": "kitchen",
-    "thumbnails": [
-      "url13"
-    ]
+    "thumbnails": ["url13"]
   },
   {
     "id": 14,
@@ -177,9 +151,7 @@
     "status": true,
     "stock": 200,
     "category": "kitchen",
-    "thumbnails": [
-      "url14"
-    ]
+    "thumbnails": ["url14"]
   },
   {
     "id": 15,
@@ -190,9 +162,7 @@
     "status": true,
     "stock": 300,
     "category": "kitchen",
-    "thumbnails": [
-      "url15"
-    ]
+    "thumbnails": ["url15"]
   },
   {
     "id": 16,
@@ -203,9 +173,7 @@
     "status": true,
     "stock": 150,
     "category": "kitchen",
-    "thumbnails": [
-      "url16"
-    ]
+    "thumbnails": ["url16"]
   },
   {
     "id": 17,
@@ -216,9 +184,7 @@
     "status": true,
     "stock": 250,
     "category": "kitchen",
-    "thumbnails": [
-      "url17"
-    ]
+    "thumbnails": ["url17"]
   },
   {
     "id": 18,
@@ -229,9 +195,7 @@
     "status": true,
     "stock": 100,
     "category": "kitchen",
-    "thumbnails": [
-      "url18"
-    ]
+    "thumbnails": ["url18"]
   },
   {
     "id": 19,
@@ -242,9 +206,7 @@
     "status": true,
     "stock": 50,
     "category": "kitchen",
-    "thumbnails": [
-      "url19"
-    ]
+    "thumbnails": ["url19"]
   },
   {
     "id": 20,
@@ -255,9 +217,7 @@
     "status": true,
     "stock": 75,
     "category": "kitchen",
-    "thumbnails": [
-      "url20"
-    ]
+    "thumbnails": ["url20"]
   },
   {
     "id": 21,
@@ -268,9 +228,7 @@
     "status": true,
     "stock": 50,
     "category": "outdoor",
-    "thumbnails": [
-      "url21"
-    ]
+    "thumbnails": ["url21"]
   },
   {
     "id": 22,
@@ -281,9 +239,7 @@
     "status": true,
     "stock": 100,
     "category": "outdoor",
-    "thumbnails": [
-      "url22"
-    ]
+    "thumbnails": ["url22"]
   },
   {
     "id": 23,
@@ -294,9 +250,7 @@
     "status": true,
     "stock": 75,
     "category": "outdoor",
-    "thumbnails": [
-      "url23"
-    ]
+    "thumbnails": ["url23"]
   },
   {
     "id": 24,
@@ -307,9 +261,7 @@
     "status": true,
     "stock": 200,
     "category": "outdoor",
-    "thumbnails": [
-      "url24"
-    ]
+    "thumbnails": ["url24"]
   },
   {
     "id": 25,
@@ -320,9 +272,7 @@
     "status": true,
     "stock": 300,
     "category": "outdoor",
-    "thumbnails": [
-      "url25"
-    ]
+    "thumbnails": ["url25"]
   },
   {
     "id": 26,
@@ -333,9 +283,7 @@
     "status": true,
     "stock": 150,
     "category": "outdoor",
-    "thumbnails": [
-      "url26"
-    ]
+    "thumbnails": ["url26"]
   },
   {
     "id": 27,
@@ -346,9 +294,7 @@
     "status": true,
     "stock": 250,
     "category": "outdoor",
-    "thumbnails": [
-      "url27"
-    ]
+    "thumbnails": ["url27"]
   },
   {
     "id": 28,
@@ -359,9 +305,7 @@
     "status": true,
     "stock": 100,
     "category": "outdoor",
-    "thumbnails": [
-      "url28"
-    ]
+    "thumbnails": ["url28"]
   },
   {
     "id": 29,
@@ -372,9 +316,7 @@
     "status": true,
     "stock": 50,
     "category": "outdoor",
-    "thumbnails": [
-      "url29"
-    ]
+    "thumbnails": ["url29"]
   },
   {
     "id": 30,
@@ -385,9 +327,7 @@
     "status": true,
     "stock": 75,
     "category": "outdoor",
-    "thumbnails": [
-      "url30"
-    ]
+    "thumbnails": ["url30"]
   },
   {
     "id": 31,
@@ -398,9 +338,7 @@
     "status": true,
     "stock": 50,
     "category": "home office",
-    "thumbnails": [
-      "url31"
-    ]
+    "thumbnails": ["url31"]
   },
   {
     "id": 32,
@@ -411,9 +349,7 @@
     "status": true,
     "stock": 25,
     "category": "home office",
-    "thumbnails": [
-      "url32"
-    ]
+    "thumbnails": ["url32"]
   },
   {
     "id": 33,
@@ -424,9 +360,7 @@
     "status": true,
     "stock": 100,
     "category": "home office",
-    "thumbnails": [
-      "url33"
-    ]
+    "thumbnails": ["url33"]
   },
   {
     "id": 34,
@@ -437,9 +371,7 @@
     "status": true,
     "stock": 75,
     "category": "home office",
-    "thumbnails": [
-      "url34"
-    ]
+    "thumbnails": ["url34"]
   },
   {
     "id": 35,
@@ -450,9 +382,7 @@
     "status": true,
     "stock": 300,
     "category": "home office",
-    "thumbnails": [
-      "url35"
-    ]
+    "thumbnails": ["url35"]
   },
   {
     "id": 36,
@@ -463,9 +393,7 @@
     "status": true,
     "stock": 50,
     "category": "home office",
-    "thumbnails": [
-      "url36"
-    ]
+    "thumbnails": ["url36"]
   },
   {
     "id": 37,
@@ -476,9 +404,7 @@
     "status": true,
     "stock": 150,
     "category": "home office",
-    "thumbnails": [
-      "url37"
-    ]
+    "thumbnails": ["url37"]
   },
   {
     "id": 38,
@@ -489,9 +415,7 @@
     "status": true,
     "stock": 100,
     "category": "home office",
-    "thumbnails": [
-      "url38"
-    ]
+    "thumbnails": ["url38"]
   },
   {
     "id": 39,
@@ -502,9 +426,7 @@
     "status": true,
     "stock": 75,
     "category": "home office",
-    "thumbnails": [
-      "url39"
-    ]
+    "thumbnails": ["url39"]
   },
   {
     "id": 40,
@@ -515,9 +437,7 @@
     "status": true,
     "stock": 200,
     "category": "home office",
-    "thumbnails": [
-      "url40"
-    ]
+    "thumbnails": ["url40"]
   },
   {
     "id": 41,
@@ -528,9 +448,7 @@
     "status": true,
     "stock": 50,
     "category": "home gym",
-    "thumbnails": [
-      "url41"
-    ]
+    "thumbnails": ["url41"]
   },
   {
     "id": 42,
@@ -541,9 +459,7 @@
     "status": true,
     "stock": 10,
     "category": "home gym",
-    "thumbnails": [
-      "url42"
-    ]
+    "thumbnails": ["url42"]
   },
   {
     "id": 43,
@@ -554,9 +470,7 @@
     "status": true,
     "stock": 25,
     "category": "home gym",
-    "thumbnails": [
-      "url43"
-    ]
+    "thumbnails": ["url43"]
   },
   {
     "id": 44,
@@ -567,9 +481,7 @@
     "status": true,
     "stock": 75,
     "category": "home gym",
-    "thumbnails": [
-      "url44"
-    ]
+    "thumbnails": ["url44"]
   },
   {
     "id": 45,
@@ -580,9 +492,7 @@
     "status": true,
     "stock": 200,
     "category": "home gym",
-    "thumbnails": [
-      "url45"
-    ]
+    "thumbnails": ["url45"]
   },
   {
     "id": 46,
@@ -593,9 +503,7 @@
     "status": true,
     "stock": 300,
     "category": "home gym",
-    "thumbnails": [
-      "url46"
-    ]
+    "thumbnails": ["url46"]
   },
   {
     "id": 47,
@@ -606,9 +514,7 @@
     "status": true,
     "stock": 150,
     "category": "home gym",
-    "thumbnails": [
-      "url47"
-    ]
+    "thumbnails": ["url47"]
   },
   {
     "id": 48,
@@ -619,9 +525,7 @@
     "status": true,
     "stock": 50,
     "category": "home gym",
-    "thumbnails": [
-      "url48"
-    ]
+    "thumbnails": ["url48"]
   },
   {
     "id": 49,
@@ -632,9 +536,7 @@
     "status": true,
     "stock": 500,
     "category": "home gym",
-    "thumbnails": [
-      "url49"
-    ]
+    "thumbnails": ["url49"]
   },
   {
     "id": 50,
@@ -645,9 +547,7 @@
     "status": true,
     "stock": 25,
     "category": "home gym",
-    "thumbnails": [
-      "url50"
-    ]
+    "thumbnails": ["url50"]
   },
   {
     "id": 51,
@@ -658,9 +558,7 @@
     "status": true,
     "stock": 500,
     "category": "bathroom",
-    "thumbnails": [
-      "url61"
-    ]
+    "thumbnails": ["url61"]
   },
   {
     "id": 52,
@@ -671,9 +569,7 @@
     "status": true,
     "stock": 200,
     "category": "bathroom",
-    "thumbnails": [
-      "url62"
-    ]
+    "thumbnails": ["url62"]
   },
   {
     "id": 53,
@@ -684,9 +580,7 @@
     "status": true,
     "stock": 300,
     "category": "bathroom",
-    "thumbnails": [
-      "url63"
-    ]
+    "thumbnails": ["url63"]
   },
   {
     "id": 54,
@@ -697,9 +591,7 @@
     "status": true,
     "stock": 250,
     "category": "bathroom",
-    "thumbnails": [
-      "url64"
-    ]
+    "thumbnails": ["url64"]
   },
   {
     "id": 55,
@@ -710,9 +602,7 @@
     "status": true,
     "stock": 100,
     "category": "bathroom",
-    "thumbnails": [
-      "url65"
-    ]
+    "thumbnails": ["url65"]
   },
   {
     "id": 56,
@@ -723,9 +613,7 @@
     "status": true,
     "stock": 500,
     "category": "bathroom",
-    "thumbnails": [
-      "url66"
-    ]
+    "thumbnails": ["url66"]
   },
   {
     "id": 57,
@@ -736,9 +624,7 @@
     "status": true,
     "stock": 400,
     "category": "bathroom",
-    "thumbnails": [
-      "url67"
-    ]
+    "thumbnails": ["url67"]
   },
   {
     "id": 58,
@@ -749,9 +635,7 @@
     "status": true,
     "stock": 350,
     "category": "bathroom",
-    "thumbnails": [
-      "url68"
-    ]
+    "thumbnails": ["url68"]
   },
   {
     "id": 59,
@@ -762,9 +646,7 @@
     "status": true,
     "stock": 450,
     "category": "bathroom",
-    "thumbnails": [
-      "url69"
-    ]
+    "thumbnails": ["url69"]
   },
   {
     "id": 60,
@@ -775,9 +657,18 @@
     "status": true,
     "stock": 75,
     "category": "bathroom",
-    "thumbnails": [
-      "url70"
-    ]
+    "thumbnails": ["url70"]
+  },
+  {
+    "id": 61,
+    "title": "Framed Artwork",
+    "description": "For adding color and character to walls",
+    "code": "D-FA1",
+    "price": 89,
+    "status": true,
+    "stock": 200,
+    "category": "decoration",
+    "thumbnails": ["url71"]
   },
   {
     "id": 62,
@@ -788,9 +679,7 @@
     "status": true,
     "stock": 500,
     "category": "decoration",
-    "thumbnails": [
-      "url72"
-    ]
+    "thumbnails": ["url72"]
   },
   {
     "id": 63,
@@ -801,9 +690,7 @@
     "status": true,
     "stock": 100,
     "category": "decoration",
-    "thumbnails": [
-      "url73"
-    ]
+    "thumbnails": ["url73"]
   },
   {
     "id": 64,
@@ -814,9 +701,7 @@
     "status": true,
     "stock": 400,
     "category": "decoration",
-    "thumbnails": [
-      "url74"
-    ]
+    "thumbnails": ["url74"]
   },
   {
     "id": 65,
@@ -827,9 +712,7 @@
     "status": true,
     "stock": 300,
     "category": "decoration",
-    "thumbnails": [
-      "url75"
-    ]
+    "thumbnails": ["url75"]
   },
   {
     "id": 66,
@@ -840,9 +723,7 @@
     "status": true,
     "stock": 250,
     "category": "decoration",
-    "thumbnails": [
-      "url76"
-    ]
+    "thumbnails": ["url76"]
   },
   {
     "id": 67,
@@ -853,9 +734,7 @@
     "status": true,
     "stock": 600,
     "category": "decoration",
-    "thumbnails": [
-      "url77"
-    ]
+    "thumbnails": ["url77"]
   },
   {
     "id": 68,
@@ -866,9 +745,7 @@
     "status": true,
     "stock": 150,
     "category": "decoration",
-    "thumbnails": [
-      "url78"
-    ]
+    "thumbnails": ["url78"]
   },
   {
     "id": 69,
@@ -879,9 +756,7 @@
     "status": true,
     "stock": 75,
     "category": "decoration",
-    "thumbnails": [
-      "url79"
-    ]
+    "thumbnails": ["url79"]
   },
   {
     "id": 70,
@@ -892,8 +767,6 @@
     "status": true,
     "stock": 350,
     "category": "decoration",
-    "thumbnails": [
-      "url80"
-    ]
+    "thumbnails": ["url80"]
   }
 ]
