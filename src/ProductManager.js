@@ -2,21 +2,13 @@ const fs = require('fs');
 
 class ProductManager {
   constructor() {
-    this.path = './products.json';
+    this.path = '../data/products.json';
     this.products = [];
-    ProductManager.createCollectionFolder();
+    ProductManager.createDataFolder();
   }
 
-  static createCollectionFolder = async () => {
-    await fs.promises.mkdir('./collection', { recursive: true });
-  };
-
-  static getCollection = async (path) => {
-    try {
-      return JSON.parse(await fs.promises.readFile(path, 'utf-8'));
-    } catch (err) {
-      console.log(err);
-    }
+  static createDataFolder = async () => {
+    await fs.promises.mkdir('../data', { recursive: true });
   };
 
   static updateCollection = async (path, products) => {
@@ -27,10 +19,20 @@ class ProductManager {
     }
   };
 
+  getProducts = async () => {
+    try {
+      const products = JSON.parse(await fs.promises.readFile(this.path, 'utf-8'));
+      console.log(products);
+      return products;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   addProduct = async ({ title, description, code, price, stock, category, thumbnails }) => {
     if (this.products.find((product) => product.code === code)) return console.log(`${title} - ${code} Not valid - Repeated code`);
-    const params = [title, description, code, price, stock, category, thumbnails];
-    if (params.includes(undefined)) return console.log(`${params[0]} - ${params[2]} Not Valid - Enter all the fields`);
+    const params = [title, description, code, price, stock, category];
+    if (params.includes(undefined)) return console.log(`${params[0]} - ID ${params[2]} - Not Valid - Enter all the mandatory fields`);
     this.products.push({
       id: this.products[this.products.length - 1] ? this.products[this.products.length - 1].id + 1 : 1,
       title,
@@ -45,25 +47,19 @@ class ProductManager {
     await ProductManager.updateCollection(this.path, this.products);
   };
 
-  getProducts = async () => {
-    const collectionData = await ProductManager.getCollection(this.path);
-    console.log(collectionData);
-    return collectionData;
-  };
-
   getProductById = async (id) => {
-    const collectionData = await ProductManager.getCollection(this.path);
-    const product = collectionData.find((product) => product.id === id);
-    if (!product) return `${id} Not Found`;
+    const products = await ProductManager.getProducts();
+    const product = products.find((product) => product.id === id);
+    if (!product) return `ID ${id} Not Found`;
     console.log(product);
     return product;
   };
 
   updateProduct = async ({ id, title, description, code, price, stock, category, thumbnails }) => {
-    const collectionData = await ProductManager.getCollection(this.path);
-    const indexToUpdate = collectionData.findIndex((product) => product.id === id);
+    const products = await ProductManager.getProducts();
+    const indexToUpdate = products.findIndex((product) => product.id === id);
     if (indexToUpdate ?? false) {
-      const productToUpdate = productToUpdate;
+      const productToUpdate = products[indexToUpdate];
       productToUpdate.title = title ?? productToUpdate.title;
       productToUpdate.description = description ?? productToUpdate.description;
       productToUpdate.code = code ?? productToUpdate.code;
@@ -71,18 +67,18 @@ class ProductManager {
       productToUpdate.stock = stock ?? productToUpdate.stock;
       productToUpdate.category = category ?? productToUpdate.category;
       productToUpdate.thumbnails = thumbnails ?? productToUpdate.thumbnails;
-      await ProductManager.updateCollection(this.path, collectionData);
+      await ProductManager.updateCollection(this.path, products);
     } else {
       console.log(`The ID ${id} you want to update doesn't exist in the database`);
     }
   };
 
   deleteProduct = async (id) => {
-    const collectionData = await ProductManager.getCollection(this.path);
-    const indexToBeDeleted = collectionData.findIndex((product) => product.id === id);
+    const products = await ProductManager.getProducts();
+    const indexToBeDeleted = products.findIndex((product) => product.id === id);
     if (indexToBeDeleted !== -1) {
-      collectionData.splice(indexToBeDeleted, 1);
-      await ProductManager.updateCollection(this.path, collectionData);
+      products.splice(indexToBeDeleted, 1);
+      await ProductManager.updateCollection(this.path, products);
     } else {
       console.log(`The ID ${id} you want to update doesn't exist in the database`);
     }
