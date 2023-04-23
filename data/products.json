@@ -8,7 +8,11 @@
     "status": true,
     "stock": 100,
     "category": "technology",
-    "thumbnails": ["url1"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1505751171710-1f6d0ace5a85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1505739718967-6df30ff369c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    ]
   },
   {
     "id": 2,
@@ -19,7 +23,11 @@
     "status": true,
     "stock": 50,
     "category": "technology",
-    "thumbnails": ["url2"]
+    "thumbnails": [
+      "https://plus.unsplash.com/premium_photo-1671611822374-4719df5c89bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1660491083562-d91a64d6ea9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80",
+      "https://images.unsplash.com/photo-1586349906319-48d20e9d17e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+    ]
   },
   {
     "id": 3,
@@ -30,87 +38,14 @@
     "status": true,
     "stock": 200,
     "category": "technology",
-    "thumbnails": ["url3"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1612731427528-9980b4af1b46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=726&q=80",
+      "https://images.unsplash.com/photo-1601791074012-d4e0ee30d9a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
+      "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    ]
   },
   {
     "id": 4,
-    "title": "Smart Speaker",
-    "description": "With voice assistant",
-    "code": "T-HN8",
-    "price": 1999,
-    "status": true,
-    "stock": 25,
-    "category": "technology",
-    "thumbnails": ["url4"]
-  },
-  {
-    "id": 5,
-    "title": "Ultra-Wide Monitor",
-    "description": "For super immersive experience",
-    "code": "T-JK1",
-    "price": 3799,
-    "status": true,
-    "stock": 15,
-    "category": "technology",
-    "thumbnails": ["url5"]
-  },
-  {
-    "id": 6,
-    "title": "Smartphone",
-    "description": "For communication",
-    "code": "T-PT4",
-    "price": 899,
-    "status": true,
-    "stock": 300,
-    "category": "technology",
-    "thumbnails": ["url6"]
-  },
-  {
-    "id": 7,
-    "title": "Laptop",
-    "description": "For working and gaming",
-    "code": "T-GV6",
-    "price": 1399,
-    "status": true,
-    "stock": 50,
-    "category": "technology",
-    "thumbnails": ["url7"]
-  },
-  {
-    "id": 8,
-    "title": "Amazon Echo Dot",
-    "description": "For voice assistant and smart home control",
-    "code": "T-LB3",
-    "price": 59,
-    "status": true,
-    "stock": 500,
-    "category": "technology",
-    "thumbnails": ["url8"]
-  },
-  {
-    "id": 9,
-    "title": "Tablet",
-    "description": "For entertainment",
-    "code": "T-RS7",
-    "price": 499,
-    "status": true,
-    "stock": 150,
-    "category": "technology",
-    "thumbnails": ["url9"]
-  },
-  {
-    "id": 10,
-    "title": "Wireless Earbuds",
-    "description": "For listening",
-    "code": "T-NK5",
-    "price": 199,
-    "status": true,
-    "stock": 500,
-    "category": "technology",
-    "thumbnails": ["url10"]
-  },
-  {
-    "id": 11,
     "title": "Stand Mixer",
     "description": "For baking and cooking",
     "code": "K-SM1",
@@ -118,10 +53,14 @@
     "status": true,
     "stock": 50,
     "category": "kitchen",
-    "thumbnails": ["url11"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1578643463396-0997cb5328c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80",
+      "https://images.unsplash.com/photo-1595026081325-4993979442d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1577495917765-9497a0de7caa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    ]
   },
   {
-    "id": 12,
+    "id": 5,
     "title": "Blender",
     "description": "For smoothies and soups",
     "code": "K-BL3",
@@ -129,10 +68,14 @@
     "status": true,
     "stock": 100,
     "category": "kitchen",
-    "thumbnails": ["url12"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1585515320310-259814833e62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1585237672814-8f85a8118bf6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=955&q=80",
+      "https://images.unsplash.com/photo-1622818426197-d54f85b88690?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+    ]
   },
   {
-    "id": 13,
+    "id": 6,
     "title": "Food Processor",
     "description": "For chopping and pureeing",
     "code": "K-FP5",
@@ -140,87 +83,14 @@
     "status": true,
     "stock": 75,
     "category": "kitchen",
-    "thumbnails": ["url13"]
+    "thumbnails": [
+      "https://plus.unsplash.com/premium_photo-1666649675126-15694c7eda05?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://plus.unsplash.com/premium_photo-1666649675105-1750f2bcd692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1481671703460-040cb8a2d909?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    ]
   },
   {
-    "id": 14,
-    "title": "Slow Cooker",
-    "description": "For easy one-pot meals",
-    "code": "K-SC2",
-    "price": 99,
-    "status": true,
-    "stock": 200,
-    "category": "kitchen",
-    "thumbnails": ["url14"]
-  },
-  {
-    "id": 15,
-    "title": "Toaster",
-    "description": "For toast and bagels",
-    "code": "K-TS1",
-    "price": 49,
-    "status": true,
-    "stock": 300,
-    "category": "kitchen",
-    "thumbnails": ["url15"]
-  },
-  {
-    "id": 16,
-    "title": "Coffee Maker",
-    "description": "For brewing coffee",
-    "code": "K-CM4",
-    "price": 79,
-    "status": true,
-    "stock": 150,
-    "category": "kitchen",
-    "thumbnails": ["url16"]
-  },
-  {
-    "id": 17,
-    "title": "Electric Kettle",
-    "description": "For boiling water",
-    "code": "K-EK6",
-    "price": 39,
-    "status": true,
-    "stock": 250,
-    "category": "kitchen",
-    "thumbnails": ["url17"]
-  },
-  {
-    "id": 18,
-    "title": "Air Fryer",
-    "description": "For healthier fried foods",
-    "code": "K-AF8",
-    "price": 129,
-    "status": true,
-    "stock": 100,
-    "category": "kitchen",
-    "thumbnails": ["url18"]
-  },
-  {
-    "id": 19,
-    "title": "Juicer",
-    "description": "For fresh juice",
-    "code": "K-JC9",
-    "price": 99,
-    "status": true,
-    "stock": 50,
-    "category": "kitchen",
-    "thumbnails": ["url19"]
-  },
-  {
-    "id": 20,
-    "title": "Rice Cooker",
-    "description": "For perfect rice every time",
-    "code": "K-RC7",
-    "price": 69,
-    "status": true,
-    "stock": 75,
-    "category": "kitchen",
-    "thumbnails": ["url20"]
-  },
-  {
-    "id": 21,
+    "id": 7,
     "title": "Camping Tent",
     "description": "For camping and outdoor adventures",
     "code": "O-TN1",
@@ -228,10 +98,14 @@
     "status": true,
     "stock": 50,
     "category": "outdoor",
-    "thumbnails": ["url21"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1526491109672-74740652b963?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1665200777107-e946c6655f16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1536002583490-9857862b246b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    ]
   },
   {
-    "id": 22,
+    "id": 8,
     "title": "Sleeping Bag",
     "description": "For comfortable sleeping in the great outdoors",
     "code": "O-SB3",
@@ -239,10 +113,14 @@
     "status": true,
     "stock": 100,
     "category": "outdoor",
-    "thumbnails": ["url22"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1558477280-1bfed08ea5db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+      "https://images.unsplash.com/photo-1623083617139-e455e92030e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1609411213951-153ae3d28f98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    ]
   },
   {
-    "id": 23,
+    "id": 9,
     "title": "Backpack",
     "description": "For carrying all your outdoor essentials",
     "code": "O-BP5",
@@ -250,87 +128,14 @@
     "status": true,
     "stock": 75,
     "category": "outdoor",
-    "thumbnails": ["url23"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1499803270242-467f7311582d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1373&q=80",
+      "https://images.unsplash.com/photo-1622260614153-03223fb72052?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1580087256394-dc596e1c8f4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    ]
   },
   {
-    "id": 24,
-    "title": "Hiking Boots",
-    "description": "For comfortable and durable hiking",
-    "code": "O-HB2",
-    "price": 99,
-    "status": true,
-    "stock": 200,
-    "category": "outdoor",
-    "thumbnails": ["url24"]
-  },
-  {
-    "id": 25,
-    "title": "Climbing Rope",
-    "description": "For safe and secure climbing",
-    "code": "O-CR1",
-    "price": 49,
-    "status": true,
-    "stock": 300,
-    "category": "outdoor",
-    "thumbnails": ["url25"]
-  },
-  {
-    "id": 26,
-    "title": "Portable Grill",
-    "description": "For outdoor cooking",
-    "code": "O-PG4",
-    "price": 79,
-    "status": true,
-    "stock": 150,
-    "category": "outdoor",
-    "thumbnails": ["url26"]
-  },
-  {
-    "id": 27,
-    "title": "Fishing Rod",
-    "description": "For fishing in rivers and lakes",
-    "code": "O-FR6",
-    "price": 39,
-    "status": true,
-    "stock": 250,
-    "category": "outdoor",
-    "thumbnails": ["url27"]
-  },
-  {
-    "id": 28,
-    "title": "Kayak",
-    "description": "For paddling in rivers and lakes",
-    "code": "O-KY8",
-    "price": 129,
-    "status": true,
-    "stock": 100,
-    "category": "outdoor",
-    "thumbnails": ["url28"]
-  },
-  {
-    "id": 29,
-    "title": "Tent Lantern",
-    "description": "For lighting up your camping tent",
-    "code": "O-TL9",
-    "price": 99,
-    "status": true,
-    "stock": 50,
-    "category": "outdoor",
-    "thumbnails": ["url29"]
-  },
-  {
-    "id": 30,
-    "title": "Waterproof Backpack",
-    "description": "For keeping your gear dry during outdoor activities",
-    "code": "O-WB7",
-    "price": 69,
-    "status": true,
-    "stock": 75,
-    "category": "outdoor",
-    "thumbnails": ["url30"]
-  },
-  {
-    "id": 31,
+    "id": 10,
     "title": "Ergonomic Office Chair",
     "description": "For comfortable and healthy sitting",
     "code": "HOC-EC1",
@@ -338,10 +143,14 @@
     "status": true,
     "stock": 50,
     "category": "home office",
-    "thumbnails": ["url31"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1505797149-43b0069ec26b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+      "https://images.unsplash.com/photo-1572521165329-b197f9ea3da6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1633789638578-eef0da1dc063?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+    ]
   },
   {
-    "id": 32,
+    "id": 11,
     "title": "Standing Desk",
     "description": "For improved health and productivity",
     "code": "HOC-SD3",
@@ -349,10 +158,14 @@
     "status": true,
     "stock": 25,
     "category": "home office",
-    "thumbnails": ["url32"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1622126647566-f0c834e4b78e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1549&q=80",
+      "https://images.unsplash.com/photo-1622126755582-16754165dce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1622128090613-bec0e39b7e6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1633&q=80"
+    ]
   },
   {
-    "id": 33,
+    "id": 12,
     "title": "Monitor Arm",
     "description": "For better posture and comfort",
     "code": "HOC-MA5",
@@ -360,87 +173,14 @@
     "status": true,
     "stock": 100,
     "category": "home office",
-    "thumbnails": ["url33"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1595350742295-f26db02423cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
+      "https://images.unsplash.com/photo-1575318634028-6a0cfcb60c59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
+      "https://images.unsplash.com/photo-1623177623442-979c1e42c255?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    ]
   },
   {
-    "id": 34,
-    "title": "Wireless Keyboard and Mouse",
-    "description": "For comfortable and easy typing",
-    "code": "HOC-KM2",
-    "price": 149,
-    "status": true,
-    "stock": 75,
-    "category": "home office",
-    "thumbnails": ["url34"]
-  },
-  {
-    "id": 35,
-    "title": "Laptop Stand",
-    "description": "For better ergonomics and cooling",
-    "code": "HOC-LS4",
-    "price": 49,
-    "status": true,
-    "stock": 300,
-    "category": "home office",
-    "thumbnails": ["url35"]
-  },
-  {
-    "id": 36,
-    "title": "Noise-Cancelling Headphones",
-    "description": "For better concentration and focus",
-    "code": "HOC-NH6",
-    "price": 299,
-    "status": true,
-    "stock": 50,
-    "category": "home office",
-    "thumbnails": ["url36"]
-  },
-  {
-    "id": 37,
-    "title": "Webcam",
-    "description": "For high-quality video conferencing",
-    "code": "HOC-WC8",
-    "price": 99,
-    "status": true,
-    "stock": 150,
-    "category": "home office",
-    "thumbnails": ["url37"]
-  },
-  {
-    "id": 38,
-    "title": "Printer",
-    "description": "For printing documents and photos",
-    "code": "HOC-PR9",
-    "price": 199,
-    "status": true,
-    "stock": 100,
-    "category": "home office",
-    "thumbnails": ["url38"]
-  },
-  {
-    "id": 39,
-    "title": "Document Scanner",
-    "description": "For scanning and organizing documents",
-    "code": "HOC-DS7",
-    "price": 149,
-    "status": true,
-    "stock": 75,
-    "category": "home office",
-    "thumbnails": ["url39"]
-  },
-  {
-    "id": 40,
-    "title": "Desk Lamp",
-    "description": "For better lighting and eye health",
-    "code": "HOC-DL10",
-    "price": 59,
-    "status": true,
-    "stock": 200,
-    "category": "home office",
-    "thumbnails": ["url40"]
-  },
-  {
-    "id": 41,
+    "id": 13,
     "title": "Adjustable Dumbbells",
     "description": "For strength training",
     "code": "HG-AD1",
@@ -448,10 +188,14 @@
     "status": true,
     "stock": 50,
     "category": "home gym",
-    "thumbnails": ["url41"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1638536534984-0d98ccdb6af5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+    ]
   },
   {
-    "id": 42,
+    "id": 14,
     "title": "Treadmill",
     "description": "For cardio exercise",
     "code": "HG-TR2",
@@ -459,10 +203,14 @@
     "status": true,
     "stock": 10,
     "category": "home gym",
-    "thumbnails": ["url42"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1578763363228-6e8428de69b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1540111970170-b1c4d4fbadaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
+      "https://images.unsplash.com/photo-1633394782240-f81aba3f850d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    ]
   },
   {
-    "id": 43,
+    "id": 15,
     "title": "Exercise Bike",
     "description": "For cardio exercise",
     "code": "HG-EB3",
@@ -470,83 +218,10 @@
     "status": true,
     "stock": 25,
     "category": "home gym",
-    "thumbnails": ["url43"]
-  },
-  {
-    "id": 44,
-    "title": "Kettlebell Set",
-    "description": "For strength training",
-    "code": "HG-KS4",
-    "price": 299,
-    "status": true,
-    "stock": 75,
-    "category": "home gym",
-    "thumbnails": ["url44"]
-  },
-  {
-    "id": 45,
-    "title": "Resistance Bands",
-    "description": "For strength training",
-    "code": "HG-RB5",
-    "price": 49,
-    "status": true,
-    "stock": 200,
-    "category": "home gym",
-    "thumbnails": ["url45"]
-  },
-  {
-    "id": 46,
-    "title": "Yoga Mat",
-    "description": "For yoga and stretching",
-    "code": "HG-YM6",
-    "price": 29,
-    "status": true,
-    "stock": 300,
-    "category": "home gym",
-    "thumbnails": ["url46"]
-  },
-  {
-    "id": 47,
-    "title": "Foam Roller",
-    "description": "For muscle recovery and relaxation",
-    "code": "HG-FR7",
-    "price": 39,
-    "status": true,
-    "stock": 150,
-    "category": "home gym",
-    "thumbnails": ["url47"]
-  },
-  {
-    "id": 48,
-    "title": "Pull-Up Bar",
-    "description": "For upper body strength training",
-    "code": "HG-PB8",
-    "price": 99,
-    "status": true,
-    "stock": 50,
-    "category": "home gym",
-    "thumbnails": ["url48"]
-  },
-  {
-    "id": 49,
-    "title": "Jump Rope",
-    "description": "For cardio and coordination",
-    "code": "HG-JR9",
-    "price": 19,
-    "status": true,
-    "stock": 500,
-    "category": "home gym",
-    "thumbnails": ["url49"]
-  },
-  {
-    "id": 50,
-    "title": "Gymnastics Rings",
-    "description": "For upper body strength and core stability",
-    "code": "HG-GR10",
-    "price": 89,
-    "status": true,
-    "stock": 25,
-    "category": "home gym",
-    "thumbnails": ["url50"]
+    "thumbnails": [
+      "https://images.unsplash.com/photo-1591741535018-d042766c62eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1554470166-20d3f466089b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1886&q=80",
+      "https://images.unsplash.com/photo-1499438182938-87d87862e154?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    ]
   }
 ]
