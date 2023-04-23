@@ -2,6 +2,7 @@ import fs from 'fs';
 
 class ProductManager {
   constructor() {
+    this.products = [];
     this.path = '../data/products.json';
     ProductManager.createDataFolder();
     this.productsInit();
@@ -40,12 +41,14 @@ class ProductManager {
   };
 
   getProductById = async (id) => {
+    await this.productsInit();
     const product = this.products.find((product) => product.id === id);
     if (!product) throw new Error(`ID ${id} Not Found`);
     return product;
   };
 
   addProduct = async ({ title, description, code, price, stock, category, thumbnails }) => {
+    await this.productsInit();
     if (this.products.find((product) => product.code === code)) {
       throw new Error(`${title} - ${code} Not valid - Repeated code`);
     }
@@ -55,8 +58,9 @@ class ProductManager {
       throw new Error(`${params[0]} - ID ${params[2]} - Not Valid - Enter all the mandatory fields`);
     }
 
+    const id = this.products[this.products.length - 1] ? this.products[this.products.length - 1].id + 1 : 1;
     this.products.push({
-      id: this.products[this.products.length - 1] ? this.products[this.products.length - 1].id + 1 : 1,
+      id,
       title,
       description,
       code,
@@ -68,10 +72,11 @@ class ProductManager {
     });
 
     await ProductManager.saveProducts(this.path, this.products);
-    return { message: `Product ${title} - ${code} added successfully` };
+    return { id, message: `Product ${title} - ${code} added successfully` };
   };
 
   updateProduct = async ({ id, title, description, code, price, stock, category, thumbnails }) => {
+    await this.productsInit();
     const products = await ProductManager.loadProducts(this.path);
     const indexToUpdate = products.findIndex((product) => product.id === id);
 
@@ -93,6 +98,7 @@ class ProductManager {
   };
 
   deleteProduct = async (id) => {
+    await this.productsInit();
     const products = await ProductManager.loadProducts(this.path);
     const indexToBeDeleted = products.findIndex((product) => product.id === id);
     const productToBeDeleted = products[indexToBeDeleted];

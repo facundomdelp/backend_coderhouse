@@ -1,0 +1,14 @@
+<div class='card-container' style='display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-block: 20px'>
+  {{#each products}}
+    <div class='card' style='width: 18rem'>
+      <img src='{{this.thumbnails}}' class='card-img-top' alt='Product image' style='height: 200px; object-fit: cover;' />
+      <div class='card-body'>
+        <h5 class='card-title'>{{title}}</h5>
+        <p class='card-text' style='font-size: 14px;'>{{description}}</p>
+        <p class='card-text' style='font-weight: bold; color: darkblue; font-size: 24px'>{{price}} USD</p>
+        <p class='card-text' style='text-transform: uppercase; color: gray; font-size: 12px'>{{category}}</p>
+        <p class='card-text' style='font-weight: 500; font-size: 12px'>STOCK: {{stock}}</p>
+      </div>
+    </div>
+  {{/each}}
+</div>
