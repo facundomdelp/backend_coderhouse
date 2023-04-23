@@ -1,4 +1,4 @@
-const ProductManager = require('./ProductManager');
+import ProductManager from './controllers/ProductManager.js';
 
 // Crear colección
 const products = new ProductManager();

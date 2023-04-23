@@ -1,5 +1,5 @@
-const fs = require('fs');
-const ProductManager = require('./ProductManager');
+import fs from 'fs';
+import ProductManager from './ProductManager.js';
 
 const productManager = new ProductManager();
 
@@ -60,17 +60,18 @@ class CartManager {
     }
 
     const productInCartIndex = this.carts[cartIndex].products.findIndex((product) => product.id === pid);
+    const product = await productManager.getProductById(pid);
 
     if (productInCartIndex === -1) {
-      const product = await productManager.getProductById(pid);
       this.carts[cartIndex].products.push({ id: product.id, quantity: 1 });
+      await CartManager.saveCarts(this.path, this.carts);
+      return { message: `Product ${product.title} - ${product.code} added successfully to cart` };
     } else {
       this.carts[cartIndex].products[productInCartIndex].quantity += 1;
+      await CartManager.saveCarts(this.path, this.carts);
+      return { message: `Product ${product.title} - ${product.code} added successfully to cart` };
     }
-
-    await CartManager.saveCarts(this.path, this.carts);
-    return { message: `Product ${product.title} - ${product.code} added successfully to cart` };
   };
 }
 
-module.exports = CartManager;
+export default CartManager;
