@@ -3,7 +3,10 @@ import mongoose from 'mongoose';
 const collection = 'carts';
 
 const schema = new mongoose.Schema({
-  id: { type: Number, required: true },
+  id: {
+    type: Number,
+    required: true,
+  },
   products: [
     {
       id: {
