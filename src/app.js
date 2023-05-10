@@ -2,18 +2,20 @@ import {} from 'dotenv/config';
 import express from 'express';
 import handlebars from 'express-handlebars';
 import { Server } from 'socket.io';
+import mongoose from 'mongoose';
 import productsRouter from './router/products.js';
 import cartsRouter from './router/carts.js';
 import viewsRouter from './router/views.js';
 import { __dirname } from './fileUtils.js';
 
-const PORT = parseInt(process.env.PORT);
-const WS_PORT = parseInt(process.env.WS_PORT);
+const PORT = parseInt(process.env.PORT) || 3000;
+const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
+const MONGOOSE_URL = process.env.MONGOOSE_URL;
 
 // Creación de servidores
 const server = express();
 const httpServer = server.listen(WS_PORT, () => {
-  console.log(`Servidor socketio iniciado en puerto ${WS_PORT}`);
+  console.log(`Socketio server active in port ${WS_PORT}`);
 });
 const wss = new Server(httpServer, {
   cors: {
@@ -59,6 +61,12 @@ wss.on('connection', (socket) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server active in port ${PORT}`);
-});
+// Activación y escucha del servidor
+try {
+  await mongoose.connect(MONGOOSE_URL);
+  server.listen(PORT, () => {
+    console.log(`Server active in port ${PORT}`);
+  });
+} catch (err) {
+  console.log(`Couldn't connect to DB server`);
+}
