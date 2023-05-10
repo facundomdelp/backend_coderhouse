@@ -1,3 +1,4 @@
+import {} from 'dotenv/config';
 import express from 'express';
 import handlebars from 'express-handlebars';
 import { Server } from 'socket.io';
@@ -6,15 +7,15 @@ import cartsRouter from './router/carts.js';
 import viewsRouter from './router/views.js';
 import { __dirname } from './fileUtils.js';
 
-const PORT = 8080;
-const WS_PORT = 7050;
+const PORT = parseInt(process.env.PORT);
+const WS_PORT = parseInt(process.env.WS_PORT);
 
 // Creación de servidores
 const server = express();
 const httpServer = server.listen(WS_PORT, () => {
   console.log(`Servidor socketio iniciado en puerto ${WS_PORT}`);
 });
-export const wss = new Server(httpServer, {
+const wss = new Server(httpServer, {
   cors: {
     origin: `http://localhost:${PORT}`,
     methods: ['GET', 'POST'],
@@ -32,7 +33,7 @@ server.get('/', (req, res) => {
 server.get('/api', (req, res) => {
   res.send('/products</br>/carts');
 });
-server.use('/api', productsRouter);
+server.use('/api', productsRouter(wss));
 server.use('/api', cartsRouter);
 
 // Motor de plantillas
