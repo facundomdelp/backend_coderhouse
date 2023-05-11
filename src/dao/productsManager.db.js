@@ -15,7 +15,11 @@ class ProductManager {
 
   getProductById = async (id) => {
     try {
-      return await productsModel.find({ id });
+      const product = await productsModel.findOne({ id });
+      if (!product) {
+        throw new Error(`Product doesn't exist in the database`);
+      }
+      return product;
     } catch (err) {
       return `getProductById: ${err}`;
     }
