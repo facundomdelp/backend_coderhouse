@@ -7,13 +7,14 @@ class ProductManager {
 
   getProducts = async () => {
     try {
-      return await productsModel.find();
+      return await productsModel.find().lean();
     } catch (err) {
-      return `getProducts: ${err}`;
+      throw new Error(`getProducts - ${err}`);
     }
   };
 
   getProductById = async (id) => {
+    // Preguntar si hace falta mantener este ID --> Parece poco performante.
     try {
       const product = await productsModel.findOne({ id });
       if (!product) {
@@ -21,7 +22,7 @@ class ProductManager {
       }
       return product;
     } catch (err) {
-      return `getProductById: ${err}`;
+      throw new Error(`getProductById - ${err}`);
     }
   };
 
@@ -45,6 +46,7 @@ class ProductManager {
 
   updateProduct = async (data) => {
     try {
+      // Estoy haciendo dos búsquedas en la DB en un mismo método, parece poco performante --> PREGUNTAR a Tutor
       const { id } = data;
       const _idToUpdate = await productsModel.findOne({ id }, { _id: 1 });
       if (_idToUpdate === null) {

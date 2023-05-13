@@ -1,5 +1,5 @@
 import express from 'express';
-import ProductManager from '../dao/productsManager.js';
+import ProductManager from '../dao/productsManager.db.js';
 
 const router = express.Router();
 const productManager = new ProductManager();
@@ -16,6 +16,10 @@ router.get('/realtimeproducts', async (req, res) => {
   res.render('realTimeProducts', {
     products,
   });
+});
+
+router.get('/messages', async (req, res) => {
+  res.render('messages', {});
 });
 
 export default router;
