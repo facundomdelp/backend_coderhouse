@@ -6,7 +6,11 @@ import mongoose from 'mongoose';
 import productsRouter from './router/products.js';
 import cartsRouter from './router/carts.js';
 import viewsRouter from './router/views.js';
+import messagesRouter from './router/messages.js';
 import { __dirname } from './fileUtils.js';
+
+// Falta --> Conectar ATLAS
+// Falta --> Hacer CHAT
 
 const PORT = parseInt(process.env.PORT) || 3000;
 const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
@@ -33,19 +37,20 @@ server.get('/', (req, res) => {
 
 // Enpoints API REST
 server.get('/api', (req, res) => {
-  res.send('/products</br>/carts');
+  res.send('/products</br>/carts</br>/messages');
 });
 server.use('/api', productsRouter(wss));
 server.use('/api', cartsRouter);
+server.use('/api', messagesRouter(wss));
 
 // Motor de plantillas
 server.engine('handlebars', handlebars.engine());
-server.set('views', `${__dirname}/views`);
 server.set('view engine', 'handlebars');
+server.set('views', `${__dirname}/views`);
 
 // Endpoint views
 server.get('/home', (req, res) => {
-  res.send('/products</br>/realtimeproducts');
+  res.send('/products</br>/realtimeproducts</br>/messages');
 });
 server.use('/home', viewsRouter);
 

@@ -21,6 +21,7 @@
             console.log(msg);
         });
     });
+
     const cardContainer = document.getElementsByClassName('card-container')[0]
     ws.on('new_product', ({ message, newProduct, newId }) => {
       console.log(message);
@@ -38,6 +39,7 @@
       `;
       cardContainer.innerHTML += newCard;
     });
+
     ws.on('deleted_product', ({ message, deletedId }) => {
       console.log(message);
       const deletedCard = document.getElementById(`card-${deletedId}`);
