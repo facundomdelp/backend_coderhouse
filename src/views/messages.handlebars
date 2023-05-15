@@ -1,24 +1,68 @@
-<div class='container chat-container'>
-  <head>
-    <span>Enter your e-mail: </span><input type='email' style='width: 250px' />
-  </head>
-  <div class='chat-message'>
-    <div class='meta'>
-      <span class='sender'>John Doe</span>
-      <span class='time'>12:30 PM</span>
+<head>
+  <span>Enter your e-mail: </span>
+  <input id="user_email" type='email' style='width: 250px' />
+</head>
+<div id='chat-container'>
+  {{#each messages}}
+    <div>
+      <span>{{user}}: </span>
+      <span>{{message}}</span>
     </div>
-    <div class='message'>
-      Hey, how's it going?
-    </div>
-  </div>
-
-  <div class='chat-message'>
-    <div class='meta'>
-      <span class='sender'>Jane Smith</span>
-      <span class='time'>12:32 PM</span>
-    </div>
-    <div class='message'>
-      Hi John! I'm doing great. How about you?
-    </div>
-  </div>
+  {{/each}}
 </div>
+<div id='message_input_container'>
+  <input id="new_message_input" style='width: 450px'/>
+  <button id="submit_message">Submit</button>
+</div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js'></script>
+<script>
+  const ws = io('ws://localhost:7050');
+  ws.on('connect', () => {
+    ws.on('server_confirm', (msg) => {
+        console.log(msg);
+    });
+  });
+
+  const userEmail = document.getElementById('user_email');
+  const chatContainer = document.getElementById('chat-container');
+  const messageInputContainer = document.getElementById('message_input_container');
+  const newMessageInput = document.getElementById('new_message_input');
+  const submitMessage = document.getElementById('submit_message');
+
+  submitMessage.addEventListener('click', async () => {
+    if (newMessageInput.value.trim().length > 0) {
+      const message = {
+        user: userEmail.value,
+        message: newMessageInput.value
+      };
+      try {
+        const response = await fetch('http://localhost:8080/api/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(message)
+        });
+        if (response.ok) {
+          newMessageInput.value = '';
+        } else {
+          const errorData = await response.json();
+          throw new Error(errorData.error);
+        }
+      } catch (error) {
+        throw new Error(error)
+      }
+    }
+  });
+
+  ws.on('message_received', ({ user, message }) => {
+    const newMessage = `
+      <div class='message'>
+        <span>${user}: </span>
+        <span>${message}</span>
+      </div>
+    `;
+    chatContainer.innerHTML += newMessage;
+  });
+</script>
