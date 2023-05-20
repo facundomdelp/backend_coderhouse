@@ -6,9 +6,8 @@ const productManager = new ProductManager();
 
 const productsRouter = (wss) => {
   router.get('/products', async (req, res) => {
-    const products = await productManager.getProducts();
-    const exposedProducts = products.slice(0, req.query.limit ? req.query.limit : products.length);
-    res.status(200).send(JSON.stringify(exposedProducts));
+    const products = await productManager.getProducts(req.query);
+    res.status(200).send(JSON.stringify(products));
   });
 
   router.get('/products/:pid', async (req, res) => {

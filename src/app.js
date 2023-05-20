@@ -9,9 +9,6 @@ import viewsRouter from './router/views.js';
 import messagesRouter from './router/messages.js';
 import { __dirname } from './fileUtils.js';
 
-// Falta --> Conectar ATLAS
-// Falta --> Hacer CHAT
-
 const PORT = parseInt(process.env.PORT) || 3000;
 const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
 const MONGOOSE_URL = process.env.MONGOOSE_URL;

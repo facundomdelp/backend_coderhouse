@@ -5,16 +5,31 @@ class ProductManager {
     this.products = [];
   }
 
-  getProducts = async () => {
+  getProducts = async ({ limit = 10, page = 1, sort, category, stockGreaterThan }) => {
+    const customLabels = {
+      docs: 'payload',
+      totalDocs: false,
+      limit: false,
+      pagingCounter: false,
+    };
+    const query = {};
+    category && (query.category = category);
+    stockGreaterThan && (query.stock = { $gt: stockGreaterThan });
+    const sortByPrice = sort === 'asc' ? { price: 1 } : sort === 'desc' ? { price: -1 } : undefined;
+    const paginatedProducts = await productsModel.paginate(query, { limit, page, sort: sortByPrice, customLabels });
+    const extraLabels = {
+      prevLink: paginatedProducts.hasPrevPage ? `/api/products?page=${parseInt(page) - 1}` : null,
+      nextLink: paginatedProducts.hasNextPage ? `/api/products?page=${parseInt(page) + 1}` : null,
+    };
     try {
-      return await productsModel.find().lean();
+      extraLabels.status = 'success';
     } catch (err) {
-      throw new Error(`getProducts - ${err}`);
+      extraLabels.error = err;
     }
+    return { ...paginatedProducts, ...extraLabels };
   };
 
   getProductById = async (id) => {
-    // Preguntar si hace falta mantener este ID --> Parece poco performante.
     try {
       const product = await productsModel.findOne({ id });
       if (!product) {
@@ -35,8 +50,8 @@ class ProductManager {
       if ((await productsModel.findOne({ code })) !== null) {
         throw new Error(`${title} - ${code} Not valid - Repeated code`);
       }
-      const products = await this.getProducts();
-      const id = products[products.length - 1] ? products[products.length - 1].id + 1 : 1;
+      const products = await productsModel.find().sort({ _id: -1 }).limit(1); // Chequear sin funciona
+      const id = products ? products[0].id + 1 : 1;
       await productsModel.create({ id, status: true, ...data });
       return { id, message: `Product ${title} - ${code} added successfully` };
     } catch (err) {
@@ -46,7 +61,6 @@ class ProductManager {
 
   updateProduct = async (data) => {
     try {
-      // Estoy haciendo dos búsquedas en la DB en un mismo método, parece poco performante --> PREGUNTAR a Tutor
       const { id } = data;
       const _idToUpdate = await productsModel.findOne({ id }, { _id: 1 });
       if (_idToUpdate === null) {
