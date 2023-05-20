@@ -5,12 +5,12 @@ const router = express.Router();
 const productManager = new ProductManager();
 
 const productsRouter = (wss) => {
-  router.get('/products', async (req, res) => {
+  router.get('/', async (req, res) => {
     const products = await productManager.getProducts(req.query);
     res.status(200).send(JSON.stringify(products));
   });
 
-  router.get('/products/:pid', async (req, res) => {
+  router.get('/:pid', async (req, res) => {
     const product = await productManager.getProductById(parseInt(req.params.pid));
     if (!product) {
       return res.status(404).send();
@@ -18,7 +18,7 @@ const productsRouter = (wss) => {
     res.status(200).send(JSON.stringify(product));
   });
 
-  router.post('/products', async (req, res) => {
+  router.post('/', async (req, res) => {
     try {
       const newProduct = req.body;
       const message = await productManager.addProduct(newProduct);
@@ -30,7 +30,7 @@ const productsRouter = (wss) => {
     }
   });
 
-  router.put('/products/:pid', async (req, res) => {
+  router.put('/:pid', async (req, res) => {
     try {
       const message = await productManager.updateProduct({ id: parseInt(req.params.pid), ...req.body });
       res.status(200).send(message);
@@ -39,7 +39,7 @@ const productsRouter = (wss) => {
     }
   });
 
-  router.delete('/products/:pid', async (req, res) => {
+  router.delete('/:pid', async (req, res) => {
     try {
       const deletedId = req.params.pid;
       const message = await productManager.deleteProduct(parseInt(deletedId));

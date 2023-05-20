@@ -36,8 +36,8 @@ server.get('/', (req, res) => {
 server.get('/api', (req, res) => {
   res.send('/products</br>/carts</br>/messages');
 });
-server.use('/api', productsRouter(wss));
-server.use('/api', cartsRouter);
+server.use('/api/products', productsRouter(wss));
+server.use('/api/carts', cartsRouter);
 server.use('/api', messagesRouter(wss));
 
 // Motor de plantillas
