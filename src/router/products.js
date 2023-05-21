@@ -41,8 +41,7 @@ const productsRouter = (wss) => {
 
   router.delete('/:pid', async (req, res) => {
     try {
-      const deletedId = req.params.pid;
-      const message = await productManager.deleteProduct(parseInt(deletedId));
+      const message = await productManager.deleteProduct(parseInt(req.params.pid));
       res.status(200).send(message);
       wss.emit('deleted_product', { message, deletedId });
     } catch (error) {

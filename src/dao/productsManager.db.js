@@ -50,8 +50,8 @@ class ProductManager {
       if ((await productsModel.findOne({ code })) !== null) {
         throw new Error(`${title} - ${code} Not valid - Repeated code`);
       }
-      const products = await productsModel.find().sort({ _id: -1 }).limit(1); // Chequear sin funciona
-      const id = products ? products[0].id + 1 : 1;
+      const products = await productsModel.find().sort({ _id: -1 }).limit(1);
+      const id = products.length > 0 ? products[0].id + 1 : 1;
       await productsModel.create({ id, status: true, ...data });
       return { id, message: `Product ${title} - ${code} added successfully` };
     } catch (err) {
@@ -62,12 +62,11 @@ class ProductManager {
   updateProduct = async (data) => {
     try {
       const { id } = data;
-      const _idToUpdate = await productsModel.findOne({ id }, { _id: 1 });
-      if (_idToUpdate === null) {
+      if (!(await productsModel.findOne({ id }))) {
         throw new Error(`The ID ${id} you want to update doesn't exist in the database`);
       }
       const dataToUpdate = Object.fromEntries(Object.entries(data).filter(([key, value]) => value !== undefined));
-      await productsModel.updateOne({ _id: _idToUpdate }, { $set: dataToUpdate });
+      await productsModel.updateOne({ id }, { $set: dataToUpdate });
       return { message: `Product updated successfully` };
     } catch (err) {
       throw new Error(`updateProduct - ${err}`);
@@ -76,11 +75,10 @@ class ProductManager {
 
   deleteProduct = async (id) => {
     try {
-      const _idToDelete = await productsModel.findOne({ id }, { _id: 1 });
-      if (_idToDelete === null) {
+      if (!(await productsModel.findOne({ id }))) {
         throw new Error(`The ID ${id} you want to delete doesn't exist in the database`);
       }
-      await productsModel.findOneAndDelete({ _id: _idToDelete });
+      await productsModel.findOneAndDelete({ id });
       return { message: `Product deleted successfully` };
     } catch (err) {
       throw new Error(`deleteProduct - ${err}`);
