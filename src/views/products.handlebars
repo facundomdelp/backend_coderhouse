@@ -1,0 +1,45 @@
+<div class='card-container' style='display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-block: 20px'>
+  {{#each products.payload}}
+    <div class='card' style='width: 18rem'>
+      <img src='{{this.thumbnails}}' class='card-img-top' alt='Product image' style='height: 200px; object-fit: cover;' />
+      <div class='card-body' style='display: flex; flex-direction: column'>
+        <h5 class='card-title'>{{title}}</h5>
+        <p class='card-text' style='font-size: 14px;'>{{description}}</p>
+        <p class='card-text' style='font-weight: bold; color: darkblue; font-size: 24px'>{{price}} USD</p>
+        <p class='card-text' style='text-transform: uppercase; color: gray; font-size: 12px'>{{category}}</p>
+        <p class='card-text' style='font-weight: 500; font-size: 12px'>STOCK: {{stock}}</p>
+        <button class='addToCart btn btn-primary' data-id={{id}} style='align-self: flex-end; margin-top: auto'>Add to Cart</button>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+<div style='display: flex; flex-direction: column; margin: 20px'>
+  {{#if products.hasPrevPage}}
+  <a href='./products?page={{products.prevPage}}' style='align-self: flex-start'>
+    <button class='btn btn-secondary'>Previous</button>
+  </a>
+  {{/if}}
+  {{#if products.hasNextPage}}
+  <a href='./products?page={{products.nextPage}}' style='align-self: flex-end'>
+    <button class='btn btn-secondary'>Next</button>
+  </a>
+  {{/if}}
+</div>
+
+<script>
+  const addToCart = document.getElementsByClassName('addToCart')
+  const addProductToCart = async (e) => {
+    const productId = e.target.getAttribute('data-id')
+    try {
+      await fetch(`http://localhost:8080/api/carts/${1}/products/${productId}`, {
+        method: 'POST'
+      });
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+  Array.from(addToCart).forEach(async button => {
+    button.addEventListener('click', addProductToCart)
+  })
+</script>

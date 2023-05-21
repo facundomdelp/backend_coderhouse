@@ -1,15 +1,14 @@
 import mongoose from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 mongoose.pluralize(null);
 const collection = 'products';
-
-// Para próximos desafíos:
-// Se debe agregar un index = true en los campos a partir de los cuales voy a hacer una búsqueda.
 
 const schema = new mongoose.Schema({
   id: {
     type: Number,
     required: true,
+    index: true,
   },
   title: {
     type: String,
@@ -38,10 +37,12 @@ const schema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
+    index: true,
   },
   thumbnails: [String],
 });
 
+schema.plugin(mongoosePaginate);
 const productsModel = mongoose.model(collection, schema);
 
 export default productsModel;

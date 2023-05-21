@@ -1,0 +1,14 @@
+<div class='container' style='margin-top: 20px'>
+  <h1>CART</h1>
+  <div class='d-flex flex-column mb-3 gap-3'>
+    {{#each cart}}
+      <div class='d-flex flex-row mb-10'>
+        <img src='{{this.thumbnails}}' class='me-4 w-3' alt='Product image' style='height: 150px; width: 150px;object-fit: cover;' />
+        <div class='w-70'>
+          <h5>{{title}}</h5>
+          <p style='font-weight: bold; font-size: 24px;'>{{price}} USD</p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
