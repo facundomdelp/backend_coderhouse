@@ -9,14 +9,6 @@ class CartManager {
   static #isProductInCart = (cartToUpdate, pid) => cartToUpdate.products.some((product) => product.id === pid);
   static #findProductIndexInCart = (cartToUpdate, pid) => cartToUpdate.products.findIndex((product) => product.id === pid);
 
-  getCarts = async () => {
-    try {
-      return await cartsModel.find();
-    } catch (err) {
-      throw new Error(`getProducts - ${err}`);
-    }
-  };
-
   createCart = async () => {
     try {
       const carts = await cartsModel.find().sort({ _id: -1 }).limit(1);
@@ -30,7 +22,7 @@ class CartManager {
 
   getCartById = async (id) => {
     try {
-      const cart = await cartsModel.findOne({ id });
+      const cart = await cartsModel.findOne({ id }).populate('productsInCart');
       if (!cart) throw new Error(`Cart doesn't exist in the database`);
       return cart;
     } catch (err) {
