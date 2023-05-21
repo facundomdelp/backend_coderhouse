@@ -16,7 +16,7 @@ class ProductManager {
     category && (query.category = category);
     stockGreaterThan && (query.stock = { $gt: stockGreaterThan });
     const sortByPrice = sort === 'asc' ? { price: 1 } : sort === 'desc' ? { price: -1 } : undefined;
-    const paginatedProducts = await productsModel.paginate(query, { limit, page, sort: sortByPrice, customLabels, lean: true });
+    const paginatedProducts = await productsModel.paginate(query, { limit, page, sort: sortByPrice, customLabels, lean: true, leanWithId: false });
     const extraLabels = {
       prevLink: paginatedProducts.hasPrevPage ? `/api/products?page=${parseInt(page) - 1}` : null,
       nextLink: paginatedProducts.hasNextPage ? `/api/products?page=${parseInt(page) + 1}` : null,

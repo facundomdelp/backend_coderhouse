@@ -1,7 +1,6 @@
 import cartsModel from './models/carts.model.js';
-import ProductManager from './productsManager.db.js';
 
-class CartManager {
+class CartsManager {
   constructor() {
     this.carts = [];
   }
@@ -22,7 +21,7 @@ class CartManager {
 
   getCartById = async (id) => {
     try {
-      const cart = await cartsModel.findOne({ id }).populate('productsInCart');
+      const cart = await cartsModel.findOne({ id }).populate('productsInCart').lean();
       if (!cart) throw new Error(`Cart doesn't exist in the database`);
       return cart;
     } catch (err) {
@@ -33,8 +32,8 @@ class CartManager {
   addProductToCart = async (id, pid) => {
     try {
       const cartToUpdate = await this.getCartById(id);
-      if (CartManager.#isProductInCart(cartToUpdate, pid)) {
-        cartToUpdate.products[CartManager.#findProductIndexInCart(cartToUpdate, pid)].quantity++;
+      if (CartsManager.#isProductInCart(cartToUpdate, pid)) {
+        cartToUpdate.products[CartsManager.#findProductIndexInCart(cartToUpdate, pid)].quantity++;
       } else {
         cartToUpdate.products.push({
           id: pid,
@@ -52,7 +51,7 @@ class CartManager {
   deleteProductFromCart = async (id, pid) => {
     try {
       const cartToDeleteProduct = await this.getCartById(id);
-      if (CartManager.#isProductInCart(cartToDeleteProduct, pid)) {
+      if (CartsManager.#isProductInCart(cartToDeleteProduct, pid)) {
         await cartsModel.updateOne({ id }, { $pull: { products: { id: pid } } });
         return { message: 'Product deleted successfully' };
       } else {
@@ -72,7 +71,7 @@ class CartManager {
         if ([pid, quantity].includes(undefined)) {
           throw new Error(`${products.indexOf(product) + 1}° product with incomplete mandatory fields`);
         }
-        if (CartManager.#isProductInCart(cartToUpdate, pid)) {
+        if (CartsManager.#isProductInCart(cartToUpdate, pid)) {
           for (let i = 1; i <= quantity; i++) {
             await this.addProductToCart(id, pid);
           }
@@ -90,7 +89,7 @@ class CartManager {
     try {
       if (!quantity) throw new Error(`Please enter a quantity`);
       const cartToUpdateProductQuantity = await this.getCartById(id);
-      cartToUpdateProductQuantity.products[CartManager.#findProductIndexInCart(cartToUpdateProductQuantity, pid)].quantity = quantity;
+      cartToUpdateProductQuantity.products[CartsManager.#findProductIndexInCart(cartToUpdateProductQuantity, pid)].quantity = quantity;
       await cartsModel.updateOne({ id }, { $set: cartToUpdateProductQuantity });
       return { message: 'Product quantity updated' };
     } catch (err) {
@@ -108,4 +107,4 @@ class CartManager {
   };
 }
 
-export default CartManager;
+export default CartsManager;

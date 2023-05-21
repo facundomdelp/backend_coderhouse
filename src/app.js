@@ -47,7 +47,7 @@ server.set('views', `${__dirname}/views`);
 
 // Endpoint views
 server.get('/home', (req, res) => {
-  res.send('/products</br>/realTimeProducts</br>/messages');
+  res.send('/products</br>/realTimeProducts</br>/carts</br>/messages');
 });
 server.use('/home', viewsRouter);
 
