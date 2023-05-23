@@ -32,7 +32,10 @@ router.get('/messages', async (req, res) => {
 router.get('/carts/:cid', async (req, res) => {
   const cart = await cartsManager.getCartById(req.params.cid);
   res.render('cart', {
-    cart: cart.productsInCart,
+    cart: cart.products.map((product) => {
+      const matchedProduct = cart.productsInCart.find((p) => p.id === product.id);
+      return { ...product, ...matchedProduct };
+    }),
   });
 });
 
