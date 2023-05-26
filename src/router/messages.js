@@ -1,16 +1,17 @@
 import express from 'express';
 import MessagesManager from '../dao/messages.dbclass.js';
+import { apiValidate } from './middlewares/validation.js';
 
 const router = express.Router();
 const messagesManager = new MessagesManager();
 
 const messagesRouter = (wss) => {
-  router.get('/', async (req, res) => {
+  router.get('/', apiValidate, async (req, res) => {
     const messagesHistory = await messagesManager.getMessages();
     res.status(200).send(JSON.stringify(messagesHistory));
   });
 
-  router.post('/', async (req, res) => {
+  router.post('/', apiValidate, async (req, res) => {
     try {
       const newMessage = req.body;
       const response = await messagesManager.addMessage(newMessage);

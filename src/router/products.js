@@ -1,16 +1,17 @@
 import express from 'express';
 import ProductManager from '../dao/productsManager.dbclass.js';
+import { apiValidate } from './middlewares/validation.js';
 
 const router = express.Router();
 const productManager = new ProductManager();
 
 const productsRouter = (wss) => {
-  router.get('/', async (req, res) => {
+  router.get('/', apiValidate, async (req, res) => {
     const products = await productManager.getProducts(req.query);
     res.status(200).send(JSON.stringify(products));
   });
 
-  router.get('/:pid', async (req, res) => {
+  router.get('/:pid', apiValidate, async (req, res) => {
     const product = await productManager.getProductById(parseInt(req.params.pid));
     if (!product) {
       return res.status(404).send();
@@ -18,7 +19,7 @@ const productsRouter = (wss) => {
     res.status(200).send(JSON.stringify(product));
   });
 
-  router.post('/', async (req, res) => {
+  router.post('/', apiValidate, async (req, res) => {
     try {
       const newProduct = req.body;
       const response = await productManager.addProduct(newProduct);
@@ -30,7 +31,7 @@ const productsRouter = (wss) => {
     }
   });
 
-  router.put('/:pid', async (req, res) => {
+  router.put('/:pid', apiValidate, async (req, res) => {
     try {
       const response = await productManager.updateProduct({ id: parseInt(req.params.pid), ...req.body });
       res.status(200).send(response);
@@ -39,7 +40,7 @@ const productsRouter = (wss) => {
     }
   });
 
-  router.delete('/:pid', async (req, res) => {
+  router.delete('/:pid', apiValidate, async (req, res) => {
     try {
       const response = await productManager.deleteProduct(parseInt(req.params.pid));
       res.status(200).send(response);

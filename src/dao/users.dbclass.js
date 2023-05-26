@@ -5,7 +5,7 @@ class UsersManager {
     this.users = [];
   }
 
-  // Agregar crypto
+  // Agregar crypto ?
 
   addUser = async (user, password) => {
     try {
@@ -26,7 +26,7 @@ class UsersManager {
     try {
       const response = await usersModel.findOne({ user, password });
       if (!response) {
-        return { message: `Incorrect user or password` };
+        throw new Error(`Incorrect user or password`);
       }
       return response;
     } catch (err) {

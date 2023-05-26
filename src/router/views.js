@@ -2,6 +2,7 @@ import express from 'express';
 import ProductManager from '../dao/productsManager.dbclass.js';
 import MessagesManager from '../dao/messages.dbclass.js';
 import CartsManager from '../dao/cartManager.dbclass.js';
+import { renderValidate } from './middlewares/validation.js';
 
 const router = express.Router();
 const productManager = new ProductManager();
@@ -19,28 +20,28 @@ const mainRouter = (BASE_URL) => {
     res.render('register');
   });
 
-  router.get('/home/products', async (req, res) => {
+  router.get('/home/products', renderValidate, async (req, res) => {
     const products = await productManager.getProducts(req.query);
     res.render('products', {
       products
     });
   });
 
-  router.get('/home/realTimeProducts', async (req, res) => {
+  router.get('/home/realTimeProducts', renderValidate, async (req, res) => {
     const products = await productManager.getProducts(req.query);
     res.render('realTimeProducts', {
       products
     });
   });
 
-  router.get('/home/messages', async (req, res) => {
+  router.get('/home/messages', renderValidate, async (req, res) => {
     const messages = await messagesManager.getMessages();
     res.render('messages', {
       messages
     });
   });
 
-  router.get('/home/carts/:cid', async (req, res) => {
+  router.get('/home/carts/:cid', renderValidate, async (req, res) => {
     const cart = await cartsManager.getCartById(req.params.cid);
     res.render('cart', {
       cart: cart.products.map((product) => {
