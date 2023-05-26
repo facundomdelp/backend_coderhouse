@@ -8,38 +8,38 @@ const schema = new mongoose.Schema({
   id: {
     type: Number,
     required: true,
-    index: true,
+    index: true
   },
   title: {
     type: String,
-    required: true,
+    required: true
   },
   description: {
     type: String,
-    required: true,
+    required: true
   },
   code: {
     type: String,
-    required: true,
+    required: true
   },
   price: {
     type: Number,
-    required: true,
+    required: true
   },
   status: {
     type: Boolean,
-    required: true,
+    required: true
   },
   stock: {
     type: Number,
-    required: true,
+    required: true
   },
   category: {
     type: String,
     required: true,
-    index: true,
+    index: true
   },
-  thumbnails: [String],
+  thumbnails: [String]
 });
 
 schema.plugin(mongoosePaginate);

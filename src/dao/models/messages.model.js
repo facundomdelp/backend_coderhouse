@@ -6,12 +6,12 @@ const collection = 'messages';
 const schema = new mongoose.Schema({
   user: {
     type: String,
-    required: true,
+    required: true
   },
   message: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const messagesModel = mongoose.model(collection, schema);

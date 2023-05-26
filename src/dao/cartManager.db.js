@@ -37,7 +37,7 @@ class CartsManager {
       } else {
         cartToUpdate.products.push({
           id: pid,
-          quantity: 1,
+          quantity: 1
         });
       }
       const _idToUpdate = await cartsModel.findOne({ id }, { _id: 1 });

@@ -27,7 +27,7 @@ class MessagesManager {
       }
       await messagesModel.create({
         user,
-        message,
+        message
       });
       return { result: `Message added successfully` };
     } catch (err) {

@@ -68,7 +68,7 @@ class ProductManager {
       status: true,
       stock,
       category,
-      thumbnails,
+      thumbnails
     });
 
     await ProductManager.saveProducts(this.path, this.products);

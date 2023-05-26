@@ -11,21 +11,21 @@ const cartsManager = new CartsManager();
 router.get('/products', async (req, res) => {
   const products = await productManager.getProducts(req.query);
   res.render('products', {
-    products: products,
+    products: products
   });
 });
 
 router.get('/realTimeProducts', async (req, res) => {
   const products = await productManager.getProducts(req.query);
   res.render('realTimeProducts', {
-    products,
+    products
   });
 });
 
 router.get('/messages', async (req, res) => {
   const messages = await messagesManager.getMessages();
   res.render('messages', {
-    messages,
+    messages
   });
 });
 
@@ -35,7 +35,7 @@ router.get('/carts/:cid', async (req, res) => {
     cart: cart.products.map((product) => {
       const matchedProduct = cart.productsInCart.find((p) => p.id === product.id);
       return { ...product, ...matchedProduct };
-    }),
+    })
   });
 });
 

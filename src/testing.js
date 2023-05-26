@@ -12,7 +12,7 @@ products.addProduct({
   price: 890,
   stock: 100,
   category: 'technology',
-  thumbnails: ['url1'],
+  thumbnails: ['url1']
 });
 
 products.addProduct({
@@ -22,7 +22,7 @@ products.addProduct({
   price: 299,
   stock: 50,
   category: 'technology',
-  thumbnails: ['url2'],
+  thumbnails: ['url2']
 });
 
 products.addProduct({
@@ -32,7 +32,7 @@ products.addProduct({
   price: 499,
   stock: 200,
   category: 'technology',
-  thumbnails: ['url3'],
+  thumbnails: ['url3']
 });
 
 products.addProduct({
@@ -42,7 +42,7 @@ products.addProduct({
   price: 1999,
   stock: 25,
   category: 'technology',
-  thumbnails: ['url4'],
+  thumbnails: ['url4']
 });
 
 products.addProduct({
@@ -52,7 +52,7 @@ products.addProduct({
   price: 3799,
   stock: 15,
   category: 'technology',
-  thumbnails: ['url5'],
+  thumbnails: ['url5']
 });
 
 products.addProduct({
@@ -62,7 +62,7 @@ products.addProduct({
   price: 899,
   stock: 300,
   category: 'technology',
-  thumbnails: ['url6'],
+  thumbnails: ['url6']
 });
 
 products.addProduct({
@@ -72,7 +72,7 @@ products.addProduct({
   price: 1399,
   stock: 50,
   category: 'technology',
-  thumbnails: ['url7'],
+  thumbnails: ['url7']
 });
 
 products.addProduct({
@@ -82,7 +82,7 @@ products.addProduct({
   price: 59,
   stock: 500,
   category: 'technology',
-  thumbnails: ['url8'],
+  thumbnails: ['url8']
 });
 
 products.addProduct({
@@ -92,7 +92,7 @@ products.addProduct({
   price: 499,
   stock: 150,
   category: 'technology',
-  thumbnails: ['url9'],
+  thumbnails: ['url9']
 });
 
 products.addProduct({
@@ -102,7 +102,7 @@ products.addProduct({
   price: 199,
   stock: 500,
   category: 'technology',
-  thumbnails: ['url10'],
+  thumbnails: ['url10']
 });
 
 products.addProduct({
@@ -112,7 +112,7 @@ products.addProduct({
   price: 299,
   stock: 50,
   category: 'kitchen',
-  thumbnails: ['url11'],
+  thumbnails: ['url11']
 });
 products.addProduct({
   title: 'Blender',
@@ -121,7 +121,7 @@ products.addProduct({
   price: 149,
   stock: 100,
   category: 'kitchen',
-  thumbnails: ['url12'],
+  thumbnails: ['url12']
 });
 products.addProduct({
   title: 'Food Processor',
@@ -130,7 +130,7 @@ products.addProduct({
   price: 199,
   stock: 75,
   category: 'kitchen',
-  thumbnails: ['url13'],
+  thumbnails: ['url13']
 });
 products.addProduct({
   title: 'Slow Cooker',
@@ -139,7 +139,7 @@ products.addProduct({
   price: 99,
   stock: 200,
   category: 'kitchen',
-  thumbnails: ['url14'],
+  thumbnails: ['url14']
 });
 products.addProduct({
   title: 'Toaster',
@@ -148,7 +148,7 @@ products.addProduct({
   price: 49,
   stock: 300,
   category: 'kitchen',
-  thumbnails: ['url15'],
+  thumbnails: ['url15']
 });
 products.addProduct({
   title: 'Coffee Maker',
@@ -157,7 +157,7 @@ products.addProduct({
   price: 79,
   stock: 150,
   category: 'kitchen',
-  thumbnails: ['url16'],
+  thumbnails: ['url16']
 });
 products.addProduct({
   title: 'Electric Kettle',
@@ -166,7 +166,7 @@ products.addProduct({
   price: 39,
   stock: 250,
   category: 'kitchen',
-  thumbnails: ['url17'],
+  thumbnails: ['url17']
 });
 products.addProduct({
   title: 'Air Fryer',
@@ -175,7 +175,7 @@ products.addProduct({
   price: 129,
   stock: 100,
   category: 'kitchen',
-  thumbnails: ['url18'],
+  thumbnails: ['url18']
 });
 products.addProduct({
   title: 'Juicer',
@@ -184,7 +184,7 @@ products.addProduct({
   price: 99,
   stock: 50,
   category: 'kitchen',
-  thumbnails: ['url19'],
+  thumbnails: ['url19']
 });
 products.addProduct({
   title: 'Rice Cooker',
@@ -193,7 +193,7 @@ products.addProduct({
   price: 69,
   stock: 75,
   category: 'kitchen',
-  thumbnails: ['url20'],
+  thumbnails: ['url20']
 });
 
 products.addProduct({
@@ -203,7 +203,7 @@ products.addProduct({
   price: 299,
   stock: 50,
   category: 'outdoor',
-  thumbnails: ['url21'],
+  thumbnails: ['url21']
 });
 products.addProduct({
   title: 'Sleeping Bag',
@@ -212,7 +212,7 @@ products.addProduct({
   price: 149,
   stock: 100,
   category: 'outdoor',
-  thumbnails: ['url22'],
+  thumbnails: ['url22']
 });
 products.addProduct({
   title: 'Backpack',
@@ -221,7 +221,7 @@ products.addProduct({
   price: 199,
   stock: 75,
   category: 'outdoor',
-  thumbnails: ['url23'],
+  thumbnails: ['url23']
 });
 products.addProduct({
   title: 'Hiking Boots',
@@ -230,7 +230,7 @@ products.addProduct({
   price: 99,
   stock: 200,
   category: 'outdoor',
-  thumbnails: ['url24'],
+  thumbnails: ['url24']
 });
 products.addProduct({
   title: 'Climbing Rope',
@@ -239,7 +239,7 @@ products.addProduct({
   price: 49,
   stock: 300,
   category: 'outdoor',
-  thumbnails: ['url25'],
+  thumbnails: ['url25']
 });
 products.addProduct({
   title: 'Portable Grill',
@@ -248,7 +248,7 @@ products.addProduct({
   price: 79,
   stock: 150,
   category: 'outdoor',
-  thumbnails: ['url26'],
+  thumbnails: ['url26']
 });
 products.addProduct({
   title: 'Fishing Rod',
@@ -257,7 +257,7 @@ products.addProduct({
   price: 39,
   stock: 250,
   category: 'outdoor',
-  thumbnails: ['url27'],
+  thumbnails: ['url27']
 });
 products.addProduct({
   title: 'Kayak',
@@ -266,7 +266,7 @@ products.addProduct({
   price: 129,
   stock: 100,
   category: 'outdoor',
-  thumbnails: ['url28'],
+  thumbnails: ['url28']
 });
 products.addProduct({
   title: 'Tent Lantern',
@@ -275,7 +275,7 @@ products.addProduct({
   price: 99,
   stock: 50,
   category: 'outdoor',
-  thumbnails: ['url29'],
+  thumbnails: ['url29']
 });
 products.addProduct({
   title: 'Waterproof Backpack',
@@ -284,7 +284,7 @@ products.addProduct({
   price: 69,
   stock: 75,
   category: 'outdoor',
-  thumbnails: ['url30'],
+  thumbnails: ['url30']
 });
 
 products.addProduct({
@@ -294,7 +294,7 @@ products.addProduct({
   price: 399,
   stock: 50,
   category: 'home office',
-  thumbnails: ['url31'],
+  thumbnails: ['url31']
 });
 products.addProduct({
   title: 'Standing Desk',
@@ -303,7 +303,7 @@ products.addProduct({
   price: 799,
   stock: 25,
   category: 'home office',
-  thumbnails: ['url32'],
+  thumbnails: ['url32']
 });
 products.addProduct({
   title: 'Monitor Arm',
@@ -312,7 +312,7 @@ products.addProduct({
   price: 99,
   stock: 100,
   category: 'home office',
-  thumbnails: ['url33'],
+  thumbnails: ['url33']
 });
 products.addProduct({
   title: 'Wireless Keyboard and Mouse',
@@ -321,7 +321,7 @@ products.addProduct({
   price: 149,
   stock: 75,
   category: 'home office',
-  thumbnails: ['url34'],
+  thumbnails: ['url34']
 });
 products.addProduct({
   title: 'Laptop Stand',
@@ -330,7 +330,7 @@ products.addProduct({
   price: 49,
   stock: 300,
   category: 'home office',
-  thumbnails: ['url35'],
+  thumbnails: ['url35']
 });
 products.addProduct({
   title: 'Noise-Cancelling Headphones',
@@ -339,7 +339,7 @@ products.addProduct({
   price: 299,
   stock: 50,
   category: 'home office',
-  thumbnails: ['url36'],
+  thumbnails: ['url36']
 });
 products.addProduct({
   title: 'Webcam',
@@ -348,7 +348,7 @@ products.addProduct({
   price: 99,
   stock: 150,
   category: 'home office',
-  thumbnails: ['url37'],
+  thumbnails: ['url37']
 });
 products.addProduct({
   title: 'Printer',
@@ -357,7 +357,7 @@ products.addProduct({
   price: 199,
   stock: 100,
   category: 'home office',
-  thumbnails: ['url38'],
+  thumbnails: ['url38']
 });
 products.addProduct({
   title: 'Document Scanner',
@@ -366,7 +366,7 @@ products.addProduct({
   price: 149,
   stock: 75,
   category: 'home office',
-  thumbnails: ['url39'],
+  thumbnails: ['url39']
 });
 products.addProduct({
   title: 'Desk Lamp',
@@ -375,7 +375,7 @@ products.addProduct({
   price: 59,
   stock: 200,
   category: 'home office',
-  thumbnails: ['url40'],
+  thumbnails: ['url40']
 });
 
 products.addProduct({
@@ -385,7 +385,7 @@ products.addProduct({
   price: 499,
   stock: 50,
   category: 'home gym',
-  thumbnails: ['url41'],
+  thumbnails: ['url41']
 });
 products.addProduct({
   title: 'Treadmill',
@@ -394,7 +394,7 @@ products.addProduct({
   price: 1999,
   stock: 10,
   category: 'home gym',
-  thumbnails: ['url42'],
+  thumbnails: ['url42']
 });
 products.addProduct({
   title: 'Exercise Bike',
@@ -403,7 +403,7 @@ products.addProduct({
   price: 899,
   stock: 25,
   category: 'home gym',
-  thumbnails: ['url43'],
+  thumbnails: ['url43']
 });
 products.addProduct({
   title: 'Kettlebell Set',
@@ -412,7 +412,7 @@ products.addProduct({
   price: 299,
   stock: 75,
   category: 'home gym',
-  thumbnails: ['url44'],
+  thumbnails: ['url44']
 });
 products.addProduct({
   title: 'Resistance Bands',
@@ -421,7 +421,7 @@ products.addProduct({
   price: 49,
   stock: 200,
   category: 'home gym',
-  thumbnails: ['url45'],
+  thumbnails: ['url45']
 });
 products.addProduct({
   title: 'Yoga Mat',
@@ -430,7 +430,7 @@ products.addProduct({
   price: 29,
   stock: 300,
   category: 'home gym',
-  thumbnails: ['url46'],
+  thumbnails: ['url46']
 });
 products.addProduct({
   title: 'Foam Roller',
@@ -439,7 +439,7 @@ products.addProduct({
   price: 39,
   stock: 150,
   category: 'home gym',
-  thumbnails: ['url47'],
+  thumbnails: ['url47']
 });
 products.addProduct({
   title: 'Pull-Up Bar',
@@ -448,7 +448,7 @@ products.addProduct({
   price: 99,
   stock: 50,
   category: 'home gym',
-  thumbnails: ['url48'],
+  thumbnails: ['url48']
 });
 products.addProduct({
   title: 'Jump Rope',
@@ -457,7 +457,7 @@ products.addProduct({
   price: 19,
   stock: 500,
   category: 'home gym',
-  thumbnails: ['url49'],
+  thumbnails: ['url49']
 });
 products.addProduct({
   title: 'Gymnastics Rings',
@@ -466,7 +466,7 @@ products.addProduct({
   price: 89,
   stock: 25,
   category: 'home gym',
-  thumbnails: ['url50'],
+  thumbnails: ['url50']
 });
 
 products.addProduct({
@@ -476,7 +476,7 @@ products.addProduct({
   price: 49,
   stock: 500,
   category: 'bathroom',
-  thumbnails: ['url61'],
+  thumbnails: ['url61']
 });
 products.addProduct({
   title: 'Toilet Seat',
@@ -485,7 +485,7 @@ products.addProduct({
   price: 99,
   stock: 200,
   category: 'bathroom',
-  thumbnails: ['url62'],
+  thumbnails: ['url62']
 });
 products.addProduct({
   title: 'Bathroom Scale',
@@ -494,7 +494,7 @@ products.addProduct({
   price: 29,
   stock: 300,
   category: 'bathroom',
-  thumbnails: ['url63'],
+  thumbnails: ['url63']
 });
 products.addProduct({
   title: 'Towel Rack',
@@ -503,7 +503,7 @@ products.addProduct({
   price: 39,
   stock: 250,
   category: 'bathroom',
-  thumbnails: ['url64'],
+  thumbnails: ['url64']
 });
 products.addProduct({
   title: 'Bathroom Mirror',
@@ -512,7 +512,7 @@ products.addProduct({
   price: 149,
   stock: 100,
   category: 'bathroom',
-  thumbnails: ['url65'],
+  thumbnails: ['url65']
 });
 products.addProduct({
   title: 'Toothbrush Holder',
@@ -521,7 +521,7 @@ products.addProduct({
   price: 9,
   stock: 500,
   category: 'bathroom',
-  thumbnails: ['url66'],
+  thumbnails: ['url66']
 });
 products.addProduct({
   title: 'Soap Dispenser',
@@ -530,7 +530,7 @@ products.addProduct({
   price: 19,
   stock: 400,
   category: 'bathroom',
-  thumbnails: ['url67'],
+  thumbnails: ['url67']
 });
 products.addProduct({
   title: 'Bath Mat',
@@ -539,7 +539,7 @@ products.addProduct({
   price: 29,
   stock: 350,
   category: 'bathroom',
-  thumbnails: ['url68'],
+  thumbnails: ['url68']
 });
 products.addProduct({
   title: 'Shower Curtain',
@@ -548,7 +548,7 @@ products.addProduct({
   price: 19,
   stock: 450,
   category: 'bathroom',
-  thumbnails: ['url69'],
+  thumbnails: ['url69']
 });
 products.addProduct({
   title: 'Hand Dryer',
@@ -557,7 +557,7 @@ products.addProduct({
   price: 149,
   stock: 75,
   category: 'bathroom',
-  thumbnails: ['url70'],
+  thumbnails: ['url70']
 });
 
 products.addProduct({
@@ -567,7 +567,7 @@ products.addProduct({
   price: 89,
   stock: 200,
   category: 'decoration',
-  thumbnails: ['url71'],
+  thumbnails: ['url71']
 });
 products.addProduct({
   title: 'Throw Pillow',
@@ -576,7 +576,7 @@ products.addProduct({
   price: 19,
   stock: 500,
   category: 'decoration',
-  thumbnails: ['url72'],
+  thumbnails: ['url72']
 });
 products.addProduct({
   title: 'Area Rug',
@@ -585,7 +585,7 @@ products.addProduct({
   price: 199,
   stock: 100,
   category: 'decoration',
-  thumbnails: ['url73'],
+  thumbnails: ['url73']
 });
 products.addProduct({
   title: 'Wall Clock',
@@ -594,7 +594,7 @@ products.addProduct({
   price: 39,
   stock: 400,
   category: 'decoration',
-  thumbnails: ['url74'],
+  thumbnails: ['url74']
 });
 products.addProduct({
   title: 'Table Lamp',
@@ -603,7 +603,7 @@ products.addProduct({
   price: 69,
   stock: 300,
   category: 'decoration',
-  thumbnails: ['url75'],
+  thumbnails: ['url75']
 });
 products.addProduct({
   title: 'Candle Holder',
@@ -612,7 +612,7 @@ products.addProduct({
   price: 29,
   stock: 250,
   category: 'decoration',
-  thumbnails: ['url76'],
+  thumbnails: ['url76']
 });
 products.addProduct({
   title: 'Picture Frame',
@@ -621,7 +621,7 @@ products.addProduct({
   price: 14,
   stock: 600,
   category: 'decoration',
-  thumbnails: ['url77'],
+  thumbnails: ['url77']
 });
 products.addProduct({
   title: 'Wall Sconce',
@@ -630,7 +630,7 @@ products.addProduct({
   price: 99,
   stock: 150,
   category: 'decoration',
-  thumbnails: ['url78'],
+  thumbnails: ['url78']
 });
 products.addProduct({
   title: 'Sculpture',
@@ -639,7 +639,7 @@ products.addProduct({
   price: 119,
   stock: 75,
   category: 'decoration',
-  thumbnails: ['url79'],
+  thumbnails: ['url79']
 });
 products.addProduct({
   title: 'Window Curtain',
@@ -648,7 +648,7 @@ products.addProduct({
   price: 49,
   stock: 350,
   category: 'decoration',
-  thumbnails: ['url80'],
+  thumbnails: ['url80']
 });
 
 // NOK
@@ -659,7 +659,7 @@ products.addProduct({
   price: 44,
   stock: 30,
   category: 'decoration',
-  thumbnails: ['url81'],
+  thumbnails: ['url81']
 });
 products.addProduct({ title: 'Mouse', description: 'For gaming' });
 

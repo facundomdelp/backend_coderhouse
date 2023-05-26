@@ -10,7 +10,7 @@ class ProductManager {
       docs: 'payload',
       totalDocs: false,
       limit: false,
-      pagingCounter: false,
+      pagingCounter: false
     };
     const query = {};
     category && (query.category = category);
@@ -19,7 +19,7 @@ class ProductManager {
     const paginatedProducts = await productsModel.paginate(query, { limit, page, sort: sortByPrice, customLabels, lean: true, leanWithId: false });
     const extraLabels = {
       prevLink: paginatedProducts.hasPrevPage ? `/api/products?page=${parseInt(page) - 1}` : null,
-      nextLink: paginatedProducts.hasNextPage ? `/api/products?page=${parseInt(page) + 1}` : null,
+      nextLink: paginatedProducts.hasNextPage ? `/api/products?page=${parseInt(page) + 1}` : null
     };
     try {
       extraLabels.status = 'success';
