@@ -1,5 +1,5 @@
 import express from 'express';
-import ProductManager from '../dao/productsManager.db.js';
+import ProductManager from '../dao/productsManager.dbclass.js';
 
 const router = express.Router();
 const productManager = new ProductManager();
@@ -21,10 +21,10 @@ const productsRouter = (wss) => {
   router.post('/', async (req, res) => {
     try {
       const newProduct = req.body;
-      const message = await productManager.addProduct(newProduct);
-      const newId = message.id;
-      res.status(200).send(message);
-      wss.emit('new_product', { message, newProduct, newId });
+      const response = await productManager.addProduct(newProduct);
+      const newId = response.id;
+      res.status(200).send(response);
+      wss.emit('new_product', { response, newProduct, newId });
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
@@ -32,8 +32,8 @@ const productsRouter = (wss) => {
 
   router.put('/:pid', async (req, res) => {
     try {
-      const message = await productManager.updateProduct({ id: parseInt(req.params.pid), ...req.body });
-      res.status(200).send(message);
+      const response = await productManager.updateProduct({ id: parseInt(req.params.pid), ...req.body });
+      res.status(200).send(response);
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
@@ -41,9 +41,9 @@ const productsRouter = (wss) => {
 
   router.delete('/:pid', async (req, res) => {
     try {
-      const message = await productManager.deleteProduct(parseInt(req.params.pid));
-      res.status(200).send(message);
-      wss.emit('deleted_product', { message, deletedId });
+      const response = await productManager.deleteProduct(parseInt(req.params.pid));
+      res.status(200).send(response);
+      wss.emit('deleted_product', { response, deletedId });
     } catch (error) {
       res.status(400).send({ error: error.message });
     }

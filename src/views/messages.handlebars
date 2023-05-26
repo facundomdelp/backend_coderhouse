@@ -37,7 +37,7 @@
         message: newMessageInput.value
       };
       try {
-        const response = await fetch('http://localhost:8080/api/messages', {
+        const response = await fetch('http://localhost:8080/api/messages', { // Se podría traer la BASE_URL por socket
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

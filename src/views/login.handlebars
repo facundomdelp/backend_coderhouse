@@ -1,0 +1,30 @@
+<div class='row justify-content-md-center'>
+  <div class='col-md-4 col-xs-12 mt-4'>
+    <h2 class='mb-4'><b>Welcome</b></h2>
+
+    <div class='p-4' style='background: #e1e1e1; border-radius: 1rem'>
+      <form action='{{baseUrl}}/login' method='post'>
+
+        <div class='form-group mb-4'>
+          <label for='login_email'>Email</label>
+          <input type='email' class='form-control' id='login_email' name='login_email' aria-describedby='emailHelp' placeholder='Email' required='required' />
+        </div>
+
+        <div class='form-group mb-4'>
+          <label for='login_password'>Password</label>
+          <input type='password' class='form-control' id='login_password' name='login_password' required='required' />
+        </div>
+
+        <button type='submit' class='btn btn-success'><i class='fas fa-sign-in-alt'></i> Log in</button>
+
+      </form>
+      <a href='./register'><button class='btn btn-primary' id='register'>Register</button></a>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.getElementById('login_email').focus();
+</script>
