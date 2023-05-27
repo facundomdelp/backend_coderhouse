@@ -1,17 +1,26 @@
 import {} from 'dotenv/config';
+
+import { __dirname } from './fileUtils.js';
+
 import express from 'express';
-import handlebars from 'express-handlebars';
 import { Server } from 'socket.io';
+import session from 'express-session';
+import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
+import MongoStore from 'connect-mongo';
+
+import mainRouter from './router/main.js';
 import productsRouter from './router/products.js';
 import cartsRouter from './router/carts.js';
-import viewsRouter from './router/views.js';
 import messagesRouter from './router/messages.js';
-import { __dirname } from './fileUtils.js';
+import viewsRouter from './router/views.js';
 
 const PORT = parseInt(process.env.PORT) || 3000;
 const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
 const MONGOOSE_URL = process.env.MONGOOSE_URL;
+const SESSION_SECRET = process.env.SESSION_SECRET;
+const BASE_URL = `http://localhost:${PORT}`;
+const WS_URL = `ws://localhost:${WS_PORT}`;
 
 // Creación de servidores
 const server = express();
@@ -20,25 +29,34 @@ const httpServer = server.listen(WS_PORT, () => {
 });
 const wss = new Server(httpServer, {
   cors: {
-    origin: `http://localhost:${PORT}`,
-    methods: ['GET', 'POST'],
-  },
+    origin: BASE_URL,
+    methods: ['GET', 'POST']
+  }
 });
 
+// Parseo
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
-server.get('/', (req, res) => {
-  res.send(`Welcome to Facundo's Market Place SERVER</br></br>Route /api for more options`);
-});
+// Persistencia de sesiones
+const store = MongoStore.create({ mongoUrl: MONGOOSE_URL, mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }, ttl: 30 });
+server.use(
+  session({
+    store,
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 300 * 1000 }
+  })
+);
+
+// Entry point
+server.use('/', mainRouter(store, BASE_URL));
 
 // Enpoints API REST
-server.get('/api', (req, res) => {
-  res.send('/products</br>/carts</br>/messages');
-});
 server.use('/api/products', productsRouter(wss));
 server.use('/api/carts', cartsRouter);
-server.use('/api', messagesRouter(wss));
+server.use('/api/messages', messagesRouter(wss));
 
 // Motor de plantillas
 server.engine('handlebars', handlebars.engine());
@@ -46,10 +64,7 @@ server.set('view engine', 'handlebars');
 server.set('views', `${__dirname}/views`);
 
 // Endpoint views
-server.get('/home', (req, res) => {
-  res.send('/products</br>/realTimeProducts</br>/carts</br>/messages');
-});
-server.use('/home', viewsRouter);
+server.use('/', viewsRouter(BASE_URL, WS_URL));
 
 // Contenidos estáticos
 server.use('/public', express.static(`${__dirname}/public`));

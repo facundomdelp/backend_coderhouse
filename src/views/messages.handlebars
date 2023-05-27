@@ -1,23 +1,39 @@
-<head>
-  <span>Enter your e-mail: </span>
-  <input id="user_email" type='email' style='width: 250px' />
-</head>
-<div id='chat-container'>
-  {{#each messages}}
-    <div>
-      <span>{{user}}: </span>
-      <span>{{message}}</span>
+<div class='row justify-content-md-center m-4'>
+  <header class="mb-4">
+    <div class="form-group">
+      <label for="user_email">Enter your e-mail:</label>
+      <input id="user_email" type="email" class="form-control" aria-describedby='emailHelp' placeholder='Email' required='required' style="max-width: 250px;">
     </div>
-  {{/each}}
+  </header>
+
+  <div id="chat-container" style='max-height: 60vh; overflow-y: scroll'>
+    {{#each messages}}
+      <div class="card mb-2">
+        <div class="card-body" >
+          <span class='text-primary font-weight-bold'>{{user}}:</span>
+          <span>{{message}}</span>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <div id="message_input_container" class="mt-4">
+    <div class="input-group">
+      <input id="new_message_input" class="form-control" style="max-width: 450px;">
+      <div class="input-group-append">
+        <button id="submit_message" class="btn btn-primary ms-4">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
-<div id='message_input_container'>
-  <input id="new_message_input" style='width: 450px'/>
-  <button id="submit_message">Submit</button>
-</div>
+
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js'></script>
 <script>
-  const ws = io('ws://localhost:7050');
+
+  document.getElementById('user_email').focus();
+
+  const ws = io("{{wsUrl}}");
   ws.on('connect', () => {
     ws.on('server_confirm', (msg) => {
         console.log(msg);
@@ -30,6 +46,8 @@
   const newMessageInput = document.getElementById('new_message_input');
   const submitMessage = document.getElementById('submit_message');
 
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+
   submitMessage.addEventListener('click', async () => {
     if (newMessageInput.value.trim().length > 0) {
       const message = {
@@ -37,7 +55,7 @@
         message: newMessageInput.value
       };
       try {
-        const response = await fetch('http://localhost:8080/api/messages', {
+        const response = await fetch(`${"{{baseUrl}}"}/api/messages`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -58,11 +76,15 @@
 
   ws.on('message_received', ({ user, message }) => {
     const newMessage = `
-      <div class='message'>
-        <span>${user}: </span>
-        <span>${message}</span>
+      <div class="card mb-2">
+        <div class="card-body">
+          <span class='text-primary font-weight-bold'>${user}:</span>
+          <span>${message}</span>
+        </div>
       </div>
     `;
     chatContainer.innerHTML += newMessage;
+    chatContainer.scrollTop = chatContainer.scrollHeight;
   });
+
 </script>
