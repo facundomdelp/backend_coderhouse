@@ -20,6 +20,7 @@ const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
 const MONGOOSE_URL = process.env.MONGOOSE_URL;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const BASE_URL = `http://localhost:${PORT}`;
+const WS_URL = `ws://localhost:${WS_PORT}`;
 
 // Creación de servidores
 const server = express();
@@ -28,7 +29,7 @@ const httpServer = server.listen(WS_PORT, () => {
 });
 const wss = new Server(httpServer, {
   cors: {
-    origin: `http://localhost:${PORT}`,
+    origin: BASE_URL,
     methods: ['GET', 'POST']
   }
 });
@@ -45,7 +46,7 @@ server.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 30 * 1000 }
+    cookie: { maxAge: 300 * 1000 }
   })
 );
 
@@ -63,7 +64,7 @@ server.set('view engine', 'handlebars');
 server.set('views', `${__dirname}/views`);
 
 // Endpoint views
-server.use('/', viewsRouter(BASE_URL));
+server.use('/', viewsRouter(BASE_URL, WS_URL));
 
 // Contenidos estáticos
 server.use('/public', express.static(`${__dirname}/public`));

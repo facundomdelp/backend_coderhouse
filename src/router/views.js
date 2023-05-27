@@ -9,7 +9,7 @@ const productManager = new ProductManager();
 const messagesManager = new MessagesManager();
 const cartsManager = new CartsManager();
 
-const mainRouter = (BASE_URL) => {
+const mainRouter = (BASE_URL, WS_URL) => {
   router.get('/login', async (req, res) => {
     res.render('login', {
       baseUrl: BASE_URL
@@ -23,21 +23,25 @@ const mainRouter = (BASE_URL) => {
   router.get('/home/products', renderValidate, async (req, res) => {
     const products = await productManager.getProducts(req.query);
     res.render('products', {
-      products
+      products,
+      baseUrl: BASE_URL
     });
   });
 
   router.get('/home/realTimeProducts', renderValidate, async (req, res) => {
     const products = await productManager.getProducts(req.query);
     res.render('realTimeProducts', {
-      products
+      products,
+      wsUrl: WS_URL
     });
   });
 
   router.get('/home/messages', renderValidate, async (req, res) => {
     const messages = await messagesManager.getMessages();
     res.render('messages', {
-      messages
+      messages,
+      baseUrl: BASE_URL,
+      wsUrl: WS_URL
     });
   });
 

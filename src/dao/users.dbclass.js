@@ -5,8 +5,6 @@ class UsersManager {
     this.users = [];
   }
 
-  // Agregar crypto ?
-
   addUser = async (user, password) => {
     try {
       if ([user, password].includes(undefined)) {
@@ -15,7 +13,7 @@ class UsersManager {
       if ((await usersModel.findOne({ user })) !== null) {
         throw new Error(`The email direction is already registered`);
       }
-      await usersModel.create({ user, password, role: 'user' }); // El rol admin lo agregué directamente en la base de datos para el usuario de Coder
+      await usersModel.create({ user, password, role: 'user' }); // El rol admin lo agregué directamente en la base de datos para el usuario de Coder nada más
       return { message: `User registered satisfactory` };
     } catch (err) {
       throw new Error(`addUser - ${err}`);

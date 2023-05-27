@@ -15,7 +15,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
 <script>
-    const ws = io('ws://localhost:7050');
+    const ws = io("{{wsUrl}}");
     ws.on('connect', () => {
         ws.on('server_confirm', (msg) => {
             console.log(msg);

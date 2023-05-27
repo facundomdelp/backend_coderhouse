@@ -36,7 +36,7 @@
   const addProductToCart = async (e) => {
     const productId = e.target.getAttribute('data-id')
     try {
-      await fetch(`http://localhost:8080/api/carts/${1}/products/${productId}`, { // Se podría traer la BASE_URL por socket
+      await fetch(`${"{{baseUrl}}"}/api/carts/${1}/products/${productId}`, {
         method: 'POST'
       });
     } catch (error) {
