@@ -1,6 +1,6 @@
 import {} from 'dotenv/config';
 
-import { __dirname } from './fileUtils.js';
+import { __dirname } from './utils/fileUtils.js';
 
 import express from 'express';
 import { Server } from 'socket.io';
@@ -8,12 +8,14 @@ import session from 'express-session';
 import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
+import passport from 'passport';
 
 import mainRouter from './router/main.js';
 import productsRouter from './router/products.js';
 import cartsRouter from './router/carts.js';
 import messagesRouter from './router/messages.js';
 import viewsRouter from './router/views.js';
+import initializePassport from './auth/passport.config.js';
 
 const PORT = parseInt(process.env.PORT) || 3000;
 const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
@@ -46,9 +48,11 @@ server.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 300 * 1000 }
+    cookie: { maxAge: 1000 * 15 } // 15 segundos
   })
 );
+server.use(passport.initialize());
+initializePassport();
 
 // Entry point
 server.use('/', mainRouter(store, BASE_URL));

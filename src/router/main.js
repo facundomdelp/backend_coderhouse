@@ -1,5 +1,6 @@
 import express from 'express';
 import UsersManager from '../dao/users.dbclass.js';
+import passport from 'passport';
 
 const router = express.Router();
 const usersManager = new UsersManager();
@@ -8,7 +9,7 @@ const mainRouter = (store, baseUrl) => {
   router.get('/', async (req, res) => {
     store.get(req.sessionID, async (err, data) => {
       if (err) console.log(`Error while trying to retrieve data session (${err})`);
-      if (data !== null && (req.session.userValidated || req.sessionStore.userValidated)) {
+      if (req.session.userValidated || req.sessionStore.userValidated) {
         res.redirect('/home/products');
       } else {
         res.redirect('/login');
@@ -16,25 +17,36 @@ const mainRouter = (store, baseUrl) => {
     });
   });
 
-  router.post('/login', async (req, res) => {
-    const { login_email, login_password } = req.body;
-    const user = await usersManager.validateUser(login_email, login_password);
-
-    if (!user) {
-      req.session.userValidated = req.sessionStore.userValidated = false;
-    } else {
-      req.session.userValidated = req.sessionStore.userValidated = true;
-    }
-
-    res.redirect(baseUrl);
-  });
-
-  router.post('/register', async (req, res) => {
+  router.post('/register', passport.authenticate('authRegistration', { failureRedirect: '/register' }), async (req, res) => {
     try {
       const { login_email, login_password } = req.body;
       await usersManager.addUser(login_email, login_password);
       req.session.userValidated = req.sessionStore.userValidated = true;
-      res.redirect('/');
+      res.redirect(baseUrl);
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  });
+
+  router.post('/login', passport.authenticate('login', { failureRedirect: '/login' }), async (req, res) => {
+    try {
+      if (!req.user) throw new Error({ message: 'Invalid credentials' });
+      req.session.userValidated = req.sessionStore.userValidated = true;
+      req.sessionStore.userMail = req.body.login_email;
+      res.redirect(baseUrl);
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  });
+
+  router.get('/github', passport.authenticate('github', { scope: ['user:email'] }), async (req, res) => {});
+
+  router.get('/githubcallback', passport.authenticate('github', { failureRedirect: '/login' }), async (req, res) => {
+    try {
+      req.session.userValidated = req.sessionStore.userValidated = true;
+      req.sessionStore.userMail = req.user.user;
+      console.log('ahora llega acá?!');
+      res.redirect(baseUrl);
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
@@ -42,11 +54,9 @@ const mainRouter = (store, baseUrl) => {
 
   router.get('/logout', async (req, res) => {
     req.session.userValidated = req.sessionStore.userValidated = false;
-
     req.session.destroy((err) => {
       req.sessionStore.destroy(req.sessionID, (err) => {
         if (err) console.log(`Error while trying to destroy the session (${err})`);
-
         console.log('Destroyed sesion');
         res.redirect(baseUrl);
       });
