@@ -8,6 +8,7 @@ import session from 'express-session';
 import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
+import passport from 'passport';
 
 import mainRouter from './router/main.js';
 import productsRouter from './router/products.js';
@@ -49,6 +50,7 @@ server.use(
     cookie: { maxAge: 1000 * 300 }
   })
 );
+server.use(passport.initialize());
 
 // Entry point
 server.use('/', mainRouter(store, BASE_URL));

@@ -1,8 +1,12 @@
 import express from 'express';
 import UsersManager from '../dao/users.dbclass.js';
+import passport from 'passport';
+import initializePassport from '../auth/passport.config.js';
 
 const router = express.Router();
 const usersManager = new UsersManager();
+
+initializePassport();
 
 const mainRouter = (store, baseUrl) => {
   router.get('/', async (req, res) => {
@@ -16,28 +20,23 @@ const mainRouter = (store, baseUrl) => {
     });
   });
 
-  router.post('/login', async (req, res) => {
+  router.post('/register', passport.authenticate('authRegistration' /* , { failureRedirect: '/regfail' } */), async (req, res) => {
     try {
       const { login_email, login_password } = req.body;
-      const user = await usersManager.validateUser(login_email, login_password);
-      if (!user) {
-        req.session.userValidated = req.sessionStore.userValidated = false;
-      } else {
-        req.session.userValidated = req.sessionStore.userValidated = true;
-        req.sessionStore.userMail = user.user;
-      }
-      res.redirect(baseUrl);
+      await usersManager.addUser(login_email, login_password);
+      req.session.userValidated = req.sessionStore.userValidated = true; // Preguntar esto!
+      res.redirect('/');
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
   });
 
-  router.post('/register', async (req, res) => {
+  router.post('/login', passport.authenticate('login' /* , { failureRedirect: '/loginfail' } */), async (req, res) => {
     try {
-      const { login_email, login_password } = req.body;
-      await usersManager.addUser(login_email, login_password);
-      req.session.userValidated = req.sessionStore.userValidated = true;
-      res.redirect('/');
+      if (!req.user) throw new Error({ message: 'Invalid credentials' });
+      req.session.userValidated = req.sessionStore.userValidated = true; // Preguntar esto!
+      req.sessionStore.userMail = req.body.login_email;
+      res.redirect(baseUrl);
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
