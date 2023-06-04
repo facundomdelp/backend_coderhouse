@@ -15,6 +15,7 @@ import productsRouter from './router/products.js';
 import cartsRouter from './router/carts.js';
 import messagesRouter from './router/messages.js';
 import viewsRouter from './router/views.js';
+import initializePassport from './auth/passport.config.js';
 
 const PORT = parseInt(process.env.PORT) || 3000;
 const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
@@ -47,10 +48,11 @@ server.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 300 }
+    cookie: { maxAge: 1000 * 15 } // 15 segundos
   })
 );
 server.use(passport.initialize());
+initializePassport();
 
 // Entry point
 server.use('/', mainRouter(store, BASE_URL));

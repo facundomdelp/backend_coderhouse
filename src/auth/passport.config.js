@@ -1,7 +1,12 @@
 import passport from 'passport';
 import usersModel from '../dao/models/users.model.js';
 import LocalStrategy from 'passport-local';
+import GithubStrategy from 'passport-github2';
 import { isValidPassword } from '../utils/middlewares/validation.js';
+import UsersManager from '../dao/users.dbclass.js';
+import { generateRandomPassword } from '../utils/randomPass.js';
+
+const usersManager = new UsersManager();
 
 const initializePassport = () => {
   passport.use(
@@ -36,6 +41,29 @@ const initializePassport = () => {
         return done(err.message);
       }
     })
+  );
+
+  passport.use(
+    'github',
+    new GithubStrategy(
+      {
+        clientID: 'Iv1.8083686c0b4f66cb',
+        clientSecret: 'bc5f2d13ce67c16cde2c4977e50216c841dc3299',
+        callbackUrl: 'http://localhost:8080/githubcallback'
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+          const user = await usersModel.findOne({ user: profile._json.email });
+          if (!user) {
+            await usersManager.addUser(profile._json.email, generateRandomPassword(8)); // Si no existe el user lo crea en bdd, con una pass aleatoria que luego se hashea
+            return done(null, await usersModel.findOne({ user: profile._json.email }));
+          }
+          return done(null, user);
+        } catch (err) {
+          return done(err.message);
+        }
+      }
+    )
   );
 
   passport.serializeUser((user, done) => {
