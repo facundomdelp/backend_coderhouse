@@ -2,7 +2,7 @@ import express from 'express';
 import ProductManager from '../dao/productsManager.dbclass.js';
 import MessagesManager from '../dao/messages.dbclass.js';
 import CartsManager from '../dao/cartManager.dbclass.js';
-import { renderValidate } from './middlewares/validation.js';
+import { renderValidate } from '../utils/middlewares/validation.js';
 
 const router = express.Router();
 const productManager = new ProductManager();
@@ -24,7 +24,9 @@ const mainRouter = (BASE_URL, WS_URL) => {
     const products = await productManager.getProducts(req.query);
     res.render('products', {
       products,
-      baseUrl: BASE_URL
+      baseUrl: BASE_URL,
+      wsUrl: WS_URL,
+      user: req.sessionStore.userMail
     });
   });
 

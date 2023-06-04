@@ -17,16 +17,19 @@ const mainRouter = (store, baseUrl) => {
   });
 
   router.post('/login', async (req, res) => {
-    const { login_email, login_password } = req.body;
-    const user = await usersManager.validateUser(login_email, login_password);
-
-    if (!user) {
-      req.session.userValidated = req.sessionStore.userValidated = false;
-    } else {
-      req.session.userValidated = req.sessionStore.userValidated = true;
+    try {
+      const { login_email, login_password } = req.body;
+      const user = await usersManager.validateUser(login_email, login_password);
+      if (!user) {
+        req.session.userValidated = req.sessionStore.userValidated = false;
+      } else {
+        req.session.userValidated = req.sessionStore.userValidated = true;
+        req.sessionStore.userMail = user.user;
+      }
+      res.redirect(baseUrl);
+    } catch (error) {
+      res.status(400).send({ error: error.message });
     }
-
-    res.redirect(baseUrl);
   });
 
   router.post('/register', async (req, res) => {
@@ -42,11 +45,9 @@ const mainRouter = (store, baseUrl) => {
 
   router.get('/logout', async (req, res) => {
     req.session.userValidated = req.sessionStore.userValidated = false;
-
     req.session.destroy((err) => {
       req.sessionStore.destroy(req.sessionID, (err) => {
         if (err) console.log(`Error while trying to destroy the session (${err})`);
-
         console.log('Destroyed sesion');
         res.redirect(baseUrl);
       });

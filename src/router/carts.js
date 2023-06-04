@@ -1,6 +1,6 @@
 import express from 'express';
 import CartsManager from '../dao/cartManager.dbclass.js';
-import { apiValidate } from './middlewares/validation.js';
+import { apiValidate } from '../utils/middlewares/validation.js';
 
 const router = express.Router();
 const cartManager = new CartsManager();

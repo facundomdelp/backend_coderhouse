@@ -1,6 +1,6 @@
 import express from 'express';
 import ProductManager from '../dao/productsManager.dbclass.js';
-import { apiValidate } from './middlewares/validation.js';
+import { apiValidate } from '../utils/middlewares/validation.js';
 
 const router = express.Router();
 const productManager = new ProductManager();

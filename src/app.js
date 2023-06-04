@@ -1,6 +1,6 @@
 import {} from 'dotenv/config';
 
-import { __dirname } from './fileUtils.js';
+import { __dirname } from './utils/fileUtils.js';
 
 import express from 'express';
 import { Server } from 'socket.io';
@@ -46,7 +46,7 @@ server.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 300 * 1000 }
+    cookie: { maxAge: 1000 * 300 }
   })
 );
 
