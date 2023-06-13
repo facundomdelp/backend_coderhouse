@@ -1,7 +1,8 @@
+// Environment variables
 import {} from 'dotenv/config';
-
+// Project route path
 import { __dirname } from './utils/fileUtils.js';
-
+// Services
 import express from 'express';
 import { Server } from 'socket.io';
 import session from 'express-session';
@@ -9,12 +10,12 @@ import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
-
-import mainRouter from './router/main.js';
-import productsRouter from './router/products.js';
-import cartsRouter from './router/carts.js';
-import messagesRouter from './router/messages.js';
-import viewsRouter from './router/views.js';
+// Routes
+import mainRouter from './router/main.routes.js';
+import productsRouter from './router/products.routes.js';
+import cartsRouter from './router/carts.routes.js';
+import messagesRouter from './router/messages.routes.js';
+import viewsRouter from './router/views.routes.js';
 import initializePassport from './auth/passport.config.js';
 
 const PORT = parseInt(process.env.PORT) || 3000;
