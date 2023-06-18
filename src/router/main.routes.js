@@ -19,9 +19,12 @@ const mainRouter = (store, baseUrl) => {
 
   router.post('/register', passport.authenticate('authRegistration', { failureRedirect: '/register' }), async (req, res) => {
     try {
-      const { login_email, login_password } = req.body;
-      await usersManager.addUser(login_email, login_password);
+      const { first_name, last_name, age, login_email, login_password } = req.body;
+      await usersManager.addUser(first_name, last_name, age, login_email, login_password);
       req.session.userValidated = req.sessionStore.userValidated = true;
+      req.sessionStore.user = login_email;
+      const cartId = await usersManager.getCartId(login_email);
+      req.sessionStore.cartId = cartId;
       res.redirect(baseUrl);
     } catch (error) {
       res.status(400).send({ error: error.message });
@@ -32,7 +35,12 @@ const mainRouter = (store, baseUrl) => {
     try {
       if (!req.user) throw new Error({ message: 'Invalid credentials' });
       req.session.userValidated = req.sessionStore.userValidated = true;
-      req.sessionStore.userMail = req.body.login_email;
+      req.sessionStore.user = req.body.login_email;
+      const cartId = await usersManager.getCartId(req.body.login_email);
+      /* if (!cartId) {
+        await usersManager.addCartId(req.body.login_email, )
+      } */
+      req.sessionStore.cartId = cartId;
       res.redirect(baseUrl);
     } catch (error) {
       res.status(400).send({ error: error.message });
@@ -44,8 +52,9 @@ const mainRouter = (store, baseUrl) => {
   router.get('/githubcallback', passport.authenticate('github', { failureRedirect: '/login' }), async (req, res) => {
     try {
       req.session.userValidated = req.sessionStore.userValidated = true;
-      req.sessionStore.userMail = req.user.user;
-      console.log('ahora llega acá?!');
+      req.sessionStore.user = req.user.user;
+      const cartId = await usersManager.getCartId(login_email);
+      req.sessionStore.cartId = cartId;
       res.redirect(baseUrl);
     } catch (error) {
       res.status(400).send({ error: error.message });

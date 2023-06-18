@@ -51,7 +51,7 @@ class ProductManager {
         throw new Error(`${title} - ${code} Not valid - Repeated code`);
       }
       const products = await productsModel.find().sort({ _id: -1 }).limit(1);
-      const id = products.length > 0 ? products[0].id + 1 : 1;
+      const id = products.length > 0 ? products[0].id + 1 : 1; // id autoincrementable
       await productsModel.create({ id, status: true, ...data });
       return { id, message: `Product ${title} - ${code} added successfully` };
     } catch (err) {
