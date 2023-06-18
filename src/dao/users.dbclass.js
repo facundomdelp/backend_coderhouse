@@ -6,17 +6,17 @@ class UsersManager {
     this.users = [];
   }
 
-  addUser = async (first_name, last_name, age, login_email, login_password) => {
+  addUser = async ({ firstName, lastName, age, email, password }) => {
     try {
-      if ([first_name, last_name, age, login_email, login_password].includes(undefined)) {
+      if ([email, password].includes(undefined)) {
         throw new Error(`Not Valid - insufficient data`);
       }
       await usersModel.create({
-        first_name,
-        last_name,
+        first_name: firstName,
+        last_name: lastName,
         age,
-        email: login_email,
-        password: createHash(login_password),
+        email,
+        password: createHash(password),
         role: 'user'
       });
       return { message: `User registered satisfactory` };

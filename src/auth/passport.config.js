@@ -55,7 +55,7 @@ const initializePassport = () => {
         try {
           const user = await usersModel.findOne({ email: profile._json.email });
           if (!user) {
-            await usersManager.addUser(profile._json.email, generateRandomPassword(8)); // Si no existe el user lo crea en bdd, con una pass aleatoria que luego se hashea
+            await usersManager.addUser({ email: profile._json.email, password: generateRandomPassword(8) }); // Si no existe el user lo crea en bdd, con una pass aleatoria que luego se hashea
             return done(null, await usersModel.findOne({ email: profile._json.email }));
           }
           return done(null, user);
