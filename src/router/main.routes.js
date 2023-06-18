@@ -20,7 +20,7 @@ const mainRouter = (store, baseUrl) => {
   router.post('/register', passport.authenticate('authRegistration', { failureRedirect: '/register' }), async (req, res) => {
     try {
       const { first_name, last_name, age, login_email, login_password } = req.body;
-      await usersManager.addUser({ first_name, last_name, age, email: login_email, password: login_password });
+      await usersManager.addUser({ firstName: first_name, lastName: last_name, age, email: login_email, password: login_password });
       req.session.userValidated = req.sessionStore.userValidated = true;
       req.sessionStore.user = login_email;
       const cartId = await usersManager.getCartId(login_email);
