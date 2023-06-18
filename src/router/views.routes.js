@@ -2,14 +2,13 @@ import express from 'express';
 import ProductManager from '../dao/productsManager.dbclass.js';
 import MessagesManager from '../dao/messages.dbclass.js';
 import CartsManager from '../dao/cartManager.dbclass.js';
-import { renderValidate } from '../utils/middlewares/validation.js';
 
 const router = express.Router();
 const productManager = new ProductManager();
 const messagesManager = new MessagesManager();
 const cartsManager = new CartsManager();
 
-const mainRouter = (BASE_URL, WS_URL) => {
+const viewsRoutes = (BASE_URL, WS_URL) => {
   router.get('/login', async (req, res) => {
     res.render('login', {
       baseUrl: BASE_URL
@@ -20,7 +19,7 @@ const mainRouter = (BASE_URL, WS_URL) => {
     res.render('register');
   });
 
-  router.get('/home/products', renderValidate, async (req, res) => {
+  router.get('/home/products', async (req, res) => {
     const products = await productManager.getProducts(req.query);
     res.render('products', {
       products,
@@ -31,7 +30,7 @@ const mainRouter = (BASE_URL, WS_URL) => {
     });
   });
 
-  router.get('/home/realTimeProducts', renderValidate, async (req, res) => {
+  router.get('/home/realTimeProducts', async (req, res) => {
     const products = await productManager.getProducts(req.query);
     res.render('realTimeProducts', {
       products,
@@ -39,7 +38,7 @@ const mainRouter = (BASE_URL, WS_URL) => {
     });
   });
 
-  router.get('/home/messages', renderValidate, async (req, res) => {
+  router.get('/home/messages', async (req, res) => {
     const messages = await messagesManager.getMessages();
     res.render('messages', {
       messages,
@@ -48,7 +47,7 @@ const mainRouter = (BASE_URL, WS_URL) => {
     });
   });
 
-  router.get('/home/carts/:cid', renderValidate, async (req, res) => {
+  router.get('/home/carts/:cid', async (req, res) => {
     const cart = await cartsManager.getCartById(req.params.cid);
     res.render('cart', {
       cart: cart.products.map((product) => {
@@ -61,4 +60,4 @@ const mainRouter = (BASE_URL, WS_URL) => {
   return router;
 };
 
-export default mainRouter;
+export default viewsRoutes;

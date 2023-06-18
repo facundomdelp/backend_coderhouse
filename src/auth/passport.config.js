@@ -2,11 +2,39 @@ import passport from 'passport';
 import usersModel from '../dao/models/users.model.js';
 import LocalStrategy from 'passport-local';
 import GithubStrategy from 'passport-github2';
-import { isValidPassword } from '../utils/middlewares/validation.js';
+import { isValidPassword } from '../utils/bcrypt.config.js';
+import JWT from 'jsonwebtoken';
+import jwt from 'passport-jwt';
 import UsersManager from '../dao/users.dbclass.js';
 import { generateRandomPassword } from '../utils/randomPass.js';
 
 const usersManager = new UsersManager();
+const JWTStrategy = jwt.Strategy;
+const JWTExtractor = jwt.ExtractJwt;
+
+const cookieExtractor = (req) => {
+  if (req && req.cookies) {
+    return req.cookies['login_token'];
+  }
+  return null;
+};
+
+const generateToken = (user, expiration) => {
+  return JWT.sign(user, 'abcdefgh12345678', { expiresIn: expiration });
+};
+
+const authentication = (strategy) => {
+  return async (req, res, next) => {
+    passport.authenticate(strategy, (err, user, info) => {
+      if (err) return next(err);
+      if (!user) {
+        return res.status(401).send({ error: info.messages ? info.messages : info.toString() });
+      }
+      req.user = user;
+      next();
+    })(req, res, next);
+  };
+};
 
 const initializePassport = () => {
   passport.use(
@@ -66,6 +94,23 @@ const initializePassport = () => {
     )
   );
 
+  passport.use(
+    'jwtAuth',
+    new JWTStrategy(
+      {
+        jwtFromRequest: JWTExtractor.fromExtractors([cookieExtractor]),
+        secretOrKey: 'abcdefgh12345678'
+      },
+      async (jwt_payload, done) => {
+        try {
+          return done(null, jwt_payload);
+        } catch (err) {
+          return done(err.message);
+        }
+      }
+    )
+  );
+
   passport.serializeUser((user, done) => {
     done(null, user._id);
   });
@@ -80,4 +125,4 @@ const initializePassport = () => {
   });
 };
 
-export default initializePassport;
+export { initializePassport, authentication, generateToken };

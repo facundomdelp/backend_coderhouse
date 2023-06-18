@@ -1,11 +1,12 @@
 import express from 'express';
 import UsersManager from '../dao/users.dbclass.js';
 import passport from 'passport';
+import { generateToken } from '../auth/passport.config.js';
 
 const router = express.Router();
 const usersManager = new UsersManager();
 
-const mainRouter = (store, baseUrl) => {
+const mainRoutes = (store, baseUrl) => {
   router.get('/', async (req, res) => {
     store.get(req.sessionID, async (err, data) => {
       if (err) console.log(`Error while trying to retrieve data session (${err})`);
@@ -20,11 +21,20 @@ const mainRouter = (store, baseUrl) => {
   router.post('/register', passport.authenticate('authRegistration', { failureRedirect: '/register' }), async (req, res) => {
     try {
       const { first_name, last_name, age, login_email, login_password } = req.body;
-      await usersManager.addUser({ first_name, last_name, age, email: login_email, password: login_password });
-      req.session.userValidated = req.sessionStore.userValidated = true;
-      req.sessionStore.user = login_email;
+      await usersManager.addUser({ firstName: first_name, lastName: last_name, age, email: login_email, password: login_password });
+
       const cartId = await usersManager.getCartId(login_email);
-      req.sessionStore.cartId = cartId;
+      req.sessionStore.cartId = cartId; // VER
+
+      const date = new Date();
+      const userdataForToken = { firstName: first_name, lastName: last_name, email: login_email, cartId, role: 'user' };
+      const token = generateToken(userdataForToken, '24h');
+      res.cookie('coder_login_token', token, {
+        maxAge: date.setDate(date.getDate() + 1),
+        secure: false, // true para operar solo sobre HTTPS
+        httpOnly: true
+      });
+
       res.redirect(baseUrl);
     } catch (error) {
       res.status(400).send({ error: error.message });
@@ -33,11 +43,19 @@ const mainRouter = (store, baseUrl) => {
 
   router.post('/login', passport.authenticate('login', { failureRedirect: '/login' }), async (req, res) => {
     try {
-      if (!req.user) throw new Error({ message: 'Invalid credentials' });
-      req.session.userValidated = req.sessionStore.userValidated = true;
-      req.sessionStore.user = req.body.login_email;
-      const cartId = await usersManager.getCartId(req.body.login_email);
-      req.sessionStore.cartId = cartId;
+      const cartId = await usersManager.getCartId(login_email);
+      req.sessionStore.cartId = cartId; // VER
+
+      const { first_name, last_name, login_email } = req.body;
+      const date = new Date();
+      const userdataForToken = { firstName: first_name, lastName: last_name, email: login_email, cartId, role: 'user' };
+      const token = generateToken(userdataForToken, '24h');
+      res.cookie('coder_login_token', token, {
+        maxAge: date.setDate(date.getDate() + 1),
+        secure: false, // true para operar solo sobre HTTPS
+        httpOnly: true
+      });
+
       res.redirect(baseUrl);
     } catch (error) {
       res.status(400).send({ error: error.message });
@@ -48,10 +66,9 @@ const mainRouter = (store, baseUrl) => {
 
   router.get('/githubcallback', passport.authenticate('github', { failureRedirect: '/login' }), async (req, res) => {
     try {
-      req.session.userValidated = req.sessionStore.userValidated = true;
-      req.sessionStore.user = req.user.email;
       const cartId = await usersManager.getCartId(req.user.email);
-      req.sessionStore.cartId = cartId;
+      req.sessionStore.cartId = cartId; // VER
+
       res.redirect(baseUrl);
     } catch (error) {
       res.status(400).send({ error: error.message });
@@ -72,4 +89,4 @@ const mainRouter = (store, baseUrl) => {
   return router;
 };
 
-export default mainRouter;
+export default mainRoutes;

@@ -1,5 +1,5 @@
 import usersModel from './models/users.model.js';
-import { createHash } from './../utils/middlewares/validation.js';
+import { createHash } from '../utils/bcrypt.config.js';
 
 class UsersManager {
   constructor() {
@@ -33,9 +33,9 @@ class UsersManager {
     }
   };
 
-  getCartId = async (login_email) => {
+  getCartId = async (email) => {
     try {
-      const user = await usersModel.findOne({ email: login_email });
+      const user = await usersModel.findOne({ email: email });
       if (!user) throw new Error('User not found');
       return user.cart;
     } catch (err) {

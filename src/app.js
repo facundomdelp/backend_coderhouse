@@ -11,12 +11,13 @@ import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 // Routes
-import mainRouter from './router/main.routes.js';
-import productsRouter from './router/products.routes.js';
-import cartsRouter from './router/carts.routes.js';
-import messagesRouter from './router/messages.routes.js';
-import viewsRouter from './router/views.routes.js';
-import initializePassport from './auth/passport.config.js';
+import mainRoutes from './router/main.routes.js';
+import productsRoutes from './router/products.routes.js';
+import cartsRoutes from './router/carts.routes.js';
+import messagesRoutes from './router/messages.routes.js';
+import viewsRoutes from './router/views.routes.js';
+import cookieParser from 'cookie-parser';
+import { initializePassport } from './auth/passport.config.js';
 
 const PORT = parseInt(process.env.PORT) || 3000;
 const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
@@ -52,16 +53,17 @@ server.use(
     cookie: { maxAge: 1000 * 1500 } // 1500 segundos
   })
 );
+server.use(cookieParser('abcdefgh12345678'));
 server.use(passport.initialize());
 initializePassport();
 
 // Entry point
-server.use('/', mainRouter(store, BASE_URL));
+server.use('/', mainRoutes(store, BASE_URL));
 
 // Enpoints API REST
-server.use('/api/products', productsRouter(wss));
-server.use('/api/carts', cartsRouter);
-server.use('/api/messages', messagesRouter(wss));
+server.use('/api/products', productsRoutes(wss));
+server.use('/api/carts', cartsRoutes);
+server.use('/api/messages', messagesRoutes(wss));
 
 // Motor de plantillas
 server.engine('handlebars', handlebars.engine());
@@ -69,7 +71,7 @@ server.set('view engine', 'handlebars');
 server.set('views', `${__dirname}/views`);
 
 // Endpoint views
-server.use('/', viewsRouter(BASE_URL, WS_URL));
+server.use('/', viewsRoutes(BASE_URL, WS_URL));
 
 // Contenidos estáticos
 server.use('/public', express.static(`${__dirname}/public`));
