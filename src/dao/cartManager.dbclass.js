@@ -13,7 +13,7 @@ class CartsManager {
       const carts = await cartsModel.find().sort({ _id: -1 }).limit(1);
       const id = carts.length > 0 ? carts[0].id + 1 : 1;
       await cartsModel.create({ id, products: [] });
-      return { message: 'Cart created successfully' };
+      return { message: 'Cart created successfully', id };
     } catch (err) {
       throw new Error(`createCart - ${err}`);
     }

@@ -37,10 +37,27 @@
 
 <script>
   const addToCart = document.getElementsByClassName('addToCart')
+  let cartId = "{{cartId}}"
+  const email = "{{user}}"
   const addProductToCart = async (e) => {
     const productId = e.target.getAttribute('data-id')
+    if (!cartId) {
+      try {
+        const response = await fetch(`${"{{baseUrl}}"}/api/carts/`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email })
+        });
+        const responseData = await response.json();
+        cartId = responseData.id
+      } catch (error) {
+        throw new Error(error)
+      }
+    }
     try {
-      await fetch(`${"{{baseUrl}}"}/api/carts/${1}/products/${productId}`, {
+      await fetch(`${"{{baseUrl}}"}/api/carts/${cartId}/products/${productId}`, {
         method: 'POST'
       });
     } catch (error) {

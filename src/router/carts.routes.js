@@ -1,15 +1,18 @@
 import express from 'express';
 import CartsManager from '../dao/cartManager.dbclass.js';
 import { apiValidate } from '../utils/middlewares/validation.js';
+import UsersManager from '../dao/users.dbclass.js';
 
 const router = express.Router();
 const cartManager = new CartsManager();
+const usersManager = new UsersManager();
 
 router.post('/', apiValidate, async (req, res) => {
   const response = await cartManager.createCart();
   if (!response) {
     return res.status(404).send();
   }
+  await usersManager.addCartId(req.body.email, response.id);
   res.status(200).send(response);
 });
 

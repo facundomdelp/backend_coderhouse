@@ -13,7 +13,7 @@ const initializePassport = () => {
     'authRegistration',
     new LocalStrategy({ usernameField: 'login_email', passwordField: 'login_password' }, async (login_email, login_password, done) => {
       try {
-        const user = await usersModel.findOne({ user: login_email });
+        const user = await usersModel.findOne({ email: login_email });
         if (user) {
           return done(null, false, { message: 'User already exists' });
         } else {
@@ -29,7 +29,7 @@ const initializePassport = () => {
     'login',
     new LocalStrategy({ usernameField: 'login_email', passwordField: 'login_password' }, async (login_email, login_password, done) => {
       try {
-        const user = await usersModel.findOne({ user: login_email });
+        const user = await usersModel.findOne({ email: login_email });
         if (!user) {
           return done(null, false, { message: `User doesn't exist` });
         }
@@ -53,10 +53,10 @@ const initializePassport = () => {
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          const user = await usersModel.findOne({ user: profile._json.email });
+          const user = await usersModel.findOne({ email: profile._json.email });
           if (!user) {
-            await usersManager.addUser(profile._json.email, generateRandomPassword(8)); // Si no existe el user lo crea en bdd, con una pass aleatoria que luego se hashea
-            return done(null, await usersModel.findOne({ user: profile._json.email }));
+            await usersManager.addUser({ email: profile._json.email, password: generateRandomPassword(8) }); // Si no existe el user lo crea en bdd, con una pass aleatoria que luego se hashea
+            return done(null, await usersModel.findOne({ email: profile._json.email }));
           }
           return done(null, user);
         } catch (err) {

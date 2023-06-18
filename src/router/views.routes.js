@@ -26,7 +26,8 @@ const mainRouter = (BASE_URL, WS_URL) => {
       products,
       baseUrl: BASE_URL,
       wsUrl: WS_URL,
-      user: req.sessionStore.userMail
+      user: req.sessionStore.user,
+      cartId: req.sessionStore.cartId
     });
   });
 
