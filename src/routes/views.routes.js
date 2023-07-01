@@ -1,8 +1,8 @@
 import express from 'express';
-import ProductManager from '../dao/productsManager.dbclass.js';
-import MessagesManager from '../dao/messages.dbclass.js';
-import CartsManager from '../dao/cartManager.dbclass.js';
+import CartsManager from '../services/cartManager.dbclass.js';
 import { renderValidate } from '../utils/middlewares/validation.js';
+import ProductManager from '../services/productsManager.dbclass.js';
+import MessagesManager from '../services/messages.dbclass.js';
 
 const router = express.Router();
 const productManager = new ProductManager();

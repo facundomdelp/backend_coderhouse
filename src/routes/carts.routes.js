@@ -1,7 +1,7 @@
 import express from 'express';
-import CartsManager from '../dao/cartManager.dbclass.js';
+import CartsManager from '../services/cartManager.dbclass.js';
 import { apiValidate } from '../utils/middlewares/validation.js';
-import UsersManager from '../dao/users.dbclass.js';
+import UsersManager from '../services/users.dbclass.js';
 
 const router = express.Router();
 const cartManager = new CartsManager();

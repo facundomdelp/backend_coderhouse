@@ -1,6 +1,6 @@
 import express from 'express';
-import MessagesManager from '../dao/messages.dbclass.js';
 import { apiValidate } from '../utils/middlewares/validation.js';
+import MessagesManager from './../services/messages.dbclass.js';
 
 const router = express.Router();
 const messagesManager = new MessagesManager();

@@ -11,11 +11,11 @@ import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
 // Routes
-import mainRouter from './router/main.routes.js';
-import productsRouter from './router/products.routes.js';
-import cartsRouter from './router/carts.routes.js';
-import messagesRouter from './router/messages.routes.js';
-import viewsRouter from './router/views.routes.js';
+import mainRouter from './routes/main.routes.js';
+import productsRouter from './routes/products.routes.js';
+import cartsRouter from './routes/carts.routes.js';
+import messagesRouter from './routes/messages.routes.js';
+import viewsRouter from './routes/views.routes.js';
 import initializePassport from './auth/passport.config.js';
 
 const PORT = parseInt(process.env.PORT) || 3000;

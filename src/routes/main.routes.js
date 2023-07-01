@@ -1,6 +1,6 @@
 import express from 'express';
-import UsersManager from '../dao/users.dbclass.js';
 import passport from 'passport';
+import UsersManager from '../services/users.dbclass.js';
 
 const router = express.Router();
 const usersManager = new UsersManager();
