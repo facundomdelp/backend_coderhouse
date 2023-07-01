@@ -1,62 +1,16 @@
 import express from 'express';
-import CartsManager from '../services/cartManager.dbclass.js';
 import { renderValidate } from '../utils/middlewares/validation.js';
-import ProductManager from '../services/productsManager.dbclass.js';
-import MessagesManager from '../services/messages.dbclass.js';
+import { carts, login, messages, products, realTimeProducts, register } from '../controllers/views.controllers.js';
 
 const router = express.Router();
-const productManager = new ProductManager();
-const messagesManager = new MessagesManager();
-const cartsManager = new CartsManager();
 
 const mainRouter = (BASE_URL, WS_URL) => {
-  router.get('/login', async (req, res) => {
-    res.render('login', {
-      baseUrl: BASE_URL
-    });
-  });
-
-  router.get('/register', async (req, res) => {
-    res.render('register');
-  });
-
-  router.get('/home/products', renderValidate, async (req, res) => {
-    const products = await productManager.getProducts(req.query);
-    res.render('products', {
-      products,
-      baseUrl: BASE_URL,
-      wsUrl: WS_URL,
-      user: req.sessionStore.user,
-      cartId: req.sessionStore.cartId
-    });
-  });
-
-  router.get('/home/realTimeProducts', renderValidate, async (req, res) => {
-    const products = await productManager.getProducts(req.query);
-    res.render('realTimeProducts', {
-      products,
-      wsUrl: WS_URL
-    });
-  });
-
-  router.get('/home/messages', renderValidate, async (req, res) => {
-    const messages = await messagesManager.getMessages();
-    res.render('messages', {
-      messages,
-      baseUrl: BASE_URL,
-      wsUrl: WS_URL
-    });
-  });
-
-  router.get('/home/carts/:cid', renderValidate, async (req, res) => {
-    const cart = await cartsManager.getCartById(req.params.cid);
-    res.render('cart', {
-      cart: cart.products.map((product) => {
-        const matchedProduct = cart.productsInCart.find((p) => p.id === product.id);
-        return { ...product, ...matchedProduct };
-      })
-    });
-  });
+  router.get('/login', (req, res) => login(req, res, BASE_URL));
+  router.get('/register', register);
+  router.get('/home/products', renderValidate, (req, res) => products(req, res, BASE_URL, WS_URL));
+  router.get('/home/realTimeProducts', renderValidate, (req, res) => realTimeProducts(req, res, WS_URL));
+  router.get('/home/messages', renderValidate, (req, res) => messages(req, res, BASE_URL, WS_URL));
+  router.get('/home/carts/:cid', renderValidate, carts);
 
   return router;
 };
