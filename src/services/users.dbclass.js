@@ -1,4 +1,4 @@
-import usersModel from './models/users.model.js';
+import usersModel from '../models/users.model.js';
 import { createHash } from './../utils/middlewares/validation.js';
 
 class UsersManager {

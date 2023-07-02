@@ -1,10 +1,10 @@
 import passport from 'passport';
-import usersModel from '../dao/models/users.model.js';
 import LocalStrategy from 'passport-local';
 import GithubStrategy from 'passport-github2';
 import { isValidPassword } from '../utils/middlewares/validation.js';
-import UsersManager from '../dao/users.dbclass.js';
 import { generateRandomPassword } from '../utils/randomPass.js';
+import UsersManager from '../services/users.dbclass.js';
+import usersModel from './../models/users.model.js';
 
 const usersManager = new UsersManager();
 
