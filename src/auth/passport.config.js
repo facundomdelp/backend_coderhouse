@@ -1,10 +1,10 @@
 import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import GithubStrategy from 'passport-github2';
-import { isValidPassword } from '../utils/middlewares/validation.js';
 import { generateRandomPassword } from '../utils/randomPass.js';
 import UsersManager from '../services/users.dbclass.js';
 import usersModel from './../models/users.model.js';
+import bcrypt from 'bcrypt';
 
 const usersManager = new UsersManager();
 
@@ -20,7 +20,7 @@ const initializePassport = () => {
           return done(null, { _id: 0 });
         }
       } catch (err) {
-        return done(err.message);
+        return done(err);
       }
     })
   );
@@ -33,12 +33,13 @@ const initializePassport = () => {
         if (!user) {
           return done(null, false, { message: `User doesn't exist` });
         }
-        if (!isValidPassword(user, login_password)) {
+        const isValid = await bcrypt.compare(login_password, user.password);
+        if (!isValid) {
           return done(null, false, { message: `Incorrect user or password` });
         }
         return done(null, user);
       } catch (err) {
-        return done(err.message);
+        return done(err);
       }
     })
   );
@@ -55,12 +56,14 @@ const initializePassport = () => {
         try {
           const user = await usersModel.findOne({ email: profile._json.email });
           if (!user) {
-            await usersManager.addUser({ email: profile._json.email, password: generateRandomPassword(8) }); // Si no existe el user lo crea en bdd, con una pass aleatoria que luego se hashea
+            const randomPassword = generateRandomPassword(8);
+            const hashedPassword = await bcrypt.hash(randomPassword, 10);
+            await usersManager.addUser({ email: profile._json.email, password: hashedPassword });
             return done(null, await usersModel.findOne({ email: profile._json.email }));
           }
           return done(null, user);
         } catch (err) {
-          return done(err.message);
+          return done(err);
         }
       }
     )
@@ -75,7 +78,7 @@ const initializePassport = () => {
       const user = await usersModel.findById(id);
       done(null, user);
     } catch (err) {
-      done(err.message);
+      done(err);
     }
   });
 };
