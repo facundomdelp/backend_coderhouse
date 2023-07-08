@@ -1,6 +1,4 @@
-import { FactoryUsers } from '../dao/factory.js';
-
-const usersManager = new FactoryUsers();
+import { usersService } from '../repositories/_index.js';
 
 export const current = async (req, res, store) => {
   try {
@@ -20,10 +18,10 @@ export const current = async (req, res, store) => {
 export const register = async (req, res, baseUrl) => {
   try {
     const { first_name, last_name, age, login_email, login_password } = req.body;
-    await usersManager.addUser({ firstName: first_name, lastName: last_name, age, email: login_email, password: login_password });
+    await usersService.addUser({ firstName: first_name, lastName: last_name, age, email: login_email, password: login_password });
     req.session.userValidated = req.sessionStore.userValidated = true;
     req.sessionStore.user = login_email;
-    const cartId = await usersManager.getCartId(login_email);
+    const cartId = await usersService.getCartId(login_email);
     req.sessionStore.cartId = cartId;
     res.redirect(baseUrl);
   } catch (err) {
@@ -36,7 +34,7 @@ export const login = async (req, res, baseUrl) => {
     if (!req.user) throw new Error({ message: 'Invalid credentials' });
     req.session.userValidated = req.sessionStore.userValidated = true;
     req.sessionStore.user = req.body.login_email;
-    const cartId = await usersManager.getCartId(req.body.login_email);
+    const cartId = await usersService.getCartId(req.body.login_email);
     req.sessionStore.cartId = cartId;
     res.redirect(baseUrl);
   } catch (err) {
@@ -48,7 +46,7 @@ export const githubCallback = async (req, res, baseUrl) => {
   try {
     req.session.userValidated = req.sessionStore.userValidated = true;
     req.sessionStore.user = req.user.email;
-    const cartId = await usersManager.getCartId(req.user.email);
+    const cartId = await usersService.getCartId(req.user.email);
     req.sessionStore.cartId = cartId;
     res.redirect(baseUrl);
   } catch (err) {

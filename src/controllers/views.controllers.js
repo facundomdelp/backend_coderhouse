@@ -1,8 +1,4 @@
-import { FactoryCarts, FactoryMessages, FactoryProducts } from '../dao/factory.js';
-
-const productManager = new FactoryProducts();
-const messagesManager = new FactoryMessages();
-const cartsManager = new FactoryCarts();
+import { cartsService, productsService, messagesService } from '../repositories/_index.js';
 
 export const login = async (req, res, BASE_URL) => {
   res.render('login', {
@@ -15,7 +11,7 @@ export const register = async (req, res) => {
 };
 
 export const products = async (req, res, BASE_URL, WS_URL) => {
-  const products = await productManager.getProducts(req.query);
+  const products = await productsService.getProducts(req.query);
   res.render('products', {
     products,
     baseUrl: BASE_URL,
@@ -26,7 +22,7 @@ export const products = async (req, res, BASE_URL, WS_URL) => {
 };
 
 export const realTimeProducts = async (req, res, WS_URL) => {
-  const products = await productManager.getProducts(req.query);
+  const products = await productsService.getProducts(req.query);
   res.render('realTimeProducts', {
     products,
     wsUrl: WS_URL
@@ -34,7 +30,7 @@ export const realTimeProducts = async (req, res, WS_URL) => {
 };
 
 export const messages = async (req, res, BASE_URL, WS_URL) => {
-  const messages = await messagesManager.getMessages();
+  const messages = await messagesService.getMessages();
   res.render('messages', {
     messages,
     baseUrl: BASE_URL,
@@ -43,7 +39,7 @@ export const messages = async (req, res, BASE_URL, WS_URL) => {
 };
 
 export const carts = async (req, res) => {
-  const cart = await cartsManager.getCartById(req.params.cid);
+  const cart = await cartsService.getCartById(req.params.cid);
   res.render('cart', {
     cart: cart.products.map((product) => {
       const matchedProduct = cart.productsInCart.find((p) => p.id === product.id);
