@@ -1,12 +1,11 @@
-import CartsManager from '../dao/mongo/cartManager.dbclass.js';
-import UsersManager from '../dao/mongo/users.dbclass.js';
+import { FactoryCarts, FactoryUsers } from '../dao/factory.js';
 
-const cartManager = new CartsManager();
-const usersManager = new UsersManager();
+const cartsManager = new FactoryCarts();
+const usersManager = new FactoryUsers();
 
 export const createCart = async (req, res) => {
   try {
-    const response = await cartManager.createCart();
+    const response = await cartsManager.createCart();
     if (!response) {
       return res.status(404).send();
     }
@@ -19,7 +18,7 @@ export const createCart = async (req, res) => {
 
 export const getCartById = async (req, res) => {
   try {
-    const cart = await cartManager.getCartById(parseInt(req.params.cid));
+    const cart = await cartsManager.getCartById(parseInt(req.params.cid));
     if (!cart) {
       return res.status(404).send();
     }
@@ -31,7 +30,7 @@ export const getCartById = async (req, res) => {
 
 export const addProductToCart = async (req, res) => {
   try {
-    const response = await cartManager.addProductToCart(parseInt(req.params.cid), parseInt(req.params.pid));
+    const response = await cartsManager.addProductToCart(parseInt(req.params.cid), parseInt(req.params.pid));
     res.status(200).send(response);
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -40,7 +39,7 @@ export const addProductToCart = async (req, res) => {
 
 export const deleteProductFromCart = async (req, res) => {
   try {
-    const response = await cartManager.deleteProductFromCart(parseInt(req.params.cid), parseInt(req.params.pid));
+    const response = await cartsManager.deleteProductFromCart(parseInt(req.params.cid), parseInt(req.params.pid));
     res.status(200).send(response);
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -49,7 +48,7 @@ export const deleteProductFromCart = async (req, res) => {
 
 export const updateCart = async (req, res) => {
   try {
-    const response = await cartManager.updateCart(parseInt(req.params.cid), req.body);
+    const response = await cartsManager.updateCart(parseInt(req.params.cid), req.body);
     res.status(200).send(response);
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -58,7 +57,7 @@ export const updateCart = async (req, res) => {
 
 export const updateProductQuantityFromCart = async (req, res) => {
   try {
-    const response = await cartManager.updateProductQuantityFromCart(parseInt(req.params.cid), parseInt(req.params.pid), req.body);
+    const response = await cartsManager.updateProductQuantityFromCart(parseInt(req.params.cid), parseInt(req.params.pid), req.body);
     res.status(200).send(response);
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -67,7 +66,7 @@ export const updateProductQuantityFromCart = async (req, res) => {
 
 export const deleteAllProductsFromCart = async (req, res) => {
   try {
-    const response = await cartManager.deleteAllProductsFromCart(parseInt(req.params.cid));
+    const response = await cartsManager.deleteAllProductsFromCart(parseInt(req.params.cid));
     res.status(200).send(response);
   } catch (err) {
     res.status(500).send({ error: err.message });

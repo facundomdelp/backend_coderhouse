@@ -1,6 +1,6 @@
-import UsersManager from '../dao/mongo/users.dbclass.js';
+import { FactoryUsers } from '../dao/factory.js';
 
-const usersManager = new UsersManager();
+const usersManager = new FactoryUsers();
 
 export const current = async (req, res, store) => {
   try {

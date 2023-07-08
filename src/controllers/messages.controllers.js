@@ -1,6 +1,6 @@
-import MessagesManager from '../dao/mongo/messages.dbclass.js';
+import { FactoryMessages } from '../dao/factory.js';
 
-const messagesManager = new MessagesManager();
+const messagesManager = new FactoryMessages();
 
 export const getMessages = async (req, res) => {
   try {

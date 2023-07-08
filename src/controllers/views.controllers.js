@@ -1,10 +1,8 @@
-import CartsManager from '../dao/mongo/cartManager.dbclass.js';
-import MessagesManager from '../dao/mongo/messages.dbclass.js';
-import ProductManager from '../dao/mongo/productsManager.dbclass.js';
+import { FactoryCarts, FactoryMessages, FactoryProducts } from '../dao/factory.js';
 
-const productManager = new ProductManager();
-const messagesManager = new MessagesManager();
-const cartsManager = new CartsManager();
+const productManager = new FactoryProducts();
+const messagesManager = new FactoryMessages();
+const cartsManager = new FactoryCarts();
 
 export const login = async (req, res, BASE_URL) => {
   res.render('login', {
