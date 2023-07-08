@@ -1,5 +1,6 @@
-<div class="d-flex justify-content-end p-3" style="background-color: #f1f1f1">
-  <a href="{{baseUrl}}/logout" class="btn btn-success"><i class="fas fa-sign-out-alt"></i>Log out</a>
+<div class="d-flex justify-content-between p-3" style="background-color: #f1f1f1">
+  <a href="{{baseUrl}}/home/carts/{{cartId}}" class="btn btn-success me-2"><i class="fa fa-shopping-cart"></i> Cart</a>
+  <a href="{{baseUrl}}/logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i> Log out</a>
 </div>
 
 <div class="d-flex justify-content-center p-3" style="background-color: #cbfdd2">
@@ -18,7 +19,7 @@
         <p class='card-text' style='font-weight: 500; font-size: 12px'>STOCK: {{stock}}</p>
         <button class='addToCart btn btn-primary' data-id={{id}} style='align-self: flex-end; margin-top: auto'>Add to Cart</button>
       </div>
-    </div>
+    </div>  
   {{/each}}
 </div>
 
