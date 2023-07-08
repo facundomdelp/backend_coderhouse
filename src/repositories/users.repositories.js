@@ -1,3 +1,5 @@
+import UsersDTO from '../dao/DTOs/users.dto.js';
+
 class UsersRepository {
   constructor(dao) {
     this.dao = dao;
@@ -12,15 +14,12 @@ class UsersRepository {
   };
 
   getUserByEmail = async (email) => {
-    return await this.dao.getUserByEmail(email);
+    const user = await this.dao.getUserByEmail(email);
+    return new UsersDTO(user);
   };
 
   getUserById = async (id) => {
     return await this.dao.getUserById(id);
-  };
-
-  getCartId = async (login_email) => {
-    return await this.dao.getCartId(login_email);
   };
 }
 

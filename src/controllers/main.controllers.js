@@ -5,6 +5,8 @@ export const current = async (req, res, store) => {
     store.get(req.sessionID, async (err, data) => {
       if (err) console.log(`Error while trying to retrieve data session (${err})`);
       if (req.session.userValidated || req.sessionStore.userValidated) {
+        const user = await usersService.getUserByEmail(req.sessionStore.email);
+        req.sessionStore.user = user;
         res.redirect('/home/products');
       } else {
         res.redirect('/login');
@@ -20,9 +22,7 @@ export const register = async (req, res, baseUrl) => {
     const { first_name, last_name, age, login_email, login_password } = req.body;
     await usersService.addUser({ firstName: first_name, lastName: last_name, age, email: login_email, password: login_password });
     req.session.userValidated = req.sessionStore.userValidated = true;
-    req.sessionStore.user = login_email;
-    const cartId = await usersService.getCartId(login_email);
-    req.sessionStore.cartId = cartId;
+    req.sessionStore.email = login_email;
     res.redirect(baseUrl);
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -33,9 +33,7 @@ export const login = async (req, res, baseUrl) => {
   try {
     if (!req.user) throw new Error({ message: 'Invalid credentials' });
     req.session.userValidated = req.sessionStore.userValidated = true;
-    req.sessionStore.user = req.body.login_email;
-    const cartId = await usersService.getCartId(req.body.login_email);
-    req.sessionStore.cartId = cartId;
+    req.sessionStore.email = req.body.login_email;
     res.redirect(baseUrl);
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -45,9 +43,7 @@ export const login = async (req, res, baseUrl) => {
 export const githubCallback = async (req, res, baseUrl) => {
   try {
     req.session.userValidated = req.sessionStore.userValidated = true;
-    req.sessionStore.user = req.user.email;
-    const cartId = await usersService.getCartId(req.user.email);
-    req.sessionStore.cartId = cartId;
+    req.sessionStore.email = req.user.email;
     res.redirect(baseUrl);
   } catch (err) {
     res.status(500).send({ error: err.message });

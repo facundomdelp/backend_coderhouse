@@ -35,7 +35,7 @@ class UsersManager {
 
   getUserByEmail = async (email) => {
     try {
-      return await usersModel.findOne({ email });
+      return await usersModel.findOne({ email }).lean();
     } catch (err) {
       throw new Error(`getUserByEmail - ${err}`);
     }
@@ -48,16 +48,6 @@ class UsersManager {
       return user;
     } catch (err) {
       throw new Error(`getUserById - ${err}`);
-    }
-  };
-
-  getCartId = async (login_email) => {
-    try {
-      const user = await usersModel.findOne({ email: login_email });
-      if (!user) throw new Error('User not found');
-      return user.cart;
-    } catch (err) {
-      throw new Error(`getCartId - ${err}`);
     }
   };
 }

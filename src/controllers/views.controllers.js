@@ -16,8 +16,7 @@ export const products = async (req, res, BASE_URL, WS_URL) => {
     products,
     baseUrl: BASE_URL,
     wsUrl: WS_URL,
-    user: req.sessionStore.user,
-    cartId: req.sessionStore.cartId
+    user: req.sessionStore.user
   });
 };
 
