@@ -69,3 +69,10 @@ export const deleteAllProductsFromCart = async (req, res) => {
     res.status(500).send({ error: err.message });
   }
 };
+
+export const purchase = async (req, res) => {
+  try {
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};

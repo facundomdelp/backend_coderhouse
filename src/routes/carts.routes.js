@@ -6,7 +6,8 @@ import {
   deleteProductFromCart,
   getCartById,
   updateCart,
-  updateProductQuantityFromCart
+  updateProductQuantityFromCart,
+  purchase
 } from '../controllers/carts.controllers.js';
 import { apiValidate } from '../middlewares/validation.js';
 import { userAuthorization } from '../middlewares/authorization.js';
@@ -20,5 +21,6 @@ router.delete('/:cid/products/:pid', apiValidate, deleteProductFromCart);
 router.put('/:cid', apiValidate, updateCart);
 router.put('/:cid/products/:pid', apiValidate, updateProductQuantityFromCart);
 router.delete('/:cid', apiValidate, deleteAllProductsFromCart);
+router.post('/:cid/purchase', purchase);
 
 export default router;
