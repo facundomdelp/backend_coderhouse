@@ -1,5 +1,5 @@
-import CartsManager from '../dao/cartManager.dbclass.js';
-import UsersManager from '../dao/users.dbclass.js';
+import CartsManager from '../dao/mongo/cartManager.dbclass.js';
+import UsersManager from '../dao/mongo/users.dbclass.js';
 
 const cartManager = new CartsManager();
 const usersManager = new UsersManager();

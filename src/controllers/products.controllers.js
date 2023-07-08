@@ -1,4 +1,4 @@
-import ProductManager from '../dao/productsManager.dbclass.js';
+import ProductManager from '../dao/mongo/productsManager.dbclass.js';
 
 const productManager = new ProductManager();
 

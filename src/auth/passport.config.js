@@ -2,7 +2,7 @@ import passport from 'passport';
 import LocalStrategy from 'passport-local';
 import GithubStrategy from 'passport-github2';
 import { generateRandomPassword } from '../utils/randomPass.js';
-import UsersManager from '../dao/users.dbclass.js';
+import UsersManager from '../dao/mongo/users.dbclass.js';
 import usersModel from './../models/users.model.js';
 import bcrypt from 'bcrypt';
 
