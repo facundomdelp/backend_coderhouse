@@ -1,5 +1,5 @@
 import express from 'express';
-import { renderValidate } from '../utils/middlewares/validation.js';
+import { renderValidate } from '../middlewares/validation.js';
 import { carts, login, messages, products, realTimeProducts, register } from '../controllers/views.controllers.js';
 
 const router = express.Router();

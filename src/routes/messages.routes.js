@@ -1,6 +1,6 @@
 import express from 'express';
 import { addMessage, getMessages } from '../controllers/messages.controllers.js';
-import { apiValidate } from '../utils/middlewares/validation.js';
+import { apiValidate } from '../middlewares/validation.js';
 
 const router = express.Router();
 

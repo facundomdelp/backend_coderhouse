@@ -8,7 +8,7 @@ import {
   updateCart,
   updateProductQuantityFromCart
 } from '../controllers/carts.controllers.js';
-import { apiValidate } from '../utils/middlewares/validation.js';
+import { apiValidate } from '../middlewares/validation.js';
 
 const router = express.Router();
 

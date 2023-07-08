@@ -1,5 +1,5 @@
 // Environment variables
-import {} from 'dotenv/config';
+import config from './utils/config.js';
 // Project route path
 import { __dirname } from './utils/fileUtils.js';
 // Services
@@ -7,9 +7,10 @@ import express from 'express';
 import { Server } from 'socket.io';
 import session from 'express-session';
 import handlebars from 'express-handlebars';
-import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
 import passport from 'passport';
+// Persistence service
+import MongoSingleton from './dao/mongo.js';
 // Routes
 import mainRouter from './routes/main.routes.js';
 import productsRouter from './routes/products.routes.js';
@@ -18,10 +19,10 @@ import messagesRouter from './routes/messages.routes.js';
 import viewsRouter from './routes/views.routes.js';
 import initializePassport from './auth/passport.config.js';
 
-const PORT = parseInt(process.env.PORT) || 3000;
-const WS_PORT = parseInt(process.env.WS_PORT) || 3050;
-const MONGOOSE_URL = process.env.MONGOOSE_URL;
-const SESSION_SECRET = process.env.SESSION_SECRET;
+const PORT = parseInt(config.PORT);
+const WS_PORT = parseInt(config.WS_PORT);
+const MONGOOSE_URL = config.MONGOOSE_URL;
+const SESSION_SECRET = config.SESSION_SECRET;
 const BASE_URL = `http://localhost:${PORT}`;
 const WS_URL = `ws://localhost:${WS_PORT}`;
 
@@ -85,7 +86,7 @@ wss.on('connection', (socket) => {
 
 // Activación y escucha del servidor
 try {
-  await mongoose.connect(MONGOOSE_URL);
+  MongoSingleton.getInstance();
   server.listen(PORT, () => {
     console.log(`Server active in port ${PORT}`);
   });

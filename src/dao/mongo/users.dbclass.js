@@ -1,5 +1,5 @@
-import usersModel from '../models/users.model.js';
-import { createHash } from './../utils/middlewares/validation.js';
+import usersModel from '../../models/users.model.js';
+import { createHash } from '../../utils/validation.js';
 
 class UsersManager {
   constructor() {
@@ -33,13 +33,21 @@ class UsersManager {
     }
   };
 
-  getCartId = async (login_email) => {
+  getUserByEmail = async (email) => {
     try {
-      const user = await usersModel.findOne({ email: login_email });
-      if (!user) throw new Error('User not found');
-      return user.cart;
+      return await usersModel.findOne({ email }).lean();
     } catch (err) {
-      throw new Error(`getCartId - ${err}`);
+      throw new Error(`getUserByEmail - ${err}`);
+    }
+  };
+
+  getUserById = async (id) => {
+    try {
+      const user = await usersModel.findById(id);
+      if (!user) throw new Error('User not found');
+      return user;
+    } catch (err) {
+      throw new Error(`getUserById - ${err}`);
     }
   };
 }
