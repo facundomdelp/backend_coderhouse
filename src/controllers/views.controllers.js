@@ -1,6 +1,6 @@
-import CartsManager from '../services/cartManager.dbclass.js';
-import MessagesManager from '../services/messages.dbclass.js';
-import ProductManager from '../services/productsManager.dbclass.js';
+import CartsManager from '../dao/cartManager.dbclass.js';
+import MessagesManager from '../dao/messages.dbclass.js';
+import ProductManager from '../dao/productsManager.dbclass.js';
 
 const productManager = new ProductManager();
 const messagesManager = new MessagesManager();

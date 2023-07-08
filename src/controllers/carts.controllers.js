@@ -1,5 +1,5 @@
-import CartsManager from '../services/cartManager.dbclass.js';
-import UsersManager from '../services/users.dbclass.js';
+import CartsManager from '../dao/cartManager.dbclass.js';
+import UsersManager from '../dao/users.dbclass.js';
 
 const cartManager = new CartsManager();
 const usersManager = new UsersManager();

@@ -1,4 +1,4 @@
-import UsersManager from '../services/users.dbclass.js';
+import UsersManager from '../dao/users.dbclass.js';
 
 const usersManager = new UsersManager();
 
