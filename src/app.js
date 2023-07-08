@@ -50,7 +50,7 @@ server.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 1500 } // 1500 segundos
+    cookie: { maxAge: 1000 * 1500 } // 600 segundos / 10 minutes
   })
 );
 server.use(passport.initialize());
