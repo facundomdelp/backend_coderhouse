@@ -43,14 +43,21 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 // Persistencia de sesiones
-const store = MongoStore.create({ mongoUrl: MONGOOSE_URL, mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }, ttl: 30 });
+const store = MongoStore.create({
+  mongoUrl: MONGOOSE_URL,
+  mongoOptions: {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  },
+  ttl: 30
+});
 server.use(
   session({
     store,
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 1000 * 1500 } // 1500 segundos
+    cookie: { maxAge: 1000 * 1500 } // 600 segundos / 10 minutes
   })
 );
 server.use(passport.initialize());

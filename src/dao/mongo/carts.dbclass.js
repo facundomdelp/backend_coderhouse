@@ -25,7 +25,7 @@ class CartsManager {
       if (!cart) throw new Error(`Cart doesn't exist in the database`);
       return cart;
     } catch (err) {
-      throw new Error(`getProductById - ${err}`);
+      throw new Error(`getCartById - ${err}`);
     }
   };
 

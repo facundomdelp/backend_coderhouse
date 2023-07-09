@@ -10,7 +10,7 @@ const mainRouter = (BASE_URL, WS_URL) => {
   router.get('/home/products', renderValidate, (req, res) => products(req, res, BASE_URL, WS_URL));
   router.get('/home/realTimeProducts', renderValidate, (req, res) => realTimeProducts(req, res, WS_URL));
   router.get('/home/messages', renderValidate, (req, res) => messages(req, res, BASE_URL, WS_URL));
-  router.get('/home/carts/:cid', renderValidate, carts);
+  router.get('/home/carts/:cid', renderValidate, (req, res) => carts(req, res, BASE_URL));
 
   return router;
 };
