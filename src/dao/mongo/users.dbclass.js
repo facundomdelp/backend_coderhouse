@@ -50,6 +50,16 @@ class UsersManager {
       throw new Error(`getUserById - ${err}`);
     }
   };
+
+  getUserByCart = async (cartId) => {
+    try {
+      const user = await usersModel.findOne({ cart: cartId });
+      if (!user) throw new Error('Cart is empty'); // El id del carrito se genera desde el front cuando el usuario ingresa el primer producto
+      return user;
+    } catch (err) {
+      throw new Error(`getUserByCart - ${err}`);
+    }
+  };
 }
 
 export default UsersManager;

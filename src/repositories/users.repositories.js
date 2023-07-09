@@ -19,7 +19,12 @@ class UsersRepository {
   };
 
   getUserById = async (id) => {
-    return await this.dao.getUserById(id);
+    return await this.dao.getUserById(id); // Solo para uso interno, no pasa por el DTO
+  };
+
+  getUserByCart = async (cartId) => {
+    const user = await this.dao.getUserByCart(cartId);
+    return new UsersDTO(user);
   };
 }
 

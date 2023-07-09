@@ -1,6 +1,6 @@
 <div class='d-flex justify-content-between p-3' style='background-color: #f1f1f1'>
-  <a href='{{baseUrl}}/home/products' class='btn btn-success me-2'><i class="fa fa-home fa-fw"></i></i> Home</a>
-  <a href='{{baseUrl}}/logout' class='btn btn-danger'><i class='fas fa-sign-out-alt'></i> Log out</a>
+  <a class='btn btn-primary' id='home-button'><i class='fa fa-home fa-fw'></i> Home</a>
+  <a class='btn btn-success'><i class='fa fa-shopping-bag' aria-hidden='true'></i> Checkout</a>
 </div>
 
 <div class='container' style='margin-top: 20px'>
@@ -18,3 +18,9 @@
     {{/each}}
   </div>
 </div>
+
+<script>
+  document.getElementById('home-button').addEventListener('click', function() {
+    window.location.href = '{{baseUrl}}/home/products';
+  });
+</script>

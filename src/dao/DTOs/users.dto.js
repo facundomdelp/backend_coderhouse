@@ -1,7 +1,7 @@
 class UsersDTO {
   constructor(user) {
     // Se envían solo los datos necesarios y se evita envíar datos sensibles al front
-    const { first_name, last_name, email, age, password, role, cart } = user;
+    const { first_name = undefined, last_name = undefined, email, age = undefined, password, role, cart = undefined } = user;
     this.first_name = first_name;
     this.email = email;
     this.cartId = cart;

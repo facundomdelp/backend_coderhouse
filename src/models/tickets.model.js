@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate-v2';
 
 mongoose.pluralize(null);
-const collection = 'products';
+const collection = 'tickets';
 
 const schema = new mongoose.Schema({
   code: {
@@ -19,7 +19,7 @@ const schema = new mongoose.Schema({
     required: true
   },
   purchaser: {
-    type: string,
+    type: String,
     required: true,
     index: true
   }
