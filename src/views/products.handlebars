@@ -39,8 +39,10 @@
 <script>
   const addToCart = document.getElementsByClassName('addToCart')
   const navigationButtons = document.getElementById('navigation-buttons')
+
   let cartId = "{{user.cartId}}"
   const email = "{{user.email}}"
+
   const addProductToCart = async (e) => {
     const productId = e.target.getAttribute('data-id')
     if (!cartId) {
@@ -69,6 +71,7 @@
       throw new Error(error)
     }
   }
+
   Array.from(addToCart).forEach(async button => {
     button.addEventListener('click', addProductToCart)
   })

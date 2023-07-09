@@ -80,7 +80,7 @@ export const purchase = async (req, res) => {
       const acc = await accPromise;
       const product = await productsService.getProductById(cv.id);
       if (product.stock < cv.quantity) {
-        unavailableProducts.push(product);
+        unavailableProducts.push({ ...product, quantity: cv.quantity });
         return acc;
       }
       const newStock = product.stock - cv.quantity;
